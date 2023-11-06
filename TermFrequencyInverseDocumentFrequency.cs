@@ -24,7 +24,7 @@ namespace AIDA
             
             foreach (string jsonChunk in jsonChunks)
             {
-                List<TrainingData> documents = ReadDocumentsFromJson(jsonChunk);
+                List<TrainingData> documents = ReadTrainingData(jsonChunk);
                 List<string> documentStrings = documents.Select(data => data.Text).ToList();
                 //gives me my list of individual words
                 List<List<string>> tokenizedDocuments = Tokenize(documentStrings, stopWords);
@@ -37,28 +37,29 @@ namespace AIDA
                 fullVocab.Add(vocab);
             }
             
-            File.WriteAllText(outputFileNameCorpus, JsonConvert.SerializeObject(corpus));
+            File.WriteAllText(outputFileNameCorpus, JsonConvert.SerializeObject(corpus, Formatting.Indented));
+            Console.WriteLine("Processed and saved Corpus");
             List<string> finalTokenList = TokenLists(tokenLists);
-            File.WriteAllText(outputFileNameTokens, JsonConvert.SerializeObject(finalTokenList));
+            File.WriteAllText(outputFileNameTokens, JsonConvert.SerializeObject(finalTokenList, Formatting.Indented));
             Console.WriteLine("Processed and saved TokenList");
             List<string> finalVocab = Vocabulary(fullVocab);
-            File.WriteAllText(outputFileNameVocab, JsonConvert.SerializeObject(finalVocab));
+            File.WriteAllText(outputFileNameVocab, JsonConvert.SerializeObject(finalVocab, Formatting.Indented));
             Console.WriteLine("Processed and saved Vocabulary");
         }
 
         public static void TermFrequency()
         {
-            List<string> vocabulary = ReadJSON("../../Vocabulary.json");
-            List<string> tokenList = ReadJSON("../../TokenList.json");
+            List<string> vocabulary = ReadJsonList("../../Vocabulary.json");
+            List<List<string>> corpus = ReadJsonListList("../../Corpus.json");
             string outputFilename = "../../TermFrequency.json";
 
-            Dictionary<string, double> tf = CalculateTF(tokenList, vocabulary);
+            List<Dictionary<string, double>> tf = CalculateTf(corpus, vocabulary);
 
             File.WriteAllText(outputFilename, JsonConvert.SerializeObject(tf, Formatting.Indented));
             Console.WriteLine("Processed and saved Term Frequency List");
         }
 
-        private static List<string> ReadJSON(string jsonFilePath)
+        private static List<string> ReadJsonList(string jsonFilePath)
         {
             try
             {
@@ -73,18 +74,24 @@ namespace AIDA
             }
         }
 
-        private static Dictionary<string, double> CalculateTF(List<string> documentTokens, List<string> vocabulary)
+        private static List<Dictionary<string, double>> CalculateTf(List<List<string>> corpus, List<string> vocabulary)
         {
-            Dictionary<string, double> tf = new Dictionary<string, double>();
-            int totalTerms = documentTokens.Count;
+            List<Dictionary<string, double>> tfList = new List<Dictionary<string, double>>();
 
-            foreach (string term in vocabulary)
+            foreach (List<string> tweetTokens in corpus)
             {
-                int termCount = documentTokens.Count(t => t == term);
-                tf[term] = (double)termCount / totalTerms;
+                Dictionary<string, double> tf = new Dictionary<string, double>();
+                int totalTerms = tweetTokens.Count;
+
+                foreach (string term in vocabulary)
+                {
+                    int termCount = tweetTokens.Count(t => t == term);
+                    tf[term] = (double)termCount / totalTerms;
+                }
+                tfList.Add(tf);
             }
 
-            return tf;
+            return tfList;
         }
 
         public static void InverseDocumentFrequency()
@@ -92,8 +99,8 @@ namespace AIDA
             string corpusFilePath = "../../Corpus.json";
             string vocabularyFilePath = "../../Vocabulary.json";
             string idfOutputFileName = "../../InverseDocumentFrequency.json";
-            List<List<string>> corpus = LoadCorpus(corpusFilePath);
-            List<string> vocabulary = ReadJSON(vocabularyFilePath);
+            List<List<string>> corpus = ReadJsonListList(corpusFilePath);
+            List<string> vocabulary = ReadJsonList(vocabularyFilePath);
             int totalDocuments = corpus.Count;
             Dictionary<string, double> idfValues = new Dictionary<string, double>();
 
@@ -108,7 +115,7 @@ namespace AIDA
             Console.WriteLine("Processed and saved Inverse Document Frequency");
         }
         
-        private static List<List<string>> LoadCorpus(string jsonFilePath)
+        private static List<List<string>> ReadJsonListList(string jsonFilePath)
         {
             try
             {
@@ -124,7 +131,7 @@ namespace AIDA
         }
         
         //this handles actually reading the doc we pick
-        private static List<TrainingData> ReadDocumentsFromJson(string jsonFilePath)
+        private static List<TrainingData> ReadTrainingData(string jsonFilePath)
         {
             try
             {
@@ -199,28 +206,6 @@ namespace AIDA
         {
             List<string> tokenList = tokenizedDocuments.SelectMany(tokens => tokens).ToList();
             return tokenList;
-        }
-        
-        private static Dictionary<string, double> LoadTFValues()
-        {
-            string jsonFilePath = "../../TermFrequency.json";
-            
-            try
-            {
-                Dictionary<string, double> tfValues = File.ReadAllText(jsonFilePath);
-                List<List<string>> corpus = JsonConvert.DeserializeObject<List<List<string>>>(jsonText);
-                return corpus;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error reading vocabulary: {ex.Message}");
-                return new List<List<string>>();
-            }
-        }
-
-        private static Dictionary<string, double> LoadIDFValues()
-        {
-            
         }
     }
 }
