@@ -243,5 +243,36 @@ namespace AIDA
                 return new Dictionary<string, double>();
             }
         }
+
+        public static void CalculateTfIdf()
+        {
+            string inputFileNameTf = "../../TermFrequency.json";
+            string inputFilenameIdf = "../../InverseDocumentFrequency.json";
+            
+            List<Dictionary<string, double>> tfScores = ReadJsonListDictionary(inputFileNameTf);
+            Dictionary<string, double> idfValues = ReadJsonDictionary(inputFilenameIdf);
+
+            Dictionary<int, Dictionary<string, double>> tfIdfScores = new Dictionary<int, Dictionary<string, double>>();
+            for (int i = 0; i < tfScores.Count; i++)
+            {
+                Dictionary<string, double> documentTfIdf = new Dictionary<string, double>();
+
+                foreach (var kvp in tfScores[i])
+                {
+                    string term = kvp.Key;
+                    double tf = kvp.Value;
+                    double idf = idfValues[term];
+                    double tfIdf = tf * idf;
+
+                    documentTfIdf[term] = tfIdf;
+                }
+
+                tfIdfScores[i] = documentTfIdf;
+            }
+
+            string outputFilename = "../../TermFrequencyInverseDocumentFrequency.json";
+            File.WriteAllText(outputFilename, JsonConvert.SerializeObject(tfIdfScores, Formatting.Indented));
+            Console.WriteLine("Processed and saved Term Frequency - Inverse Document Frequency scores");
+        }
     }
 }

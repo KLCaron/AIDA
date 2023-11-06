@@ -5,6 +5,7 @@ namespace AIDA
     public static class Launch
     {
 
+        //launches all of my various calculators
         public static void Main(string[] args)
         {
             while (true)
@@ -14,6 +15,7 @@ namespace AIDA
                 Console.WriteLine("2. BuildVocabCorpus");
                 Console.WriteLine("3. Term Frequency");
                 Console.WriteLine("4. Inverse Document Frequency");
+                Console.WriteLine("5. Term Frequency - Inverse Document Frequency");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -38,6 +40,10 @@ namespace AIDA
                     case "4":
                         Console.WriteLine("Launching Inverse Document Frequency Calculator");
                         TermFrequencyInverseDocumentFrequency.InverseDocumentFrequency();
+                        break;
+                    case "5":
+                        Console.WriteLine("Launching Term Frequency - Inverse Document Frequency Calculator");
+                        TermFrequencyInverseDocumentFrequency.CalculateTfIdf();
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");
