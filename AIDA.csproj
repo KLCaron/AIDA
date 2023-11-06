@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+            Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{1E664B3C-053C-4E20-9500-57EFB44A2D6A}</ProjectGuid>
+        <OutputType>Exe</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>AIDA</RootNamespace>
+        <AssemblyName>AIDA</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+          <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="System"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Xml"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Launch.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="TermFrequencyInverseDocumentFrequency.cs" />
+        <Compile Include="TrainingData.cs" />
+        <Compile Include="TrainingDataDeserialize.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Chunks\chunk_0.json" />
+      <Content Include="Chunks\chunk_1.json" />
+      <Content Include="Chunks\chunk_10.json" />
+      <Content Include="Chunks\chunk_11.json" />
+      <Content Include="Chunks\chunk_12.json" />
+      <Content Include="Chunks\chunk_13.json" />
+      <Content Include="Chunks\chunk_14.json" />
+      <Content Include="Chunks\chunk_15.json" />
+      <Content Include="Chunks\chunk_16.json" />
+      <Content Include="Chunks\chunk_17.json" />
+      <Content Include="Chunks\chunk_18.json" />
+      <Content Include="Chunks\chunk_19.json" />
+      <Content Include="Chunks\chunk_2.json" />
+      <Content Include="Chunks\chunk_20.json" />
+      <Content Include="Chunks\chunk_21.json" />
+      <Content Include="Chunks\chunk_22.json" />
+      <Content Include="Chunks\chunk_23.json" />
+      <Content Include="Chunks\chunk_24.json" />
+      <Content Include="Chunks\chunk_25.json" />
+      <Content Include="Chunks\chunk_26.json" />
+      <Content Include="Chunks\chunk_27.json" />
+      <Content Include="Chunks\chunk_28.json" />
+      <Content Include="Chunks\chunk_29.json" />
+      <Content Include="Chunks\chunk_3.json" />
+      <Content Include="Chunks\chunk_30.json" />
+      <Content Include="Chunks\chunk_31.json" />
+      <Content Include="Chunks\chunk_32.json" />
+      <Content Include="Chunks\chunk_33.json" />
+      <Content Include="Chunks\chunk_34.json" />
+      <Content Include="Chunks\chunk_35.json" />
+      <Content Include="Chunks\chunk_36.json" />
+      <Content Include="Chunks\chunk_37.json" />
+      <Content Include="Chunks\chunk_38.json" />
+      <Content Include="Chunks\chunk_39.json" />
+      <Content Include="Chunks\chunk_4.json" />
+      <Content Include="Chunks\chunk_40.json" />
+      <Content Include="Chunks\chunk_41.json" />
+      <Content Include="Chunks\chunk_5.json" />
+      <Content Include="Chunks\chunk_6.json" />
+      <Content Include="Chunks\chunk_7.json" />
+      <Content Include="Chunks\chunk_8.json" />
+      <Content Include="Chunks\chunk_9.json" />
+      <Content Include="Corpus.json" />
+      <Content Include="Documents\data sets and monthly plans.odt" />
+      <Content Include="Documents\merged_training.pkl" />
+      <Content Include="Documents\notes.odt" />
+      <Content Include="Documents\Oct 17, 2023.odt" />
+      <Content Include="Documents\Oct 24, 2023.odt" />
+      <Content Include="Documents\Oct 3, 2023.odt" />
+      <Content Include="Documents\Oct 31, 2023.odt" />
+      <Content Include="Documents\pickle_converter.py" />
+      <Content Include="Documents\Sept 25, 2023.odt" />
+      <Content Include="Documents\training_data.json" />
+      <Content Include="InverseDocumentFrequency.json" />
+      <Content Include="stopwords-en.txt" />
+      <Content Include="TermFrequency.json" />
+      <Content Include="TokenList.json" />
+      <Content Include="training_data.json" />
+      <Content Include="Vocabulary.json" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
