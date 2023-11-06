@@ -94,6 +94,7 @@ namespace AIDA
             return tfList;
         }
 
+        //calculates idf and stores it inside a json
         public static void InverseDocumentFrequency()
         {
             string corpusFilePath = "../../Corpus.json";

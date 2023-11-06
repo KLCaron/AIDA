@@ -17,7 +17,7 @@ namespace AIDA
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
-                if (input.ToLower() == "q")
+                if (input?.ToLower() == "q")
                 {
                     break;
                 }
