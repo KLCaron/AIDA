@@ -8,7 +8,7 @@ namespace AIDA
 {
     public static class TermFrequencyInverseDocumentFrequency
     {
-        //set this up to more easily choose docs to read, and I guess manage this?
+        //builds my corpus, token list, and vocabulary
         public static void BuildVocabCorpus()
         {
             string directoryPath = "../../Chunks";
@@ -47,6 +47,7 @@ namespace AIDA
             Console.WriteLine("Processed and saved Vocabulary");
         }
 
+        //gets my term frequency and tosses it into a json
         public static void TermFrequency()
         {
             List<string> vocabulary = ReadJsonList("../../Vocabulary.json");
@@ -59,6 +60,7 @@ namespace AIDA
             Console.WriteLine("Processed and saved Term Frequency List");
         }
 
+        //reads a list of strings out of a json
         private static List<string> ReadJsonList(string jsonFilePath)
         {
             try
@@ -74,6 +76,7 @@ namespace AIDA
             }
         }
 
+        //calculates tf for my tf function
         private static List<Dictionary<string, double>> CalculateTf(List<List<string>> corpus, List<string> vocabulary)
         {
             List<Dictionary<string, double>> tfList = new List<Dictionary<string, double>>();
@@ -131,7 +134,7 @@ namespace AIDA
             }
         }
         
-        //this handles actually reading the doc we pick
+        //this handles actually reading the training data doc
         private static List<TrainingData> ReadTrainingData(string jsonFilePath)
         {
             try
@@ -207,6 +210,38 @@ namespace AIDA
         {
             List<string> tokenList = tokenizedDocuments.SelectMany(tokens => tokens).ToList();
             return tokenList;
+        }
+
+        //reads my term frequency document
+        private static List<Dictionary<string, double>> ReadJsonListDictionary(string jsonFilePath)
+        {
+            try
+            {
+                string jsonText = File.ReadAllText(jsonFilePath);
+                List<Dictionary<string, double>> tf = JsonConvert.DeserializeObject<List<Dictionary<string, double>>>(jsonText);
+                return tf;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading Term Frequency: {ex.Message}");
+                return new List<Dictionary<string, double>>();
+            }
+        }
+
+        //reads my Inverse Document Frequency Document
+        private static Dictionary<string, double> ReadJsonDictionary(string jsonFilePath)
+        {
+            try
+            {
+                string jsonText = File.ReadAllText(jsonFilePath);
+                Dictionary<string, double> idf = JsonConvert.DeserializeObject<Dictionary<string, double>>(jsonText);
+                return idf;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading Inverse Document Frequency: {ex.Message}");
+                return new Dictionary<string, double>();
+            }
         }
     }
 }
