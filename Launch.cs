@@ -16,6 +16,7 @@ namespace AIDA
                 Console.WriteLine("3. Term Frequency");
                 Console.WriteLine("4. Inverse Document Frequency");
                 Console.WriteLine("5. Term Frequency - Inverse Document Frequency");
+                Console.WriteLine("6. merge TF-IDF with training data");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -44,6 +45,10 @@ namespace AIDA
                     case "5":
                         Console.WriteLine("Launching Term Frequency - Inverse Document Frequency Calculator");
                         TermFrequencyInverseDocumentFrequency.CalculateTfIdf();
+                        break;
+                    case "6":
+                        Console.WriteLine("Launching TF-IDF merger");
+                        TermFrequencyInverseDocumentFrequency.MergeTfIdfTraining();
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");

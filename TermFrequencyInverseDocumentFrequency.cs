@@ -38,13 +38,13 @@ namespace AIDA
             }
             
             File.WriteAllText(outputFileNameCorpus, JsonConvert.SerializeObject(corpus, Formatting.Indented));
-            Console.WriteLine("Processed and saved Corpus");
+            Console.WriteLine($"Processed and saved {outputFileNameCorpus}");
             List<string> finalTokenList = TokenLists(tokenLists);
             File.WriteAllText(outputFileNameTokens, JsonConvert.SerializeObject(finalTokenList, Formatting.Indented));
-            Console.WriteLine("Processed and saved TokenList");
+            Console.WriteLine($"Processed and saved {outputFileNameTokens}");
             List<string> finalVocab = Vocabulary(fullVocab);
             File.WriteAllText(outputFileNameVocab, JsonConvert.SerializeObject(finalVocab, Formatting.Indented));
-            Console.WriteLine("Processed and saved Vocabulary");
+            Console.WriteLine($"Processed and saved {outputFileNameVocab}");
         }
 
         //gets my term frequency and tosses it into a json
@@ -73,7 +73,7 @@ namespace AIDA
                 writer.WriteEndObject();
             }
             
-            Console.WriteLine("Processed and saved Term Frequency List");
+            Console.WriteLine($"Processed and saved {outputFilename}");
         }
 
         //reads a list of strings out of a json
@@ -87,7 +87,7 @@ namespace AIDA
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error reading vocabulary: {ex.Message}");
+                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
                 return new List<string>();
             }
         }
@@ -135,7 +135,7 @@ namespace AIDA
                 writer.WriteEndObject();
             }
 
-            Console.WriteLine("Processed and saved Inverse Document Frequency");
+            Console.WriteLine($"Processed and saved {idfOutputFileName}");
         }
         
         private static List<List<string>> ReadJsonListList(string jsonFilePath)
@@ -148,7 +148,7 @@ namespace AIDA
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error reading vocabulary: {ex.Message}");
+                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
                 return new List<List<string>>();
             }
         }
@@ -164,7 +164,7 @@ namespace AIDA
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error Reading JSON file: {ex.Message}");
+                Console.WriteLine($"Error Reading {jsonFilePath}: {ex.Message}");
                 return new List<TrainingData>();
             }
         }
@@ -188,7 +188,7 @@ namespace AIDA
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error reading stop words: {ex.Message}");
+                Console.WriteLine($"Error reading {filePath}: {ex.Message}");
             }
 
             return stopWords;
@@ -242,7 +242,7 @@ namespace AIDA
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error reading Term Frequency: {ex.Message}");
+                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
                 return new Dictionary<string, Dictionary<string, double>>();
             }
         }
@@ -258,8 +258,32 @@ namespace AIDA
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error reading Inverse Document Frequency: {ex.Message}");
+                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
                 return new Dictionary<string, double>();
+            }
+        }
+
+        private static List<Dictionary<string, object>> ReadJsonListDictionary(string jsonFilePath)
+        {
+            try
+            {
+                List<Dictionary<string, object>> training = new List<Dictionary<string, object>>();
+
+                using (StreamReader file = new StreamReader(jsonFilePath))
+                {
+                    string line;
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, object>>(line);
+                        training.Add(jsonObject);
+                    }
+                }
+                return training;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
+                return new List<Dictionary<string, object>>();
             }
         }
 
@@ -267,11 +291,11 @@ namespace AIDA
         public static void CalculateTfIdf()
         {
             string inputFileNameTf = "../../TermFrequency.json";
-            string inputFilenameIdf = "../../InverseDocumentFrequency.json";
-            string outputFilename = "../../TF-IDF.json";
+            string inputFileNameIdf = "../../InverseDocumentFrequency.json";
+            string outputFileName = "../../TF-IDF.json";
             
             Dictionary<string, Dictionary<string, double>> tfScores = ReadJsonDictionaryDictionary(inputFileNameTf);
-            Dictionary<string, double> idfValues = ReadJsonDictionary(inputFilenameIdf);
+            Dictionary<string, double> idfValues = ReadJsonDictionary(inputFileNameIdf);
 
             Dictionary<string, Dictionary<string, double>> tfIdfScores = new Dictionary<string, Dictionary<string, double>>();
             foreach (var document in tfScores)
@@ -292,8 +316,43 @@ namespace AIDA
                 tfIdfScores[documentKey] = documentTfIdf;
             }
             
-            File.WriteAllText(outputFilename, JsonConvert.SerializeObject(tfIdfScores, Formatting.Indented));
-            Console.WriteLine("Processed and saved Term Frequency - Inverse Document Frequency scores");
+            File.WriteAllText(outputFileName, JsonConvert.SerializeObject(tfIdfScores, Formatting.Indented));
+            Console.WriteLine($"Processed and saved {outputFileName}");
+        }
+
+        public static void MergeTfIdfTraining()
+        {
+            string inputFileNameTfIdf = "../../TF-IDF.json";
+            string inputFileNameTraining = "../../Documents/training_data.json";
+            string outputFileName = "../../TF-IDFMerged.json";
+            Dictionary<string, Dictionary<string, double>> tfIdf = ReadJsonDictionaryDictionary(inputFileNameTfIdf);
+            List<Dictionary<string, object>> training = ReadJsonListDictionary(inputFileNameTraining);
+            List<Dictionary<string, object>> mergedData = new List<Dictionary<string, object>>();
+
+            if (tfIdf.Count == training.Count)
+            {
+                for (int i = 0; i < training.Count; i++)
+                {
+                    Dictionary<string, object> document = training[i];
+                    string documentKey = "Document" + (i + 1).ToString();
+
+                    if (tfIdf.TryGetValue(documentKey, out var tfIdfScores))
+                    {
+                        document["tfidf_scores"] = tfIdfScores;
+                        mergedData.Add(document);
+                    }
+                    else
+                    {
+                        Console.Write($"No TF-IDF data found for document key: {documentKey}");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Mismatch in number of documents");
+            }
+            File.WriteAllText(outputFileName, JsonConvert.SerializeObject(mergedData, Formatting.Indented));
+            Console.WriteLine($"Processed and saved {outputFileName}");
         }
     }
 }
