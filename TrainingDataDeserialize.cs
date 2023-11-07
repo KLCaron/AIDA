@@ -53,7 +53,7 @@ namespace AIDA
             string chunkIndexString = chunkIndex.ToString(); //number the file we're making
             string outputFileName = Path.Combine(outputDirectory, $"chunk_{chunkIndexString}.json");
             //serialize our chunk into a JSON file
-            File.WriteAllText(outputFileName, JsonConvert.SerializeObject(chunk));
+            File.WriteAllText(outputFileName, JsonConvert.SerializeObject(chunk, Formatting.Indented));
             //let me know it worked
             Console.WriteLine($"Processed and saved chunk {chunkIndexString} to {outputFileName}");
         }

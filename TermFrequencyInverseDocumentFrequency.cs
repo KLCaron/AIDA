@@ -50,13 +50,29 @@ namespace AIDA
         //gets my term frequency and tosses it into a json
         public static void TermFrequency()
         {
-            List<string> vocabulary = ReadJsonList("../../Vocabulary.json");
             List<List<string>> corpus = ReadJsonListList("../../Corpus.json");
             string outputFilename = "../../TermFrequency.json";
 
-            List<Dictionary<string, double>> tf = CalculateTf(corpus, vocabulary);
+            using (StreamWriter file = File.CreateText(outputFilename))
+            using (JsonTextWriter writer = new JsonTextWriter(file))
+            {
+                JsonSerializer serializer = new JsonSerializer()
+                {
+                    Formatting = Formatting.Indented
+                };
+                writer.WriteStartObject();
 
-            File.WriteAllText(outputFilename, JsonConvert.SerializeObject(tf, Formatting.Indented));
+                for (int i = 0; i < corpus.Count; i++)
+                {
+                    string documentKey = "Document" + (i + 1).ToString();
+                    Dictionary<string, double> tf = CalculateTfForDocument(corpus[i]);
+                    writer.WritePropertyName(documentKey);
+                    serializer.Serialize(writer, tf);
+                }
+                
+                writer.WriteEndObject();
+            }
+            
             Console.WriteLine("Processed and saved Term Frequency List");
         }
 
@@ -77,24 +93,18 @@ namespace AIDA
         }
 
         //calculates tf for my tf function
-        private static List<Dictionary<string, double>> CalculateTf(List<List<string>> corpus, List<string> vocabulary)
+        private static Dictionary<string, double> CalculateTfForDocument(List<string> tweetTokens)
         {
-            List<Dictionary<string, double>> tfList = new List<Dictionary<string, double>>();
+            Dictionary<string, double> tf = new Dictionary<string, double>();
+            int totalTerms = tweetTokens.Count;
 
-            foreach (List<string> tweetTokens in corpus)
+            foreach (string term in tweetTokens)
             {
-                Dictionary<string, double> tf = new Dictionary<string, double>();
-                int totalTerms = tweetTokens.Count;
-
-                foreach (string term in vocabulary)
-                {
-                    int termCount = tweetTokens.Count(t => t == term);
-                    tf[term] = (double)termCount / totalTerms;
-                }
-                tfList.Add(tf);
+                int termCount = tweetTokens.Count(t => t == term);
+                tf[term] = (double)termCount / totalTerms;
             }
 
-            return tfList;
+            return tf;
         }
 
         //calculates idf and stores it inside a json
@@ -106,16 +116,25 @@ namespace AIDA
             List<List<string>> corpus = ReadJsonListList(corpusFilePath);
             List<string> vocabulary = ReadJsonList(vocabularyFilePath);
             int totalDocuments = corpus.Count;
-            Dictionary<string, double> idfValues = new Dictionary<string, double>();
-
-            foreach (string term in vocabulary)
-            {
-                int documentsWithTerm = corpus.Count(doc => doc.Contains(term));
-                double idf = Math.Log((double)totalDocuments / (1 + documentsWithTerm));
-                idfValues[term] = idf;
-            }
             
-            File.WriteAllText(idfOutputFileName, JsonConvert.SerializeObject(idfValues, Formatting.Indented));
+            using (StreamWriter file = File.CreateText(idfOutputFileName))
+            using (JsonTextWriter writer = new JsonTextWriter(file))
+            {
+                writer.Formatting = Formatting.Indented;
+                writer.WriteStartObject();
+
+                foreach (string term in vocabulary)
+                {
+                    int documentsWithTerm = corpus.Count(doc => doc.Contains(term));
+                    double idf = Math.Log((double)totalDocuments / (1 + documentsWithTerm));
+                    
+                    writer.WritePropertyName(term);
+                    writer.WriteValue(idf);
+                }
+                
+                writer.WriteEndObject();
+            }
+
             Console.WriteLine("Processed and saved Inverse Document Frequency");
         }
         
@@ -213,18 +232,18 @@ namespace AIDA
         }
 
         //reads my term frequency document
-        private static List<Dictionary<string, double>> ReadJsonListDictionary(string jsonFilePath)
+        private static Dictionary<string, Dictionary<string, double>> ReadJsonDictionaryDictionary(string jsonFilePath)
         {
             try
             {
                 string jsonText = File.ReadAllText(jsonFilePath);
-                List<Dictionary<string, double>> tf = JsonConvert.DeserializeObject<List<Dictionary<string, double>>>(jsonText);
+                Dictionary<string, Dictionary<string, double>> tf = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, double>>>(jsonText);
                 return tf;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error reading Term Frequency: {ex.Message}");
-                return new List<Dictionary<string, double>>();
+                return new Dictionary<string, Dictionary<string, double>>();
             }
         }
 
@@ -244,33 +263,35 @@ namespace AIDA
             }
         }
 
+        //calculates my tfidf scores and tosses them into a json
         public static void CalculateTfIdf()
         {
             string inputFileNameTf = "../../TermFrequency.json";
             string inputFilenameIdf = "../../InverseDocumentFrequency.json";
+            string outputFilename = "../../TF-IDF.json";
             
-            List<Dictionary<string, double>> tfScores = ReadJsonListDictionary(inputFileNameTf);
+            Dictionary<string, Dictionary<string, double>> tfScores = ReadJsonDictionaryDictionary(inputFileNameTf);
             Dictionary<string, double> idfValues = ReadJsonDictionary(inputFilenameIdf);
 
-            Dictionary<int, Dictionary<string, double>> tfIdfScores = new Dictionary<int, Dictionary<string, double>>();
-            for (int i = 0; i < tfScores.Count; i++)
+            Dictionary<string, Dictionary<string, double>> tfIdfScores = new Dictionary<string, Dictionary<string, double>>();
+            foreach (var document in tfScores)
             {
+                string documentKey = document.Key;
                 Dictionary<string, double> documentTfIdf = new Dictionary<string, double>();
 
-                foreach (var kvp in tfScores[i])
+                foreach (var termTf in document.Value)
                 {
-                    string term = kvp.Key;
-                    double tf = kvp.Value;
-                    double idf = idfValues[term];
+                    string term = termTf.Key;
+                    double tf = termTf.Value;
+                    double idf = idfValues.TryGetValue(term, out var value) ? value : 0.0;
                     double tfIdf = tf * idf;
 
                     documentTfIdf[term] = tfIdf;
                 }
 
-                tfIdfScores[i] = documentTfIdf;
+                tfIdfScores[documentKey] = documentTfIdf;
             }
-
-            string outputFilename = "../../TermFrequencyInverseDocumentFrequency.json";
+            
             File.WriteAllText(outputFilename, JsonConvert.SerializeObject(tfIdfScores, Formatting.Indented));
             Console.WriteLine("Processed and saved Term Frequency - Inverse Document Frequency scores");
         }

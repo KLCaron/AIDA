@@ -5,7 +5,7 @@ import pandas as pd
 with open('merged_training.pkl', 'rb') as file:
     training_data = pickle.load(file)
 
-# convert loaded data to a DataFram
+# convert loaded data to a DataFrame
 df = pd.DataFrame(training_data)
 
 # serialize DataFrame to JSON

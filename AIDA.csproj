@@ -106,6 +106,7 @@
       <Content Include="InverseDocumentFrequency.json" />
       <Content Include="stopwords-en.txt" />
       <Content Include="TermFrequency.json" />
+      <Content Include="TF-IDF.json" />
       <Content Include="TokenList.json" />
       <Content Include="training_data.json" />
       <Content Include="Vocabulary.json" />
