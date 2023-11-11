@@ -46,6 +46,7 @@
         <Compile Include="Launch.cs" />
         <Compile Include="MultinomialLogisticRegression.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="ReadFile.cs" />
         <Compile Include="TermFrequencyInverseDocumentFrequency.cs" />
         <Compile Include="TrainingData.cs" />
         <Compile Include="TrainingDataDeserialize.cs" />
@@ -97,6 +98,7 @@
       <Content Include="Documents\data sets and monthly plans.odt" />
       <Content Include="Documents\merged_training.pkl" />
       <Content Include="Documents\notes.odt" />
+      <Content Include="Documents\Nov 14, 2023.odt" />
       <Content Include="Documents\Nov 7, 2023.odt" />
       <Content Include="Documents\Oct 17, 2023.odt" />
       <Content Include="Documents\Oct 24, 2023.odt" />

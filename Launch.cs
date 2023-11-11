@@ -8,6 +8,18 @@ namespace AIDA
         //launches all of my various calculators
         public static void Main(string[] args)
         {
+            string fnStopWords = "../../stopwords-en.txt";
+            string fnTrainingData = "../../Documents/training_data.json";
+            string fnChunks = "../../Chunks";
+            string namingConvention = "chunk_*.json";
+            string fnVocab = "../../Vocabulary.json";
+            string fnTokens = "../../TokenList.json";
+            string fnCorpus = "../../Corpus.json";
+            string fnTf = "../../TermFrequency.json";
+            string fnIdf = "../../InverseDocumentFrequency.json";
+            string fnTfIdf = "../../TF-IDF.json";
+            string fnTfIdfMerged = "../../TF-IDFMerged.json";
+            
             while (true)
             {
                 Console.WriteLine("Select an option:");
@@ -32,23 +44,27 @@ namespace AIDA
                         break;
                     case "2":
                         Console.WriteLine("Launching BuildVocabCorpus");
-                        TermFrequencyInverseDocumentFrequency.BuildVocabCorpus();
+                        TermFrequencyInverseDocumentFrequency.BuildVocabTokensCorpus(fnChunks,
+                            namingConvention, fnStopWords, fnVocab, fnTokens, fnCorpus);
                         break;
                     case "3":
                         Console.WriteLine("Launching Term Frequency Calculator");
-                        TermFrequencyInverseDocumentFrequency.TermFrequency();
+                        TermFrequencyInverseDocumentFrequency.TermFrequency(fnCorpus,
+                            fnTf);
                         break;
                     case "4":
                         Console.WriteLine("Launching Inverse Document Frequency Calculator");
-                        TermFrequencyInverseDocumentFrequency.InverseDocumentFrequency();
+                        TermFrequencyInverseDocumentFrequency.InverseDocumentFrequency(fnCorpus, 
+                            fnVocab, fnIdf);
                         break;
                     case "5":
                         Console.WriteLine("Launching Term Frequency - Inverse Document Frequency Calculator");
-                        TermFrequencyInverseDocumentFrequency.CalculateTfIdf();
+                        TermFrequencyInverseDocumentFrequency.CalculateTfIdf(fnTf, fnIdf, fnTfIdf);
                         break;
                     case "6":
                         Console.WriteLine("Launching TF-IDF merger");
-                        TermFrequencyInverseDocumentFrequency.MergeTfIdfTraining();
+                        TermFrequencyInverseDocumentFrequency.MergeTfIdfTraining(fnTfIdf, fnTrainingData, 
+                            fnTfIdfMerged);
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");

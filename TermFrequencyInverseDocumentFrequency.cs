@@ -9,18 +9,14 @@ namespace AIDA
     public static class TermFrequencyInverseDocumentFrequency
     {
         //builds my corpus, token list, and vocabulary
-        public static void BuildVocabCorpus()
+        public static void BuildVocabTokensCorpus(string fnChunks, string namingConvention, 
+            string fnStopWords, string fnVocab, string fnTokens, string fnCorpus)
         {
-            string directoryPath = "../../Chunks";
-            string namingConvention = "chunk_*.json";
-            string[] jsonChunks = Directory.GetFiles(directoryPath, namingConvention);
-            List<string> stopWords = ReadStopWords("../../stopwords-en.txt");
+            string[] jsonChunks = Directory.GetFiles(fnChunks, namingConvention);
+            List<string> stopWords = ReadStopWords(fnStopWords);
             List<List<string>> fullVocab = new List<List<string>>();
             List<List<string>> tokenLists = new List<List<string>>();
             List<List<string>> corpus = new List<List<string>>();
-            string outputFileNameVocab = "../../Vocabulary.json";
-            string outputFileNameTokens = "../../TokenList.json";
-            string outputFileNameCorpus = "../../Corpus.json";
             
             foreach (string jsonChunk in jsonChunks)
             {
@@ -37,23 +33,22 @@ namespace AIDA
                 fullVocab.Add(vocab);
             }
             
-            File.WriteAllText(outputFileNameCorpus, JsonConvert.SerializeObject(corpus, Formatting.Indented));
-            Console.WriteLine($"Processed and saved {outputFileNameCorpus}");
+            File.WriteAllText(fnCorpus, JsonConvert.SerializeObject(corpus, Formatting.Indented));
+            Console.WriteLine($"Processed and saved {fnCorpus}");
             List<string> finalTokenList = TokenLists(tokenLists);
-            File.WriteAllText(outputFileNameTokens, JsonConvert.SerializeObject(finalTokenList, Formatting.Indented));
-            Console.WriteLine($"Processed and saved {outputFileNameTokens}");
+            File.WriteAllText(fnTokens, JsonConvert.SerializeObject(finalTokenList, Formatting.Indented));
+            Console.WriteLine($"Processed and saved {fnTokens}");
             List<string> finalVocab = Vocabulary(fullVocab);
-            File.WriteAllText(outputFileNameVocab, JsonConvert.SerializeObject(finalVocab, Formatting.Indented));
-            Console.WriteLine($"Processed and saved {outputFileNameVocab}");
+            File.WriteAllText(fnVocab, JsonConvert.SerializeObject(finalVocab, Formatting.Indented));
+            Console.WriteLine($"Processed and saved {fnVocab}");
         }
 
         //gets my term frequency and tosses it into a json
-        public static void TermFrequency()
+        public static void TermFrequency(string fnCorpus, string fnTf)
         {
-            List<List<string>> corpus = ReadJsonListList("../../Corpus.json");
-            string outputFilename = "../../TermFrequency.json";
+            List<List<string>> corpus = ReadJsonListList(fnCorpus);
 
-            using (StreamWriter file = File.CreateText(outputFilename))
+            using (StreamWriter file = File.CreateText(fnTf))
             using (JsonTextWriter writer = new JsonTextWriter(file))
             {
                 JsonSerializer serializer = new JsonSerializer()
@@ -73,7 +68,7 @@ namespace AIDA
                 writer.WriteEndObject();
             }
             
-            Console.WriteLine($"Processed and saved {outputFilename}");
+            Console.WriteLine($"Processed and saved {fnTf}");
         }
 
         //reads a list of strings out of a json
@@ -108,16 +103,14 @@ namespace AIDA
         }
 
         //calculates idf and stores it inside a json
-        public static void InverseDocumentFrequency()
+        public static void InverseDocumentFrequency(string fnCorpus,
+            string fnVocab, string fnIdf)
         {
-            string corpusFilePath = "../../Corpus.json";
-            string vocabularyFilePath = "../../Vocabulary.json";
-            string idfOutputFileName = "../../InverseDocumentFrequency.json";
-            List<List<string>> corpus = ReadJsonListList(corpusFilePath);
-            List<string> vocabulary = ReadJsonList(vocabularyFilePath);
+            List<List<string>> corpus = ReadJsonListList(fnCorpus);
+            List<string> vocabulary = ReadJsonList(fnVocab);
             int totalDocuments = corpus.Count;
             
-            using (StreamWriter file = File.CreateText(idfOutputFileName))
+            using (StreamWriter file = File.CreateText(fnIdf))
             using (JsonTextWriter writer = new JsonTextWriter(file))
             {
                 writer.Formatting = Formatting.Indented;
@@ -135,7 +128,7 @@ namespace AIDA
                 writer.WriteEndObject();
             }
 
-            Console.WriteLine($"Processed and saved {idfOutputFileName}");
+            Console.WriteLine($"Processed and saved {fnIdf}");
         }
         
         private static List<List<string>> ReadJsonListList(string jsonFilePath)
@@ -288,14 +281,10 @@ namespace AIDA
         }
 
         //calculates my tfidf scores and tosses them into a json
-        public static void CalculateTfIdf()
+        public static void CalculateTfIdf(string fnTf, string fnIdf, string fnTfIdf)
         {
-            string inputFileNameTf = "../../TermFrequency.json";
-            string inputFileNameIdf = "../../InverseDocumentFrequency.json";
-            string outputFileName = "../../TF-IDF.json";
-            
-            Dictionary<string, Dictionary<string, double>> tfScores = ReadJsonDictionaryDictionary(inputFileNameTf);
-            Dictionary<string, double> idfValues = ReadJsonDictionary(inputFileNameIdf);
+            Dictionary<string, Dictionary<string, double>> tfScores = ReadJsonDictionaryDictionary(fnTf);
+            Dictionary<string, double> idfValues = ReadJsonDictionary(fnIdf);
 
             Dictionary<string, Dictionary<string, double>> tfIdfScores = new Dictionary<string, Dictionary<string, double>>();
             foreach (var document in tfScores)
@@ -316,17 +305,14 @@ namespace AIDA
                 tfIdfScores[documentKey] = documentTfIdf;
             }
             
-            File.WriteAllText(outputFileName, JsonConvert.SerializeObject(tfIdfScores, Formatting.Indented));
-            Console.WriteLine($"Processed and saved {outputFileName}");
+            File.WriteAllText(fnTfIdf, JsonConvert.SerializeObject(tfIdfScores, Formatting.Indented));
+            Console.WriteLine($"Processed and saved {fnTfIdf}");
         }
 
-        public static void MergeTfIdfTraining()
+        public static void MergeTfIdfTraining(string fnTfIdf, string fnTrainingData, string fnTfIdfMerged)
         {
-            string inputFileNameTfIdf = "../../TF-IDF.json";
-            string inputFileNameTraining = "../../Documents/training_data.json";
-            string outputFileName = "../../TF-IDFMerged.json";
-            Dictionary<string, Dictionary<string, double>> tfIdf = ReadJsonDictionaryDictionary(inputFileNameTfIdf);
-            List<Dictionary<string, object>> training = ReadJsonListDictionary(inputFileNameTraining);
+            Dictionary<string, Dictionary<string, double>> tfIdf = ReadJsonDictionaryDictionary(fnTfIdf);
+            List<Dictionary<string, object>> training = ReadJsonListDictionary(fnTrainingData);
             List<Dictionary<string, object>> mergedData = new List<Dictionary<string, object>>();
 
             if (tfIdf.Count == training.Count)
@@ -351,8 +337,8 @@ namespace AIDA
             {
                 Console.WriteLine("Mismatch in number of documents");
             }
-            File.WriteAllText(outputFileName, JsonConvert.SerializeObject(mergedData, Formatting.Indented));
-            Console.WriteLine($"Processed and saved {outputFileName}");
+            File.WriteAllText(fnTfIdfMerged, JsonConvert.SerializeObject(mergedData, Formatting.Indented));
+            Console.WriteLine($"Processed and saved {fnTfIdfMerged}");
         }
     }
 }
