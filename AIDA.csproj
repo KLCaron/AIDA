@@ -50,49 +50,6 @@
         <Compile Include="TermFrequencyInverseDocumentFrequency.cs" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include="Chunks\chunk_0.json" />
-      <Content Include="Chunks\chunk_1.json" />
-      <Content Include="Chunks\chunk_10.json" />
-      <Content Include="Chunks\chunk_11.json" />
-      <Content Include="Chunks\chunk_12.json" />
-      <Content Include="Chunks\chunk_13.json" />
-      <Content Include="Chunks\chunk_14.json" />
-      <Content Include="Chunks\chunk_15.json" />
-      <Content Include="Chunks\chunk_16.json" />
-      <Content Include="Chunks\chunk_17.json" />
-      <Content Include="Chunks\chunk_18.json" />
-      <Content Include="Chunks\chunk_19.json" />
-      <Content Include="Chunks\chunk_2.json" />
-      <Content Include="Chunks\chunk_20.json" />
-      <Content Include="Chunks\chunk_21.json" />
-      <Content Include="Chunks\chunk_22.json" />
-      <Content Include="Chunks\chunk_23.json" />
-      <Content Include="Chunks\chunk_24.json" />
-      <Content Include="Chunks\chunk_25.json" />
-      <Content Include="Chunks\chunk_26.json" />
-      <Content Include="Chunks\chunk_27.json" />
-      <Content Include="Chunks\chunk_28.json" />
-      <Content Include="Chunks\chunk_29.json" />
-      <Content Include="Chunks\chunk_3.json" />
-      <Content Include="Chunks\chunk_30.json" />
-      <Content Include="Chunks\chunk_31.json" />
-      <Content Include="Chunks\chunk_32.json" />
-      <Content Include="Chunks\chunk_33.json" />
-      <Content Include="Chunks\chunk_34.json" />
-      <Content Include="Chunks\chunk_35.json" />
-      <Content Include="Chunks\chunk_36.json" />
-      <Content Include="Chunks\chunk_37.json" />
-      <Content Include="Chunks\chunk_38.json" />
-      <Content Include="Chunks\chunk_39.json" />
-      <Content Include="Chunks\chunk_4.json" />
-      <Content Include="Chunks\chunk_40.json" />
-      <Content Include="Chunks\chunk_41.json" />
-      <Content Include="Chunks\chunk_5.json" />
-      <Content Include="Chunks\chunk_6.json" />
-      <Content Include="Chunks\chunk_7.json" />
-      <Content Include="Chunks\chunk_8.json" />
-      <Content Include="Chunks\chunk_9.json" />
-      <Content Include="Corpus.json" />
       <Content Include="Documents\data sets and monthly plans.odt" />
       <Content Include="Documents\merged_training.pkl" />
       <Content Include="Documents\notes.odt" />
@@ -105,13 +62,7 @@
       <Content Include="Documents\pickle_converter.py" />
       <Content Include="Documents\Sept 25, 2023.odt" />
       <Content Include="Documents\training_data.json" />
-      <Content Include="InverseDocumentFrequency.json" />
       <Content Include="stopwords-en.txt" />
-      <Content Include="TermFrequency.json" />
-      <Content Include="TF-IDF.json" />
-      <Content Include="TF-IDFMerged.json" />
-      <Content Include="training_data.json" />
-      <Content Include="Vocabulary.json" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
