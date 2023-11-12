@@ -13,7 +13,7 @@ namespace AIDA
             string fnStopWords, string fnVocab, string fnTokens, string fnCorpus)
         {
             string[] jsonChunks = Directory.GetFiles(fnChunks, namingConvention);
-            List<string> stopWords = ReadStopWords(fnStopWords);
+            List<string> stopWords = ReadFile.ReadTxt<List<string>>(fnStopWords);
             List<List<string>> fullVocab = new List<List<string>>();
             List<List<string>> tokenLists = new List<List<string>>();
             List<List<string>> corpus = new List<List<string>>();
@@ -46,7 +46,7 @@ namespace AIDA
         //gets my term frequency and tosses it into a json
         public static void TermFrequency(string fnCorpus, string fnTf)
         {
-            List<List<string>> corpus = ReadJsonListList(fnCorpus);
+            List<List<string>> corpus = ReadFile.ReadJson<List<List<string>>>(fnCorpus);
 
             using (StreamWriter file = File.CreateText(fnTf))
             using (JsonTextWriter writer = new JsonTextWriter(file))
@@ -71,22 +71,6 @@ namespace AIDA
             Console.WriteLine($"Processed and saved {fnTf}");
         }
 
-        //reads a list of strings out of a json
-        private static List<string> ReadJsonList(string jsonFilePath)
-        {
-            try
-            {
-                string jsonText = File.ReadAllText(jsonFilePath);
-                List<string> vocabulary = JsonConvert.DeserializeObject<List<string>>(jsonText);
-                return vocabulary;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
-                return new List<string>();
-            }
-        }
-
         //calculates tf for my tf function
         private static Dictionary<string, double> CalculateTfForDocument(List<string> tweetTokens)
         {
@@ -106,8 +90,8 @@ namespace AIDA
         public static void InverseDocumentFrequency(string fnCorpus,
             string fnVocab, string fnIdf)
         {
-            List<List<string>> corpus = ReadJsonListList(fnCorpus);
-            List<string> vocabulary = ReadJsonList(fnVocab);
+            List<List<string>> corpus = ReadFile.ReadJson<List<List<string>>>(fnCorpus);
+            List<string> vocabulary = ReadFile.ReadJson<List<string>>(fnVocab);
             int totalDocuments = corpus.Count;
             
             using (StreamWriter file = File.CreateText(fnIdf))
@@ -131,21 +115,6 @@ namespace AIDA
             Console.WriteLine($"Processed and saved {fnIdf}");
         }
         
-        private static List<List<string>> ReadJsonListList(string jsonFilePath)
-        {
-            try
-            {
-                string jsonText = File.ReadAllText(jsonFilePath);
-                List<List<string>> corpus = JsonConvert.DeserializeObject<List<List<string>>>(jsonText);
-                return corpus;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
-                return new List<List<string>>();
-            }
-        }
-        
         //this handles actually reading the training data doc
         private static List<TrainingData> ReadTrainingData(string jsonFilePath)
         {
@@ -160,31 +129,6 @@ namespace AIDA
                 Console.WriteLine($"Error Reading {jsonFilePath}: {ex.Message}");
                 return new List<TrainingData>();
             }
-        }
-
-        //read stopwords from my txt file, can update that as needed (yoinked my list from NLTK)
-        //actually yoinked em from another master stopwords list
-        private static List<string> ReadStopWords(string filePath)
-        {
-            List<string> stopWords = new List<string>();
-
-            try
-            {
-                using (StreamReader reader = new StreamReader(filePath))
-                {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        stopWords.Add(line);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error reading {filePath}: {ex.Message}");
-            }
-
-            return stopWords;
         }
 
         //need to turn the the lines into collections of individual words (tokens)
@@ -224,67 +168,12 @@ namespace AIDA
             return tokenList;
         }
 
-        //reads my term frequency document
-        private static Dictionary<string, Dictionary<string, double>> ReadJsonDictionaryDictionary(string jsonFilePath)
-        {
-            try
-            {
-                string jsonText = File.ReadAllText(jsonFilePath);
-                Dictionary<string, Dictionary<string, double>> tf = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, double>>>(jsonText);
-                return tf;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
-                return new Dictionary<string, Dictionary<string, double>>();
-            }
-        }
-
-        //reads my Inverse Document Frequency Document
-        private static Dictionary<string, double> ReadJsonDictionary(string jsonFilePath)
-        {
-            try
-            {
-                string jsonText = File.ReadAllText(jsonFilePath);
-                Dictionary<string, double> idf = JsonConvert.DeserializeObject<Dictionary<string, double>>(jsonText);
-                return idf;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
-                return new Dictionary<string, double>();
-            }
-        }
-
-        private static List<Dictionary<string, object>> ReadJsonListDictionary(string jsonFilePath)
-        {
-            try
-            {
-                List<Dictionary<string, object>> training = new List<Dictionary<string, object>>();
-
-                using (StreamReader file = new StreamReader(jsonFilePath))
-                {
-                    string line;
-                    while ((line = file.ReadLine()) != null)
-                    {
-                        var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, object>>(line);
-                        training.Add(jsonObject);
-                    }
-                }
-                return training;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error reading {jsonFilePath}: {ex.Message}");
-                return new List<Dictionary<string, object>>();
-            }
-        }
-
         //calculates my tfidf scores and tosses them into a json
         public static void CalculateTfIdf(string fnTf, string fnIdf, string fnTfIdf)
         {
-            Dictionary<string, Dictionary<string, double>> tfScores = ReadJsonDictionaryDictionary(fnTf);
-            Dictionary<string, double> idfValues = ReadJsonDictionary(fnIdf);
+            Dictionary<string, Dictionary<string, double>> tfScores =
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTf);
+            Dictionary<string, double> idfValues = ReadFile.ReadJson<Dictionary<string, double>>(fnIdf);
 
             Dictionary<string, Dictionary<string, double>> tfIdfScores = new Dictionary<string, Dictionary<string, double>>();
             foreach (var document in tfScores)
@@ -311,8 +200,9 @@ namespace AIDA
 
         public static void MergeTfIdfTraining(string fnTfIdf, string fnTrainingData, string fnTfIdfMerged)
         {
-            Dictionary<string, Dictionary<string, double>> tfIdf = ReadJsonDictionaryDictionary(fnTfIdf);
-            List<Dictionary<string, object>> training = ReadJsonListDictionary(fnTrainingData);
+            Dictionary<string, Dictionary<string, double>> tfIdf =
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTfIdf);
+            List<Dictionary<string, object>> training = ReadFile.ReadJson<List<Dictionary<string, object>>>(fnTrainingData);
             List<Dictionary<string, object>> mergedData = new List<Dictionary<string, object>>();
 
             if (tfIdf.Count == training.Count)
