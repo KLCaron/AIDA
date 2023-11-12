@@ -8,38 +8,68 @@ namespace AIDA
 {
     public static class TermFrequencyInverseDocumentFrequency
     {
-        //builds my corpus, token list, and vocabulary
-        public static void BuildVocabTokensCorpus(string fnChunks, string namingConvention, 
-            string fnStopWords, string fnVocab, string fnTokens, string fnCorpus)
+        public static void JsonChunker(string fnTrainingData, string fnChunks, int chunkSize)
         {
-            string[] jsonChunks = Directory.GetFiles(fnChunks, namingConvention);
-            List<string> stopWords = ReadFile.ReadTxt<List<string>>(fnStopWords);
-            List<List<string>> fullVocab = new List<List<string>>();
-            List<List<string>> tokenLists = new List<List<string>>();
-            List<List<string>> corpus = new List<List<string>>();
-            
-            foreach (string jsonChunk in jsonChunks)
+            List<Dictionary<string, string>> currentChunk = new List<Dictionary<string, string>>();
+            int chunkIndex = 0;
+
+            using (StreamReader fileReader = File.OpenText(fnTrainingData))
             {
-                List<TrainingData> documents = ReadTrainingData(jsonChunk);
-                List<string> documentStrings = documents.Select(data => data.Text).ToList();
-                //gives me my list of individual words
-                List<List<string>> tokenizedDocuments = Tokenize(documentStrings, stopWords);
-                corpus.AddRange(tokenizedDocuments);
-                //need a list of terms sans the stop words too
-                List<string> tokenList = TokenLists(tokenizedDocuments);
-                tokenLists.Add(tokenList);
-                //gives me my list of unique vocabulary
-                List<string> vocab = Vocabulary(tokenizedDocuments);
-                fullVocab.Add(vocab);
+                string line;
+                while ((line = fileReader.ReadLine()) != null)
+                {
+                    try
+                    {
+                        Dictionary<string, string> document = ReadFile.ReadJson<Dictionary<string, string>>(line);
+                        currentChunk.Add(document);
+                        if (currentChunk.Count >= chunkSize)
+                        {
+                            ProcessChunk(currentChunk, chunkIndex, fnChunks);
+                            currentChunk.Clear();
+                            chunkIndex++;
+                        }
+                    }
+                    catch (JsonException ex)
+                    {
+                        Console.WriteLine($"Error parsing {fnTrainingData}: {ex.Message}");
+                    }
+                }
+
+                if (currentChunk.Count > 0)
+                {
+                    ProcessChunk(currentChunk, chunkIndex, fnChunks);
+                }
             }
+        }
+
+        private static void ProcessChunk(List<Dictionary<string, string>> chunk, int chunkIndex, string fnChunks)
+        {
+            string chunkIndexString = chunkIndex.ToString();
+            string fnOutput = Path.Combine(fnChunks, $"chunk_{chunkIndexString}.json");
+            
+            File.WriteAllText(fnOutput, JsonConvert.SerializeObject(chunk, Formatting.Indented));
+            Console.WriteLine($"Processed and saved chunk {chunkIndexString} to {fnChunks}");
+        }
+        
+        //builds my corpus, token list, and vocabulary
+        public static void Corpus(string fnTrainingData, string fnStopWords, string fnCorpus)
+        {
+            List<string> stopWords = ReadFile.ReadTxt<List<string>>(fnStopWords);
+            List<Dictionary<string, string>> documents =
+                ReadFile.ReadJson<List<Dictionary<string, string>>>(fnTrainingData);
+            
+            List<List<string>> corpus = Tokenize(documents, stopWords);
             
             File.WriteAllText(fnCorpus, JsonConvert.SerializeObject(corpus, Formatting.Indented));
             Console.WriteLine($"Processed and saved {fnCorpus}");
-            List<string> finalTokenList = TokenLists(tokenLists);
-            File.WriteAllText(fnTokens, JsonConvert.SerializeObject(finalTokenList, Formatting.Indented));
-            Console.WriteLine($"Processed and saved {fnTokens}");
-            List<string> finalVocab = Vocabulary(fullVocab);
-            File.WriteAllText(fnVocab, JsonConvert.SerializeObject(finalVocab, Formatting.Indented));
+        }
+
+        public static void Vocabulary(string fnCorpus, string fnVocab)
+        {
+            List<List<string>> corpus = ReadFile.ReadJson<List<List<string>>>(fnCorpus);
+            List<string> vocab = corpus.SelectMany(tokens => tokens).Distinct().ToList();
+            
+            File.WriteAllText(fnVocab, JsonConvert.SerializeObject(vocab, Formatting.Indented));
             Console.WriteLine($"Processed and saved {fnVocab}");
         }
 
@@ -114,58 +144,31 @@ namespace AIDA
 
             Console.WriteLine($"Processed and saved {fnIdf}");
         }
-        
-        //this handles actually reading the training data doc
-        private static List<TrainingData> ReadTrainingData(string jsonFilePath)
-        {
-            try
-            {
-                string jsonText = File.ReadAllText(jsonFilePath);
-                List<TrainingData> documents = JsonConvert.DeserializeObject<List<TrainingData>>(jsonText);
-                return documents;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error Reading {jsonFilePath}: {ex.Message}");
-                return new List<TrainingData>();
-            }
-        }
 
         //need to turn the the lines into collections of individual words (tokens)
         //also need to set it to ditch all the stop words
         //right now, this just returns a list of every word in the document
-        private static List<List<string>> Tokenize(List<string> documentStrings, List<string> stopWords)
+        private static List<List<string>> Tokenize(List<Dictionary<string, string>> documentStrings, List<string> stopWords)
         {
             List<List<string>> tokenizedDocuments = new List<List<string>>();
-            foreach (string document in documentStrings)
+            foreach (var document in documentStrings)
             {
-                string[] words = document.Split(' ');
-                List<string> tokens = new List<string>();
-                foreach (string word in words)
+                if (document.TryGetValue("text", out var text))
                 {
-                    if (!stopWords.Contains(word))
+                    string[] words = text.Split(' ');
+                    List<string> tokens = new List<string>();
+
+                    foreach (string word in words)
                     {
-                        tokens.Add(word);
+                        if (!stopWords.Contains(word))
+                        {
+                            tokens.Add(word);
+                        }
                     }
+                    tokenizedDocuments.Add(tokens);
                 }
-                tokenizedDocuments.Add(tokens);
             }
             return tokenizedDocuments;
-        }
-
-        //need to get a vocab going; go through and record unique words
-        //what I want to do is create a single large list of vocab items; meaning I want to make
-        //a list of lists of strings, each one a vocab list, then squash em down to only uniques
-        private static List<string> Vocabulary(List<List<string>> tokenizedDocuments)
-        {
-            List<string> vocabulary = tokenizedDocuments.SelectMany(tokens => tokens).Distinct().ToList();
-            return vocabulary;
-        }
-
-        private static List<string> TokenLists(List<List<string>> tokenizedDocuments)
-        {
-            List<string> tokenList = tokenizedDocuments.SelectMany(tokens => tokens).ToList();
-            return tokenList;
         }
 
         //calculates my tfidf scores and tosses them into a json

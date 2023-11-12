@@ -11,9 +11,9 @@ namespace AIDA
             string fnStopWords = "../../stopwords-en.txt";
             string fnTrainingData = "../../Documents/training_data.json";
             string fnChunks = "../../Chunks";
-            string namingConvention = "chunk_*.json";
+            int chunkSize = 1000;
+            //string namingConvention = "chunk_*.json";
             string fnVocab = "../../Vocabulary.json";
-            string fnTokens = "../../TokenList.json";
             string fnCorpus = "../../Corpus.json";
             string fnTf = "../../TermFrequency.json";
             string fnIdf = "../../InverseDocumentFrequency.json";
@@ -23,12 +23,13 @@ namespace AIDA
             while (true)
             {
                 Console.WriteLine("Select an option:");
-                Console.WriteLine("1. Chunkinator");
-                Console.WriteLine("2. BuildVocabCorpus");
-                Console.WriteLine("3. Term Frequency");
-                Console.WriteLine("4. Inverse Document Frequency");
-                Console.WriteLine("5. Term Frequency - Inverse Document Frequency");
-                Console.WriteLine("6. merge TF-IDF with training data");
+                Console.WriteLine("1. JSON Chunker");
+                Console.WriteLine("2. Corpus");
+                Console.WriteLine("3. Vocabulary");
+                Console.WriteLine("4. Term Frequency");
+                Console.WriteLine("5. Inverse Document Frequency");
+                Console.WriteLine("6. Term Frequency - Inverse Document Frequency");
+                Console.WriteLine("7. merge TF-IDF with training data");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -39,32 +40,33 @@ namespace AIDA
                 switch (input)
                 {
                     case "1":
-                        Console.WriteLine("Launching Chunkinator.");
-                        TrainingDataDeserialize.Chunkinator();
+                        Console.WriteLine("Launching JSON Chunker");
+                        TermFrequencyInverseDocumentFrequency.JsonChunker(fnTrainingData, fnChunks, chunkSize);
                         break;
                     case "2":
-                        Console.WriteLine("Launching BuildVocabCorpus");
-                        TermFrequencyInverseDocumentFrequency.BuildVocabTokensCorpus(fnChunks,
-                            namingConvention, fnStopWords, fnVocab, fnTokens, fnCorpus);
+                        Console.WriteLine("Launching Corpus builder");
+                        TermFrequencyInverseDocumentFrequency.Corpus(fnTrainingData, fnStopWords, fnCorpus);
                         break;
                     case "3":
+                        Console.WriteLine("Launching Vocabulary builder");
+                        TermFrequencyInverseDocumentFrequency.Vocabulary(fnCorpus, fnVocab);
+                        break;
+                    case "4":
                         Console.WriteLine("Launching Term Frequency Calculator");
                         TermFrequencyInverseDocumentFrequency.TermFrequency(fnCorpus,
                             fnTf);
                         break;
-                    case "4":
-                        Console.WriteLine("Launching Inverse Document Frequency Calculator");
-                        TermFrequencyInverseDocumentFrequency.InverseDocumentFrequency(fnCorpus, 
-                            fnVocab, fnIdf);
-                        break;
                     case "5":
+                        Console.WriteLine("Launching Inverse Document Frequency Calculator");
+                        TermFrequencyInverseDocumentFrequency.InverseDocumentFrequency(fnCorpus, fnVocab, fnIdf);
+                        break;
+                    case "6":
                         Console.WriteLine("Launching Term Frequency - Inverse Document Frequency Calculator");
                         TermFrequencyInverseDocumentFrequency.CalculateTfIdf(fnTf, fnIdf, fnTfIdf);
                         break;
-                    case "6":
+                    case "7":
                         Console.WriteLine("Launching TF-IDF merger");
-                        TermFrequencyInverseDocumentFrequency.MergeTfIdfTraining(fnTfIdf, fnTrainingData, 
-                            fnTfIdfMerged);
+                        TermFrequencyInverseDocumentFrequency.MergeTfIdfTraining(fnTfIdf, fnTrainingData, fnTfIdfMerged);
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");

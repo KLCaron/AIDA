@@ -48,8 +48,6 @@
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="ReadFile.cs" />
         <Compile Include="TermFrequencyInverseDocumentFrequency.cs" />
-        <Compile Include="TrainingData.cs" />
-        <Compile Include="TrainingDataDeserialize.cs" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="Chunks\chunk_0.json" />
@@ -112,7 +110,6 @@
       <Content Include="TermFrequency.json" />
       <Content Include="TF-IDF.json" />
       <Content Include="TF-IDFMerged.json" />
-      <Content Include="TokenList.json" />
       <Content Include="training_data.json" />
       <Content Include="Vocabulary.json" />
     </ItemGroup>
