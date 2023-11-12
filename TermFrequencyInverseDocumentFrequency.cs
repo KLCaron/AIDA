@@ -63,6 +63,32 @@ namespace AIDA
             File.WriteAllText(fnCorpus, JsonConvert.SerializeObject(corpus, Formatting.Indented));
             Console.WriteLine($"Processed and saved {fnCorpus}");
         }
+        
+        //need to turn the the lines into collections of individual words (tokens)
+        //also need to set it to ditch all the stop words
+        //right now, this just returns a list of every word in the document
+        private static List<List<string>> Tokenize(List<Dictionary<string, string>> documentStrings, List<string> stopWords)
+        {
+            List<List<string>> tokenizedDocuments = new List<List<string>>();
+            foreach (var document in documentStrings)
+            {
+                if (document.TryGetValue("text", out var text))
+                {
+                    string[] words = text.Split(' ');
+                    List<string> tokens = new List<string>();
+
+                    foreach (string word in words)
+                    {
+                        if (!stopWords.Contains(word))
+                        {
+                            tokens.Add(word);
+                        }
+                    }
+                    tokenizedDocuments.Add(tokens);
+                }
+            }
+            return tokenizedDocuments;
+        }
 
         public static void Vocabulary(string fnCorpus, string fnVocab)
         {
@@ -143,32 +169,6 @@ namespace AIDA
             }
 
             Console.WriteLine($"Processed and saved {fnIdf}");
-        }
-
-        //need to turn the the lines into collections of individual words (tokens)
-        //also need to set it to ditch all the stop words
-        //right now, this just returns a list of every word in the document
-        private static List<List<string>> Tokenize(List<Dictionary<string, string>> documentStrings, List<string> stopWords)
-        {
-            List<List<string>> tokenizedDocuments = new List<List<string>>();
-            foreach (var document in documentStrings)
-            {
-                if (document.TryGetValue("text", out var text))
-                {
-                    string[] words = text.Split(' ');
-                    List<string> tokens = new List<string>();
-
-                    foreach (string word in words)
-                    {
-                        if (!stopWords.Contains(word))
-                        {
-                            tokens.Add(word);
-                        }
-                    }
-                    tokenizedDocuments.Add(tokens);
-                }
-            }
-            return tokenizedDocuments;
         }
 
         //calculates my tfidf scores and tosses them into a json
