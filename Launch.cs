@@ -9,6 +9,8 @@ namespace AIDA
         public static void Main(string[] args)
         {
             string fnStopWords = "../../stopwords-en.txt";
+            //swap these around to test functions on smaller set
+            //string fnTrainingData = "../../Chunks/chunk_0.json";
             string fnTrainingData = "../../Documents/training_data.json";
             string fnChunks = "../../Chunks";
             int chunkSize = 1000;
