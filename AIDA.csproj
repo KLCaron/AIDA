@@ -105,9 +105,10 @@
       <Content Include="Documents\pickle_converter.py" />
       <Content Include="Documents\Sept 25, 2023.odt" />
       <Content Include="Documents\training_data.json" />
+      <Content Include="IgnoredFiles\TermFrequency.json" />
+      <Content Include="IgnoredFiles\TF-IDFMerged.json" />
       <Content Include="InverseDocumentFrequency.json" />
       <Content Include="stopwords-en.txt" />
-      <Content Include="TermFrequency.json" />
       <Content Include="TF-IDF.json" />
       <Content Include="Vocabulary.json" />
     </ItemGroup>

@@ -17,10 +17,10 @@ namespace AIDA
             //string namingConvention = "chunk_*.json";
             string fnVocab = "../../Vocabulary.json";
             string fnCorpus = "../../Corpus.json";
-            string fnTf = "../../TermFrequency.json";
+            string fnTf = "../../IgnoredFiles/TermFrequency.json";
             string fnIdf = "../../InverseDocumentFrequency.json";
             string fnTfIdf = "../../TF-IDF.json";
-            string fnTfIdfMerged = "../../TF-IDFMerged.json";
+            string fnTfIdfMerged = "../../IgnoredFiles/TF-IDFMerged.json";
             
             while (true)
             {
@@ -68,7 +68,8 @@ namespace AIDA
                         break;
                     case "7":
                         Console.WriteLine("Launching TF-IDF merger");
-                        TermFrequencyInverseDocumentFrequency.MergeTfIdfTraining(fnTfIdf, fnTrainingData, fnTfIdfMerged);
+                        TermFrequencyInverseDocumentFrequency.MergeTfIdfTraining(fnTfIdf, fnTrainingData,
+                            fnTfIdfMerged);
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");

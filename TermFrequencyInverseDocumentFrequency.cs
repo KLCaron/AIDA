@@ -13,25 +13,19 @@ namespace AIDA
             List<Dictionary<string, string>> currentChunk = new List<Dictionary<string, string>>();
             int chunkIndex = 0;
 
-            using (StreamReader fileReader = File.OpenText(fnTrainingData))
+            try
             {
-                string line;
-                while ((line = fileReader.ReadLine()) != null)
+                List<Dictionary<string, string>> documents =
+                    JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(File.ReadAllText(fnTrainingData));
+
+                foreach (var document in documents)
                 {
-                    try
+                    currentChunk.Add(document);
+                    if (currentChunk.Count >= chunkSize)
                     {
-                        Dictionary<string, string> document = ReadFile.ReadJson<Dictionary<string, string>>(line);
-                        currentChunk.Add(document);
-                        if (currentChunk.Count >= chunkSize)
-                        {
-                            ProcessChunk(currentChunk, chunkIndex, fnChunks);
-                            currentChunk.Clear();
-                            chunkIndex++;
-                        }
-                    }
-                    catch (JsonException ex)
-                    {
-                        Console.WriteLine($"Error parsing {fnTrainingData}: {ex.Message}");
+                        ProcessChunk(currentChunk, chunkIndex, fnChunks);
+                        currentChunk.Clear();
+                        chunkIndex++;
                     }
                 }
 
@@ -39,6 +33,10 @@ namespace AIDA
                 {
                     ProcessChunk(currentChunk, chunkIndex, fnChunks);
                 }
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine($"Error parsing {fnTrainingData}: {ex.Message}");
             }
         }
 
@@ -54,7 +52,7 @@ namespace AIDA
         //builds my corpus, token list, and vocabulary
         public static void Corpus(string fnTrainingData, string fnStopWords, string fnCorpus)
         {
-            List<string> stopWords = ReadFile.ReadTxt<List<string>>(fnStopWords);
+            List<string> stopWords = ReadFile.ReadTxt(fnStopWords);
             List<Dictionary<string, string>> documents =
                 ReadFile.ReadJson<List<Dictionary<string, string>>>(fnTrainingData);
             

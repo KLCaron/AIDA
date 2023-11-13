@@ -1,4 +1,5 @@
 import pickle
+import json
 import pandas as pd
 
 # load deserialized data from pkl into a DataFrame
@@ -8,5 +9,9 @@ with open('merged_training.pkl', 'rb') as file:
 # convert loaded data to a DataFrame
 df = pd.DataFrame(training_data)
 
-# serialize DataFrame to JSON
-df.to_json('training_data.json', orient='records', lines=True)
+# convert dataframe to a list of dictionaries
+records = df.to_dict(orient='records')
+
+# write the list of dicitonaries to a JSON file
+with open('training_data.json', 'w') as file:
+    json.dump(records, file, indent=2)

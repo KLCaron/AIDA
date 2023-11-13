@@ -1,6 +1,9 @@
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace AIDA
 {
@@ -11,30 +14,31 @@ namespace AIDA
             try
             {
                 string jsonText = File.ReadAllText(filePath);
-                T data = JsonConvert.DeserializeObject<T>(jsonText);
-                return data;
+
+                if (typeof(T) == typeof(JObject))
+                {
+                    return (T)(object)JObject.Parse(jsonText);
+                }
+                else
+                {
+                    T data = JsonConvert.DeserializeObject<T>(jsonText);
+                    return data;
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error reading {filePath}: {ex.Message}");
-                return default(T);
+                return default;
             }
         }
         
-        public static T ReadTxt<T>(string filePath)
+        public static List<string> ReadTxt(string filePath)
         {
-            T result = default;
+            List<string> result = new List<string>();
 
             try
             {
-                using (StreamReader reader = new StreamReader(filePath))
-                {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        result = (T)(object)line;
-                    }
-                }
+                result = File.ReadAllLines(filePath).ToList();
             }
             catch (Exception ex)
             {

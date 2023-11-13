@@ -1,3 +1,4002 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c209e85c98d604c3a3208942a5d27618f8ed04a618468057c80f23adbe38652a
-size 1460655
+[
+  {
+    "text": "i feel mad and angry that i was told i couldnt have xanax anymore only to have the doctor after the sleep test tell me it was fine for me not the best med to take at bed but if it works its what we will do",
+    "emotions": "anger"
+  },
+  {
+    "text": "i no longer ignore them and while i do feel crappy sometimes for that i would not trade it for the world",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel completely inadequate for some of the tasks before me and entirely certain that i am in over my head",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am feeling really needy right now",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel mellow and nervous and excited and focused and scattered",
+    "emotions": "joy"
+  },
+  {
+    "text": "i woke up feeling horrible and wanting sugar and coffee i knew",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i don t usually take my medication in the middle of a job given that it is supposed to help me forget but i ve been feeling distracted",
+    "emotions": "anger"
+  },
+  {
+    "text": "i can never decide if theyre feeling hot or cold at the moment",
+    "emotions": "love"
+  },
+  {
+    "text": "i use this sparingly as i love it so much and it is incredibly pricey but oh my god this smells out of this world and leaves your skin feeling lovely",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel like he was threatened that i am after something",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel compassion for carpenter and his family im not convinced that the district has earned these inflated salaries regardless of whether or not theyve cut the pork as he purports",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel about books and how i feel about supporting artisans",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have a feeling this one will be anything but boring",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel a strong link to that in what i am doing now",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so dumb and stupid i don t know what to do a title like on facebook href http p",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i still say it to myself all the time whenever im feeling discouraged by things beyond my control",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel very defeated and down and frustrated",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i started the day by feeling funny",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i wonder at the idea that one artist can feel that another creative isnt fully committed because she doesnt spend her day in her studio",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel ugly disgusting",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel about him yet he seems really keen though",
+    "emotions": "joy"
+  },
+  {
+    "text": "i guess the whole movie left me with the feeling that it was about this percentage of a really successful idea",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can t help but feel fearful at the thought of his size",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel satisfied that i was shot by that man",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was feeling so shaky i had a couple of bites of an almond blueberry a href http www",
+    "emotions": "fear"
+  },
+  {
+    "text": "i am still feeling unsure about the tower of terror miler",
+    "emotions": "fear"
+  },
+  {
+    "text": "i am at in my t cycle right now has left me feeling quite lethargic both physically and emotionally and right now i feel awful",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was made to feel unwelcome and my personal life was placed undeniably within the public realm because of a gross violation of my privacy",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i want us to be able to go to a restaraunt with friends and not feel stressed about what she is going to eat",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel so privileged to have been involved in it",
+    "emotions": "joy"
+  },
+  {
+    "text": "i actually have started a new method of dealing with things and feel free to try it yourself",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so honored that i get to be those rough and tumble boys mom",
+    "emotions": "joy"
+  },
+  {
+    "text": "i want to concentrate on my studies but because of this i feel so useless",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel ok i will know more in a few hours",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like our game was successful in this regard",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am alone or feeling alone as my spanish is not perfect and language barrier exists for me to communicate with basically",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel i should point out that iobs are intelligent and subtle beyond any description",
+    "emotions": "joy"
+  },
+  {
+    "text": "i hated it but i could feel it coming to an end and that terrified me",
+    "emotions": "fear"
+  },
+  {
+    "text": "i just feel free",
+    "emotions": "joy"
+  },
+  {
+    "text": "ive bad days i feel im being ungrateful",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling naughty because im straying from completing my water girl series in the time frame i set for it but at least i can say the reason is still art related",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel agitated and confined by worship",
+    "emotions": "anger"
+  },
+  {
+    "text": "im sorry i made you feel like i hated you",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i forget something at the store i feel a little like a mad scientist",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling pretty shaken",
+    "emotions": "fear"
+  },
+  {
+    "text": "i sometimes use mine to rub againsts other sniffers especially when travelling north of hudsons bay or when i feel really playful and theres someone else feeling really playful around at the same time",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling very smug that i have defrosted my two freezers",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel really welcomed by you i feel good with you and i like that",
+    "emotions": "joy"
+  },
+  {
+    "text": "ive had an amazing weekend with my boyfriend and understandably am feeling a bit miserable now hes gone",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i found myself feeling increasingly agitated and frustrated",
+    "emotions": "fear"
+  },
+  {
+    "text": "i think he loves me as much as always he tells me he does but if i keep feeling like this so bottled up and beaten down i don t know how much longer i ll love him",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im getting paid to i can barely handle more than hours week without feeling enraged and having it affect every other area of my life",
+    "emotions": "anger"
+  },
+  {
+    "text": "i took the time to connect with who i was at that party i finally saw my younger self didnt know there was another option besides just continuing to be nice and trying ignore the feeling of being not quite accepted",
+    "emotions": "joy"
+  },
+  {
+    "text": "i really did think and feel all those things and i was surprisingly intelligent and inquisitive",
+    "emotions": "joy"
+  },
+  {
+    "text": "i sat in my apartment in roswell ga feeling helpless and frustrated as more information came in",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i can actually enjoy drinking with my friends without feeling like a jaded asshole",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i think i am finally realising that if she wants me in any capacity that she has to treat me as thought i am special and make me feel like a worthwhile person",
+    "emotions": "joy"
+  },
+  {
+    "text": "i often have the feeling that something at the end of the book will make the difficulty in getting through it worthwhile",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel stressed and bummed with the holidays here and i think i am taking that out on the food",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel passionate about something i go for it",
+    "emotions": "joy"
+  },
+  {
+    "text": "i just suddenly feel a bit sad",
+    "emotions": "sadness"
+  },
+  {
+    "text": "ive gotten more done without feeling that my efforts are useless or that im trying to complete an infinite task",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i wonder how much of feeling discontent is part of human nature and how much is conditioning",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i would never come close to a ferris wheel but only after trying the ride and feeling the excitement of the height and the fantastic views from the sky i never miss a chance to ride what is probably one of my favorites",
+    "emotions": "joy"
+  },
+  {
+    "text": "i do feel offended by his accusation as i will always think before i speak type of person",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel wronged for trying to do something right",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like a soda in a can shaken turbulently and flew violently out of its container the moment it felt air exchanging its freedom to you",
+    "emotions": "fear"
+  },
+  {
+    "text": "i complete the sets and feel no pain when the foot i broke this winter slaps into the leather bag a fantastic belly flop sound filling the gym",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i do if my boss insists i do work that i feel is dangerous",
+    "emotions": "anger"
+  },
+  {
+    "text": "im definately feeling hyper creative at present it seems to flow like that i have times when i dont make anything for weeks on end and just watch way too much rubbish on the computer",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am a little bit irritable and im having a hard time conversing with people i feel distracted kinda unfocused and have a desire to just walk away",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel terrible about the fate of the eagle",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am still feeling wind of a bitter sweet life and i envy the sun because it hides behind clouds",
+    "emotions": "anger"
+  },
+  {
+    "text": "im over with the feeling of being doubtful cause im so sure with you",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel about miley cyrus anymore funny youtube",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel the wilderness the uncertain the unconventional is where my future is and will always be",
+    "emotions": "fear"
+  },
+  {
+    "text": "i could feel that he didn t treat me like a child instead he hated me like i was a who",
+    "emotions": "anger"
+  },
+  {
+    "text": "i was just another person walking around feeling inadequate",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling kind of mellow right now kind of eh whatever",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel thankful for the staff fellow meidos and butler and all the gosshujinsama and ojousama who have supported us",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel that im more affectionate than before",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel a bit jealous when i look at other peoples photos in sunny locations enjoying the heat of summer",
+    "emotions": "anger"
+  },
+  {
+    "text": "i don t feel pretty and i don t feel smart",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was poked or more times in the back and by the time they got it in correctly i was crying because the anesthesiologist was seriously so rude which the nurse told me he didnt have a very good bedside manner and made me feel so dumb",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like i have to face my challenges in my life and i learn how to be supportive with the people and communicate with them and how to be a leader to the people and i learn how to participate and how to improve my weaknesses",
+    "emotions": "love"
+  },
+  {
+    "text": "i love doing hair and i love making people feel really pretty",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel quite surprised",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i generally just eat beach debris and when i m feeling naughty some seafront bin food but most other gulls are on a sort of aggressive scrounge diet",
+    "emotions": "love"
+  },
+  {
+    "text": "id feel ecstatic and confused",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feeling glamourous i wear something glamourous i feeling more relaxed i put on me feel relaxed so basically fashion expression of person",
+    "emotions": "joy"
+  },
+  {
+    "text": "i read a few days ago relaying what some other cultures feel about this innocent hearts and flowers day",
+    "emotions": "joy"
+  },
+  {
+    "text": "i burn for feeling such an appetite will the devil himself pour the hot coals the hunger pulls me like a moth to a flame so smitten with the thought what if",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel so blessed that god has us here",
+    "emotions": "joy"
+  },
+  {
+    "text": "i really feel so joyful and grateful",
+    "emotions": "joy"
+  },
+  {
+    "text": "i wanted to express my feelings about the beauty of that area and harry s humorous relationship with the bush turkeys that he called his chooks",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have essentially at least in my mind solved these design problems i just don t fucking feel like working them out in all their iterations i just feel like i can t be bothered leave that shit to the junior designers",
+    "emotions": "anger"
+  },
+  {
+    "text": "i am not upset rather i feel humiliated that i let myself get to that point",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel terrible for making this shot",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i remember that when im feeling low i write and i tell god how i feel but i also have letters thanking him and praising him for his goodness and love",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i know how they feel jhd you have your cute mitts in many pots what is your favorite medium these days",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel there are some who still wants us together and i im being rebellious",
+    "emotions": "anger"
+  },
+  {
+    "text": "i held my free hand to my head feeling shaky",
+    "emotions": "fear"
+  },
+  {
+    "text": "i was so damn scared and feeling not a bit submissive or interested in sex",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im finding myself feeling overwhelmed",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel that either i am going to learn something from a book or i am going to be entertained",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so greedy and selfish",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel more convinced than ever that in times like these silence is the best remedy",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling a little jaded here",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i didn t feel some kind of weird societal pressure to have children one day i wonder if i would even consider it or be having these thoughts right now",
+    "emotions": "fear"
+  },
+  {
+    "text": "im feeling completely drained and uninspired i have to get away from everything",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am glad to let my feelings out now without caring what others will say or think",
+    "emotions": "love"
+  },
+  {
+    "text": "i to feel totally ridicule and humiliated",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i wanted her to feel charmed and in that way would charm everybody the caucus about the dress horyn",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling rebellious spending too much time wishing life was more exciting but never actually planning anything fun",
+    "emotions": "anger"
+  },
+  {
+    "text": "i think of it i didnt even feel weird when they didnt send me any message for my birthday",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i cant wait to take her back today and i feel so thankful that these elk and this incredible place are there for her to see",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel less frightened of the class as well which is a relief",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like im going to be under constantly spotlight judged if i say something that sounds less than intelligent with eyes looking at me questioning what im doing there with them",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel boring and uninspired this morning",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i didn t really feel lonely or left out i just pretended it wasn t happening",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was going to say that i still wasn t feeling so hot but decided that having him out of the apartment would reduce the chances of him finding the bloodied sheets that were still in the closet",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel reluctant to stay where im uncomfortable and unsure of what to do to help when i could be helping someone come unto christ",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel shamed that i barely know any german so maybe we can also do some language exchange if you like",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i never feel up to caring for her alone because of chest pressure and overall fatigue",
+    "emotions": "love"
+  },
+  {
+    "text": "i felt disgusted when i was not given money for lunch at school by my father as a punishment for beating my little brother",
+    "emotions": "anger"
+  },
+  {
+    "text": "i stood up on the scales only to feel stunned",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i am feeling homesick and sad",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i have a feeling that my carefree days of good sleep are at an end",
+    "emotions": "joy"
+  },
+  {
+    "text": "i wake up still feeling like a frump but instead this time i style my hair put on some make up and choose a cute outfit",
+    "emotions": "joy"
+  },
+  {
+    "text": "ive also been considering that you have been so wonderful at making me feel treasured which is what a woman wants most so im wanting to know how i can honor and respect you in ways i may not be",
+    "emotions": "love"
+  },
+  {
+    "text": "i had the feeling he hated stripping alone",
+    "emotions": "anger"
+  },
+  {
+    "text": "i have the tendency to feel extremely stressed so i try to avoid feeling that way",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel that if he did not want to be on the show he would have said so and i believe his parents love him enough that they would have respected his wishes",
+    "emotions": "joy"
+  },
+  {
+    "text": "i usually do feel like that on my way to the gym but i wouldnt have to go to work so i felt especially carefree",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am a bit boring although i speak happily but still feel that lost one feeling in the class",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im really sick and feel terrible but my kid still needs to eat lunch",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i would say i feel more energetic but i think that since i havent worked out in weeks due to the resets guidelines",
+    "emotions": "joy"
+  },
+  {
+    "text": "i lift my head from the table i feel sort of dazed and confused",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i guess hes being just as honest now too voicing what he feels is sincere only without the quivering mouth",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel a little awkward when i share that side of myself",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel that shes very talented and am very impressed with the progress that youve made with her and the skills shes learned",
+    "emotions": "joy"
+  },
+  {
+    "text": "i love jesus and feel like i wrestle with my flesh longing for the day my sanctification will be complete",
+    "emotions": "love"
+  },
+  {
+    "text": "i want you to feel and to hear beloved ones is that the magnet of love will do the work for you",
+    "emotions": "love"
+  },
+  {
+    "text": "i wanna feel the passion so give me all you got share my sweet groove the whole night through make tonight a dream come true let s keep this groove thing going and never never never let it stop",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel that i should be scared of atlas",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel i might have to start supporting spurs and join the tory party to guarantee their failures",
+    "emotions": "joy"
+  },
+  {
+    "text": "i had to put a lot of thought into what i was going to rate tiger lily because to be completely honest i just didnt feel like it was as amazing as it could of been",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can just feel the anger and the jitters of being agitated spread through my body as i lie down",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel a bit agitated but thats normal when your subconscious is coming to terms with changes",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like a nerd who became popular got to hang out on the senior steps but once i realized how much work it takes to be popular and how much everyone actually hated me i began to long for my old nerdy friends",
+    "emotions": "joy"
+  },
+  {
+    "text": "i rode the extremely comfortable amtrak train out to alabama feeling very glad indeed to be leaving new orleans behind",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have a feeling beaten and kicked script type text javascript src http code",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel contented nowadays",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel terrible that i have not posted one set of uglies i received yet",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i fall into a why me mentality and feel exceptionally frustrated with my situation",
+    "emotions": "anger"
+  },
+  {
+    "text": "im really proud and feel lucky to have met you",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like i m not going to have anything to talk about and i m going to be boring and preoccupied the whole time we re together",
+    "emotions": "sadness"
+  },
+  {
+    "text": "ive also been feeling a little adventurous in the kitchen and thats why i decided to make my own bread",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel is the beating of my heart oh so tranquil",
+    "emotions": "joy"
+  },
+  {
+    "text": "i hope that you can talk about the so called energy vampires that we all come in contact all through our lives i am very sensitive to those type of people and wish to learn how exactly to protect myself from them without making them feel rejected",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel a bit cranky and restless due to lack of sl",
+    "emotions": "anger"
+  },
+  {
+    "text": "i think the tea i just had did something to me because i feel very relaxed and drowsy and like i wouldnt mind if the world suddenly ended",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel not because in the divine light of the being the people are always guided divinely",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have in town ive been feeling a little agitated",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel more content with my life just as it is",
+    "emotions": "joy"
+  },
+  {
+    "text": "i woke up saturday morning feeling so amazing i had enough energy to make a thankful tree which ive been wanting to do forever since a href http bryanandrachelmartinez",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i love clothes but i feel like any time i liked my outfit in the past it was a happy coincidence that it all came together",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel as though the last few months god has overwhelmed me with his sovereignty",
+    "emotions": "fear"
+  },
+  {
+    "text": "i understand but im just saying u have to understand how i feel because im just supporting my team",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was like please just watch this minute pingu clip so i can brush my teeth and apply layers of cover up on the dark circles under my eyes and he was like ill give you four minutes before i start freaking out and thats only because im feeling generous today",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling extremely benevolent",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel generous and will do shit for free",
+    "emotions": "love"
+  },
+  {
+    "text": "i will also be writing about my experience with anorexia for the first and last time as i feel it is important that people truly know both my opinion and personal perspective after my experiences as someone who has been overweight underweight and in recovery",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so de valued",
+    "emotions": "joy"
+  },
+  {
+    "text": "i started to feel smug",
+    "emotions": "joy"
+  },
+  {
+    "text": "i didn t understand that feeling but now i get nervous thinking that i only have a short time left to completely dedicate myself to the lord",
+    "emotions": "fear"
+  },
+  {
+    "text": "i know that sequin clutches are supposed to be worn at evening but i am still feeling very festive at the moment so why not",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like i fucked up everything",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel my life is far less than fabulous or interesting of course i love it anyways but i fear that readers will see me who i really am boring simple no personal style no real social life etc",
+    "emotions": "joy"
+  },
+  {
+    "text": "i need to be wonder woman despite feeling kind of lousy with this neck strain and migraine masked by meds but still making me feel bad",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im so deeply locked into fat loss mode that just relaxing and eating or not actually feels dangerous and difficult",
+    "emotions": "anger"
+  },
+  {
+    "text": "i am not remotely excited for loathing for chemistry instilled in my being since high school and nutrition and health fundamentals which i am feeling pretty keen about already",
+    "emotions": "joy"
+  },
+  {
+    "text": "i settled into motherhood i start to feel restless i turn our conservatory into a studio and begin to paint more regularly",
+    "emotions": "fear"
+  },
+  {
+    "text": "i hear a piercing sound and feel a vicious pain in my legs",
+    "emotions": "anger"
+  },
+  {
+    "text": "i just thought about an estranged family member visiting soon and that made me feel anxious and nauseous",
+    "emotions": "fear"
+  },
+  {
+    "text": "i have no idea but i do feel like my body is getting a little more content with the idea of a liquid breakfast",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel myself getting stressed out or irritable or annoyed i try to remember all the good things i have in my life to keep things in perspective",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i have the feeling that i was being blamed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i immediately feel envious",
+    "emotions": "anger"
+  },
+  {
+    "text": "im really feeling helpless",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i had to be told thats what i was feeling its mostly just uncomfortable tummy gets tight and its hard to breathe normally because it feels like my organs are being compressed",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel a bit overwhelmed as i realize this is the beginning of the rest of my life my future can really take place now",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel anxious and troubled in my soul due to bone deep weariness brought on by many things messing up calling my own shots making wrong decisions or need for a deep rem sleep",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel more lively and im more lively because it doesnt hurt",
+    "emotions": "joy"
+  },
+  {
+    "text": "i get lazy and eat more prepared foods i tend to feel lethargic sleepy and overall simply not well",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i proceeded to scrub myself and as soon as i felt the sponge running over my legs and on the inner thighs i began to feel naughty",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel this longing and ache for it",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel the love brave robin roberts looks frail in hospital video message before todays bone marrow transplant",
+    "emotions": "joy"
+  },
+  {
+    "text": "i felt terrible about it and i feel really unhappy",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i must say how good it feels to have so many of you supporting what i am doing",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel like marilyn monroe im insecure yeah i make mistakes sometimes i feel like im at the end of the road i can get low i can get low dont know which way is up yeah i can get high i can get high like i could never come down call it a curse",
+    "emotions": "fear"
+  },
+  {
+    "text": "i was feeling bitchy for a few days",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling restless i suppose that would be the best word",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like i need to do an update on bennett because he is doing so many cute things",
+    "emotions": "joy"
+  },
+  {
+    "text": "i noticed my hands and feet were sort of numb but i didn t feel cold",
+    "emotions": "anger"
+  },
+  {
+    "text": "i like the after school program its day camp that is not my favorite particularly the afternoon shift was rough with feeling low energy",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel that he should be put to death for the commission of such a vile act",
+    "emotions": "anger"
+  },
+  {
+    "text": "i am insanely frustrated that i feel like i cant take him to the er because hell be satting fine when we get there and they wont be able to do anything for him",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel that while the campaign is very clever and draws attention to the new product it neglects to fully explain how the technology works",
+    "emotions": "joy"
+  },
+  {
+    "text": "i do feel the amazing sense of achievement whenever i see my fellow countrymen stand on the start line of the race each year and even though my close friends did not finish their respective race i am still very proud of them for taking up the challenge",
+    "emotions": "joy"
+  },
+  {
+    "text": "i say fandoms im looking at you s public service announcement character slash i feel very dull unimaginative with my requests",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel because i can t help but share my passionate emotions each time i tune into fox and watch the motley crew tug at the tuft of hair on their chinny chin chin",
+    "emotions": "love"
+  },
+  {
+    "text": "i always wondered what this day would feel like but instead of feeling bitter and scorned i actually feel liberated",
+    "emotions": "anger"
+  },
+  {
+    "text": "i didnt need that reminder plus her words made me feel as if she saw me as pathetic",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was glad to be able to think of that person today and not feel pain sadness sorrow selfish or anything mixed of",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling very hurt and angry after that video",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like seeing anyone else anyways i am not charming with a runny nose and when i am constantly coughing or sneezing",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel offended says kaenzig",
+    "emotions": "anger"
+  },
+  {
+    "text": "i had shad drop her off on the way to work but im feeling so heartless now for not taking her myself",
+    "emotions": "anger"
+  },
+  {
+    "text": "i was thankful for a slow sunday because i was not feeling so hot",
+    "emotions": "love"
+  },
+  {
+    "text": "i think you ought to be pretty well past the point of feeling victimized and or betrayed by high school so may you grow and let it go",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling rather festive which probably has to do with the fact that i spent yesterday afternoon perusing the local shops for gift ideas for the annual gift guide i compile",
+    "emotions": "joy"
+  },
+  {
+    "text": "i tend to be forgetful and only remember it like a few weeks later it makes me feel so petty having bothered to remember such a thing for so long",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel that the organisation itself is fabulous with providing a wide variety of activities for children teenagers and adults alike",
+    "emotions": "joy"
+  },
+  {
+    "text": "i know i sounded lame but that is what i feel call me lame i just could not be bothered",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel as though im doomed no matter what for the next three months",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i prayed for how long and to me because im feeling impatient its something that i need to work at",
+    "emotions": "anger"
+  },
+  {
+    "text": "i don t see melvin throwing in the towel just yet on and i feel that he considers lohse a valuable piece to the team s possible success moving forward",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like a super saiyan chef whenever i play this game",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can use to describe how the vegan community is feeling and are choosing to stay loyal to the publication",
+    "emotions": "love"
+  },
+  {
+    "text": "im developing some nicer thoughts about what i want and what i want is a relationship where i actually feel valued",
+    "emotions": "joy"
+  },
+  {
+    "text": "i work in the nuclear power industry and i feel my job is very safe",
+    "emotions": "joy"
+  },
+  {
+    "text": "i also noticed my stomach was becoming bloated and feeling very tender",
+    "emotions": "love"
+  },
+  {
+    "text": "i cant stop living my life stop creating stop feeling while waiting in vain",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i felt myself melting away again but this time it was a happy feeling not a scared one",
+    "emotions": "fear"
+  },
+  {
+    "text": "i supposed to feel special when you don t even care that it s an a and not an e barista man",
+    "emotions": "joy"
+  },
+  {
+    "text": "i sometimes feel a little drained",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling listless lately",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im so excited that hes reached such a huge milestone and yet at the same moment i feel a twinge of longing for him needing to be carried around in my arms",
+    "emotions": "love"
+  },
+  {
+    "text": "i think of all the other strong women i met there and i wonder if they would feel embarrassed or hurt from being considered intimidating",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel really passionate about this current project",
+    "emotions": "love"
+  },
+  {
+    "text": "i believe is real something i need to survive and to feel ok is not actually real and i m escaping annihilation by luck and the skin of my teeth",
+    "emotions": "joy"
+  },
+  {
+    "text": "i enjoy my work love my family and friends so much know that my health is good why do i still feel dissatisfied grumpy frumpy and over everything",
+    "emotions": "anger"
+  },
+  {
+    "text": "i fight and i fight and i fight because she is beloved and i am trying to learn how to feel beloved too in the midst of my broken",
+    "emotions": "joy"
+  },
+  {
+    "text": "i do feel good that i am able to express the way that i feel but i know that i am limiting myself at times because i am sure if i really wrote what i felt i probably would be ostracized by people for the way that i think",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was taking marijuana i would have bad trips but i also had this creeping feeling that something terrible was going to happen",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i recall feeling virtuous even brilliant back in my college days playing whist and pinochle with the big boys older boys who had learned to play cards in the service and were returned going to college on the gi bill",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel skeptical about how clipping one s pants could ever look convincingly cute",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel snape is loyal to no one but himself",
+    "emotions": "love"
+  },
+  {
+    "text": "i go to bed feeling crappy because i keep feeling im bearing the burden for all the problems real or perceived",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i start feeling irritated by the fact that this person is not forgiving her",
+    "emotions": "anger"
+  },
+  {
+    "text": "i coast earlier this month confirmed he was splitting up from his wife rosetta who was said to feel humiliated by the images",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i have been feeling lately disturbed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i like being busy in addition to my work for clsses i feel like im being more sociable and meeting more people this semester",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling fine all things considered",
+    "emotions": "joy"
+  },
+  {
+    "text": "i went away from it feeling content with the progress i ve been making as i practice and work hard each day as part of my project",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling a little smug tonight having tipped the russians to reach the semis",
+    "emotions": "joy"
+  },
+  {
+    "text": "i only want good things for kevin and for him to feel happy and content",
+    "emotions": "joy"
+  },
+  {
+    "text": "i whited it out im considering telling my year advisor get them in trouble and stuff but i dont feel like being petty like them",
+    "emotions": "anger"
+  },
+  {
+    "text": "i will do it here only because i feel i have hurt a lot of people by dropping out of things especially friendships",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i wonder why i feel as if im being hated by people",
+    "emotions": "anger"
+  },
+  {
+    "text": "i worked and hung out with friends and tried to give in my church callings but inwardly i was trying to keep control and just feel numb",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i tell them how they feel and they are usually amazed at what i know",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i was feeling super happy because a few years back in ite when my graduation he did not make it plus that time i got special award",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel fantastic am sleeping really well and have loads of energy",
+    "emotions": "joy"
+  },
+  {
+    "text": "i also feel that i have positively contributed to our planet in a more compassionate manner too",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel like i constantly run out of cute stuff to get people for their little ones",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling all lethargic and i have my butt down on this chair with the sweet tune of the fan reeving sucking air to cool this over worked mother board down at least trying too",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel i owe it to my ten or so faithful friends who keep reading this thing to keep them somewhat entertained",
+    "emotions": "love"
+  },
+  {
+    "text": "i hadnt realized id made that many and now i feel very virtuous or productive or something anyway",
+    "emotions": "joy"
+  },
+  {
+    "text": "i didnt know there was going to be romantic parts i feel so shocked right now that i am going to have to do that",
+    "emotions": "surprise"
+  },
+  {
+    "text": "im feeling generous and secondly because i would like to have less to move lol",
+    "emotions": "love"
+  },
+  {
+    "text": "i do not want you to get hurt so do a little at a time and i would not ride him until you feel he is trusting you and relaxing",
+    "emotions": "joy"
+  },
+  {
+    "text": "ive spent the last hours since returning checking in here and there and after having done so feel as though ive missed a ton",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel hopeful that there are things that i can focus my energy on",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so selfish for wanting this",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel i m getting distracted and not real",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel so blessed and never want to forget the little moments of joy that inspire me",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have been feeling really useful in classes and really helping out although lesson plans will probably only seldomly happen",
+    "emotions": "joy"
+  },
+  {
+    "text": "i could do whatever made me feel productive prepared or in control i did it",
+    "emotions": "joy"
+  },
+  {
+    "text": "i guess for those having an ordinary yet normal day reading status updates like the ones above could easily make one feel envious",
+    "emotions": "anger"
+  },
+  {
+    "text": "i talk about it i feel so pissed",
+    "emotions": "anger"
+  },
+  {
+    "text": "i was experiencing more of a disoriented nauseated feeling than giggly infatuation",
+    "emotions": "joy"
+  },
+  {
+    "text": "i found myself feeling so angry",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel it unfortunate though necessary to add",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel really fabulous",
+    "emotions": "joy"
+  },
+  {
+    "text": "i felt back to normal but ever since i still feel paranoid and after its dark outside i can t walk around the house without being next to a room where my mam or brother or someone is or being on the phone to one of my friends and it is very annoying",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel perpetually distracted",
+    "emotions": "anger"
+  },
+  {
+    "text": "i hated the feeling of food sitting inside me i hated knowing i had willingly swallowed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel is rather un useful and it would be better off without it at a slightly cheaper price",
+    "emotions": "joy"
+  },
+  {
+    "text": "i love it as its very pink but still suitable for daytime if im feeling a little adventurous",
+    "emotions": "joy"
+  },
+  {
+    "text": "i did today and i feel fantastic",
+    "emotions": "joy"
+  },
+  {
+    "text": "i then immediately have feelings of guilt for having those selfish thoughts and my practical side appears how could i do that who would take care of the kids and my parents",
+    "emotions": "anger"
+  },
+  {
+    "text": "i came from home for days my head was filled with all the not right things and so i was feeling hostile towards madam e",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling very dull and boring so will quit",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel very successful in that regard",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling better yay prescriptions",
+    "emotions": "joy"
+  },
+  {
+    "text": "i really cant stand it to the point that i feel hopeless",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i will be feeling absolutely petrified although to be honest i m feeling a few flips and turns in my tummy already",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like ive got so much to do yet when i actaully have time to do things my mind goes blank",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i love what i do and i feel so blessed and lucky to be able to travel and be creative and meet amazing people and wake up every day loving my job",
+    "emotions": "joy"
+  },
+  {
+    "text": "ive been feeling really stressed this week",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i sometimes get the feeling that i am outnumbered and isolated and maybe i might be wrong for the things that i believe",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel threatened but not in the same way other men do when their privilege is illuminated",
+    "emotions": "fear"
+  },
+  {
+    "text": "i didnt really think until today how soon i will be leaving the uk o o so i am feeling a little stunned and am kicking my little booty into gear",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel disgusted when people start to say of it s a man s fault it s a woman s fault its society its this it s that",
+    "emotions": "anger"
+  },
+  {
+    "text": "i can catch the urge to fuel the feeling of discomfort with recriminations of my own you should be more generous come on you could have made him a sandwich its not much to ask no wonder he feels that way hes right you really dont care about him enough etc",
+    "emotions": "joy"
+  },
+  {
+    "text": "i did not really have a feel for how my one mile time was and i was a little curious",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i was feeling calm and ready",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can point out about myself that can be fixed i cant help but feel a little worthless",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel frustrated by this",
+    "emotions": "anger"
+  },
+  {
+    "text": "i refuse to stay in this place we all have moments of feeling exhausted from very hard work and needing some validation in return",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel annoyed not to be myself instead following everyones flow",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel the leaves under my fingertips the sweet taste of berries still on my lips the most beautiful thing right outside the last days of summer passing us by",
+    "emotions": "joy"
+  },
+  {
+    "text": "i just feel that if i make you understand and care that i will be free to just let it go and for some reason i have held on so tightly to it",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel really valued for who i am",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel the second is just a little better",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling a little skeptical already",
+    "emotions": "fear"
+  },
+  {
+    "text": "i had been feeling so optimistic that our m",
+    "emotions": "joy"
+  },
+  {
+    "text": "i mean sure i feel determined to do my work amp all in sch wen i see ppl alr done wid theirs but at home its a totally diff issue",
+    "emotions": "joy"
+  },
+  {
+    "text": "i believe it could have been many of the racing yachts rounding that day and am feeling how vulnerable we all are today",
+    "emotions": "fear"
+  },
+  {
+    "text": "i felt the very feeling of rejection this is the ye form when i get shunned when i am purposely being ignored and in fact being treated as though i am a decease to be avoided",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i didnt cry i just stood there feeling helpless",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel privileged to have her as a friend and a mentor",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel peer pressured into smiling",
+    "emotions": "fear"
+  },
+  {
+    "text": "i get to my feet feeling relieved from a huge burden",
+    "emotions": "joy"
+  },
+  {
+    "text": "i opened his fb account and i tried to view her profile then i had the feeling to just take a peek of her photos i was totally shocked and i felt like i was devastated",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i woke up feeling rather dissatisfied",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like she is just really popular and flirty with everyone",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was sitting by my desk putting my sneakers on feeling cranky and trying decide between tv or tunes",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel a violent urge towards whoever must have come up with it",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like my life here is really coming together and my class at school has really accepted me into their ranks",
+    "emotions": "joy"
+  },
+  {
+    "text": "i just had a job getting over that niggly feeling that id left something important at home",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel that i am a compassionate person and yet i so often have to turn it off in order not to cry myself to bed every night",
+    "emotions": "love"
+  },
+  {
+    "text": "i was feeling really nervous about posting today",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like im being tortured and not the good kind either",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel most helpless at times like this when i want to be able to help comfort and support those closest to teresa but cant find the words or dont want to intrude",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i have anything against them but something about that place feels so unfriendly",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like i should or could be doing something more worthwhile making valuable changes and impacts on peoples lives or at least my own",
+    "emotions": "joy"
+  },
+  {
+    "text": "im actually feeling a little shaken up",
+    "emotions": "fear"
+  },
+  {
+    "text": "i try to talk to doctors about my depression i feel disgusted and ashamed",
+    "emotions": "anger"
+  },
+  {
+    "text": "i admittedly feel a sincere lack of confidence in the picks below as ive not followed as closely as usual",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling more relaxed about leaving",
+    "emotions": "joy"
+  },
+  {
+    "text": "i still feel shocked by it",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i posted one gross thing i feel the need to post two delicious things",
+    "emotions": "joy"
+  },
+  {
+    "text": "i politely explained that while he seems like a nice guy i didnt feel any romantic connection with him",
+    "emotions": "love"
+  },
+  {
+    "text": "i decry the pressure to always seem productive i keep this blog to feel productive about my non cs thoughts and interests",
+    "emotions": "joy"
+  },
+  {
+    "text": "im not sure what the person complaining has been smoking or what beef s he has with my site but i feel i must stand up for myself in the face of such a ludicrous claim",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like redoing it somehow but some part of me can t be bothered as well",
+    "emotions": "anger"
+  },
+  {
+    "text": "i love my dark angels as they are my first army but this left me feeling slightly jaded",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i will feel and not be fearful",
+    "emotions": "fear"
+  },
+  {
+    "text": "i have met a few students that still do not feel safe being out at their veterinary school",
+    "emotions": "joy"
+  },
+  {
+    "text": "i had some really good times but some other time i feel like i can be depressed now that i know what the real depression is thankyou effy stonem im not gonna say that im depressed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i now feel embarrassed to say i m irish for fear the dreaded subject of that match will be broached again",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel is an acceptable and significant modernization to the storyline not a detraction",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel its a terrific feeling to be excited about the prospects of creating cash in a new company but you are improved off realizing what the negatives are and then anticipate them",
+    "emotions": "joy"
+  },
+  {
+    "text": "i see it i feel kind of weird",
+    "emotions": "surprise"
+  },
+  {
+    "text": "ive been feeling outgoing lately because its been easy for me but i still feel like an ass",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was there bright and early feeling out of my leauge shaky a little sick with nerves",
+    "emotions": "fear"
+  },
+  {
+    "text": "i wanted and expected sci fi pa horror and i got this extra infusion of paranormal and though i really liked the story i feel it would have been more successful and appealing without the addition of the ability",
+    "emotions": "joy"
+  },
+  {
+    "text": "im in the relationship i still feel lonely",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel so utterly rude when i go to a friend s house after they ve toiled over some amazing meal and then i waltz in and poke at it",
+    "emotions": "anger"
+  },
+  {
+    "text": "i was feeling paranoid un f ing believable",
+    "emotions": "fear"
+  },
+  {
+    "text": "i know that when you feel fantastic it affects everyone around you in amazing ways",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was feeling a little disheartened as i was hoping they would fit but then i thought about the fact that i thought they were size but it turns out they are size and a large size",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel a bit smug about it now though",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel furious at the world for causing me this affliction",
+    "emotions": "anger"
+  },
+  {
+    "text": "i should feel no remorse and accept the fact that nature took its course theres still something inside thats hateful",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling fine though hungry because i havent had breakfast",
+    "emotions": "joy"
+  },
+  {
+    "text": "i must admit i am feeling the creative bug pretty heavily the last few months",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel that i let myself get too uptight",
+    "emotions": "fear"
+  },
+  {
+    "text": "i am so sorry for making you feel unimportant lately",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i did feel sort of grouchy at the halloween festivities this week not being able to partake in the treats",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like my day to day life is pretty dull",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i really feel my pissed off mood took its toll on me",
+    "emotions": "anger"
+  },
+  {
+    "text": "i left the cd store feeling invigorated and excited about taiwan",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel that responding to the results of the dice and finding clever justifications and back stories for the monsters and traps and treasures i roll up has been some of the most fun ive had as a dm period",
+    "emotions": "joy"
+  },
+  {
+    "text": "i told her that would feel highly honoured to have that occur",
+    "emotions": "joy"
+  },
+  {
+    "text": "i woke up feeling rich beyond my wildest dreams because there is nothing that fulfills me more than sharing heart and truth with my lover and feeling so completely seen felt and connected",
+    "emotions": "joy"
+  },
+  {
+    "text": "i want to feel productive at the end of the day",
+    "emotions": "joy"
+  },
+  {
+    "text": "i also feel like im reaaaaally boring right now",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i get so tired of pretending everything is great and granted things are pretty good yet i am feeling discontent",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am just so ready to lose this weight and start feeling gorgeous again if i ever did",
+    "emotions": "joy"
+  },
+  {
+    "text": "i cant help feeling that this is a bi product of his being told all his vital information in case he ever became lost and needed to ask a kindly policeman for help",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling very shaky right now",
+    "emotions": "fear"
+  },
+  {
+    "text": "i am going through the hundreds of photos ive stored in my old dell and of course feeling nostalgic",
+    "emotions": "love"
+  },
+  {
+    "text": "im not sure how the boy feels but i know for sure he is happy as a fiddle right now just because of one little newcomer",
+    "emotions": "joy"
+  },
+  {
+    "text": "i tend to avoid raw aggressive and abrasive eruption in sound and even when they are at the highest peak you can still feel the comfortable vibes their sound displays and its fantastically well done",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was sitting on the adjacent sofa and preparing to listen to bianca s tale without any hard feelings well not nearly as many anyway",
+    "emotions": "joy"
+  },
+  {
+    "text": "i wish peter hadn t fallen off the face of the earth just so i could feel assured that he s okay too",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel hateful and like i m never gonna be proud of myself",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel stupid around them",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i don t feel obnoxious saying this but i ve gotten the internships i wanted over the past year and a half",
+    "emotions": "anger"
+  },
+  {
+    "text": "i wake up in the morning feeling really really lousy",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i will immediately begin to feel compassionate for said person and lose track of what is actually happening and immediately begin to console the person regardless of what caused the incident rather than the solve the problem at hand",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel like you rarely get to see something that s like petrified ryan said",
+    "emotions": "fear"
+  },
+  {
+    "text": "i just feel like i m purposely leaving myself out from my circle of friends or my community when i should be getting out there helping caring for others",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel that my nephew is a very x smart person but he just need an extra push to do even better",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was feeling irritated before that",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling fine again too",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel incredibly lucky that now i have the chance to create books for readers that will hopefully captivate and transport them into a world where the supernatural is possible with characters that they can relate to who are flawed yet totally compelling",
+    "emotions": "joy"
+  },
+  {
+    "text": "i want is for you to feel uncomfortable because of me",
+    "emotions": "fear"
+  },
+  {
+    "text": "i am having a hard time really forgiving this person because really i think this is what they really feel not all the fake stuff they portrayed for the few months they ve known me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i didn t feel like they broke up the story which was already non linear",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling a bit nostalgic about this flashback friday entry because i realise how different things are today",
+    "emotions": "love"
+  },
+  {
+    "text": "im just feeling so indecisive and noncommittal today",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel so passionate about helping others achieve their goals",
+    "emotions": "love"
+  },
+  {
+    "text": "i could feel myself shrinking shrinking away and it frightened me terribly so that i lighted on the ground to think over what was happening",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel worthless and hopeless and broken",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i perform a submarine cartwheel before i feel a violent tug on my ankle as my board gets hauled towards the beach",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel valued and appreciated and far more confident that i ever have felt before",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel a little bit shamed for so often having ranted about how shameless and silly the website is",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like the precious time that i have at nights with my family are consumed with things that arent that important like dishes and laundry",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so emotional today",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like it is almost vital that if i do not find more answers about a href http antiques",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel a cool breeze you can only really feel on the west side of la because the east side feels more like a hairdryer but without the wind",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am too different to be accepted by the society which made me feel like a melancholy guy who was nothing but a failure in love and social life just cause of this habit of overthinking",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i mean my feelings are always sincere i just think part of me tends to repress certain things in order to somehow lessen the blow that will eventually hit when the relationship ends",
+    "emotions": "joy"
+  },
+  {
+    "text": "i said i m feeling incredibly content here at the moment but it s also cold season",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel gt gt somewhat reluctant to ask the things that might clear it up since there gt gt seems to be this nod and wink thing going on while pretending that all the gt gt files we collectively have are all completely on the up and up",
+    "emotions": "fear"
+  },
+  {
+    "text": "i at toasty radio yaaaay mark it feels like divine enlightenment doesnt it toasty",
+    "emotions": "joy"
+  },
+  {
+    "text": "i may have done wrong thing doesnt feel so sincere",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel disturbed reading ntuc income changing the status of their insurance agents their employees to agents status",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i be feeling having my beloved accused for nothing",
+    "emotions": "joy"
+  },
+  {
+    "text": "ive not allowed the players to feel gloomy ive said all along the glass is half full not half empty",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel kinda gorgeous",
+    "emotions": "joy"
+  },
+  {
+    "text": "i always want to be on the go i feel discontent when im sitting around wasting time",
+    "emotions": "sadness"
+  },
+  {
+    "text": "is book is an embarrassment to the craft of journalism and any of the conservatives who have praised and promoted it should feel humiliated at how bad it truly is",
+    "emotions": "sadness"
+  },
+  {
+    "text": "ive been feeling creative lately so made this",
+    "emotions": "joy"
+  },
+  {
+    "text": "i started to feel anxious at work i would go outside get some fresh air and try to walk off any nervous tension that was building up",
+    "emotions": "fear"
+  },
+  {
+    "text": "i love him but he needs to change and as long as he feels he is perfect and nothing wrong with him he will be stuck",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel such shame to sit here and share our storm while others are suffering and dealing with far worse things",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel everything is in control then i am ok",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was feeling a little apprehensive reluctant ambivalent about it because i didn t think it had worked so that little voice in my head was asking why bother trying it again",
+    "emotions": "fear"
+  },
+  {
+    "text": "im feeling naughty and want to tease sarah and because ive seen vintage vicki doing the same here here is a sneak teasy preview of my go",
+    "emotions": "love"
+  },
+  {
+    "text": "ive started to mensturate and its getting harder to find my g spot especially when my blood sugar is low or im feeling delicate",
+    "emotions": "love"
+  },
+  {
+    "text": "i want to know feelings i never felt before but will i ever experience your gentle touch again",
+    "emotions": "love"
+  },
+  {
+    "text": "i hope everyone i know gets to feel this kind of free",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was slightly worried about giving danica away as i don t usually give away old things that i make invariably i was a rubbish knitter back then but my friend had continually admired it over the winter months so i don t feel too badly especially now that it is once again gorgeous",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am having a horrible day i don t feel blessed whatsoever and by the way the sky is falling",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel as if i must be the most boring blogger around",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling crappy everything sucks the idea of scrapbooking seems idiotic and i question my need to create",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel sweet tooth is thoroughly satisfied i feel very full i feel like a run the ice cream really wasnt all that wonderful the cookie to ice cream ratio wasnt optimal for me",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel really violent lately",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling uncertain and anxious and just hope everything goes well",
+    "emotions": "fear"
+  },
+  {
+    "text": "i still don t really like our new record because it feels really rushed",
+    "emotions": "anger"
+  },
+  {
+    "text": "i do not return tomorrow with a list of books or music kindly strangle me with a dead kitten or a live kitten if you feel unkind",
+    "emotions": "anger"
+  },
+  {
+    "text": "i bought a bunch of fruit to have when im feeling snacky so hopefully it will curb the sweet cravings",
+    "emotions": "love"
+  },
+  {
+    "text": "i desire to learn to ride this feeling this ecstatic joy without needing to bury my soul again under a cloak of shadow",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so fucking appreciative of my world",
+    "emotions": "joy"
+  },
+  {
+    "text": "i cant help but feel glad like there has been justice",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel whether im offended hurt or jealous",
+    "emotions": "anger"
+  },
+  {
+    "text": "i avoid those feelings at all costs opening my bank account im broke",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like im so muthafucking unimportant",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im overwhelmed or feel ignored or alone",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i miss that feeling of caring for someone",
+    "emotions": "love"
+  },
+  {
+    "text": "i was pushing it a little and i hope my friends didnt feel offended that i was just blabbering on about rape culture and the matrix of domination blah blah blah",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel overwhelmed when you do not help help out around the house because i think that i do the majority of the work",
+    "emotions": "surprise"
+  },
+  {
+    "text": "im tired and feel burdened i have a place to go",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i wasnt going to feel anxious or despondent or angry anymore",
+    "emotions": "fear"
+  },
+  {
+    "text": "i cant drive im turning in a few weeks im a bad friend ljubas making me do student council im lonely ive bitched out some people i feel generally discontent unproductive like a terrible person and theres still something days of school left digornios pizza isnt that good im a loser etc",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i didnt feel particularly glamorous in this picture but it showed an honest depiction of my daily appearance",
+    "emotions": "joy"
+  },
+  {
+    "text": "i needed to feel less overwhelmed and frustrated by competing priorities and life stressors so that i could move forward",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel calm and relaxed most of the day which is quite different since im usually described as wiry and hyper",
+    "emotions": "joy"
+  },
+  {
+    "text": "i should not feel so shitty because of my weight",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was feeling very anxious this song came on the radio as soon as i got in the car",
+    "emotions": "fear"
+  },
+  {
+    "text": "ive sought out god already but i still feel im ignored",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i sincerely hope ive been duped by a fake news story because if not i feel really really really bad for that little girl",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was still left feeling sad and alone",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel a little more confident and standing up straighter means my mummy tummy seems flatter than before",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel called to do and delighted in doing",
+    "emotions": "joy"
+  },
+  {
+    "text": "i decided that since i was feeling grouchy i was going to make whatever i wanted for dinner comfort food time",
+    "emotions": "anger"
+  },
+  {
+    "text": "i was feeling energetic",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling restless and tired just thinking about my literary goals",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel so unhappy and that is one more reason to long for the summer",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel so amazed by the mindset i have",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel impatient and unsure if the images are worth it",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel suspicious of innanimate objects and as though my house is actually the set of a play or a movie or some kind of model of itself and how did i come to be here and why is that carpet looking up at me like that",
+    "emotions": "fear"
+  },
+  {
+    "text": "ive actually felt joy as for most of my life i felt awkward feeling ecstatic about anything other than a particular interest",
+    "emotions": "joy"
+  },
+  {
+    "text": "i scan this slim fictional work however i realize that its a challenge encapsulating the very feel of this book sometimes hopeful sometimes depressing but never cloying",
+    "emotions": "joy"
+  },
+  {
+    "text": "i guess murali also must be having the same feeling it would be really foolish to miss such a beautiful experience",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel hopeless rel bookmark i feel hopeless posted on a href http passiveaggressiveabuse",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i still just don t feel any amorous feelings towards him",
+    "emotions": "love"
+  },
+  {
+    "text": "i going to feel more overwhelmed because i will start thinking of too many things i need to do which i have a very bad habit of",
+    "emotions": "fear"
+  },
+  {
+    "text": "i want to be robust simply because i really feel like i am nonetheless hated on",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like this is never going to get resolved",
+    "emotions": "joy"
+  },
+  {
+    "text": "i read this quote and i think about the things i feel newly faithful in like living life a day a time and surrendering every piece of me physical mental emotional and spiritual to a power greater than me",
+    "emotions": "joy"
+  },
+  {
+    "text": "i havent seen megan in quite a while it feels like and im eager for some meganness",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can t help but feel a little resentful of what they get away with like when they robbed me of a library book i now have to pay for and my shoes while i was asleep yesterday",
+    "emotions": "anger"
+  },
+  {
+    "text": "i enjoyed my career however feel that education is vital in today and future markets",
+    "emotions": "joy"
+  },
+  {
+    "text": "i read a book that i borrow from the library called get positively beautiful the ultimate guide to looking and feeling gorgeous carmindy",
+    "emotions": "joy"
+  },
+  {
+    "text": "i think i would feel like i was too needy",
+    "emotions": "sadness"
+  },
+  {
+    "text": "ive been feeling a little grumpy",
+    "emotions": "anger"
+  },
+  {
+    "text": "i have goals both short and long term and i feel invigorated every day",
+    "emotions": "joy"
+  },
+  {
+    "text": "i did leave feeling slightly dissatisfied the ending wasnt quite as strong as i thought it couldve been",
+    "emotions": "anger"
+  },
+  {
+    "text": "i go through might make them feel humiliated but for me i can honestly say i have never felt humiliated",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i know what i feel and my heart is stubborn about my emotions",
+    "emotions": "anger"
+  },
+  {
+    "text": "i told yong that when im drunk my real feelings show and thats why i get somewhat bitchy with her them",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like ive encountered someone intelligent i havent met someone who immediately seems intelligent in awhile",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like my medication isnt working like it should and im frightened for what the postpartum period holds for me",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel that linux is pretty much the answer to the problem of safety and security on the web",
+    "emotions": "joy"
+  },
+  {
+    "text": "i still have my insecurities but i feel like i can be brave and be myself and i owe it all to my amazing husband",
+    "emotions": "joy"
+  },
+  {
+    "text": "i wish i had something elegant and composed to share but lately i m just feeling isolated shut off",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel for them being abused by a jerk such as zell",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i both feel passionate about",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am grateful for feeling and being loved",
+    "emotions": "love"
+  },
+  {
+    "text": "im not feeling bitchy at the current moment either",
+    "emotions": "anger"
+  },
+  {
+    "text": "i paused feeling that what would come next would be fake",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i did feel heartless",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel melancholy that perhaps i wasted those two summertime months by not doing summery things",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was feeling particularly sociable or particularly uncomfortable which sometimes causes me to be strangely outgoing and i exaggerated the way i wanted it cut",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel very honoured and lucky to have such beatuiful gifts",
+    "emotions": "joy"
+  },
+  {
+    "text": "i spent an idyllic weekend there and came back home feeling rejuvenated once again impressed by the stunning venues we have in south africa",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i was feeling increasingly dissatisfied towards the end and that s just no good for either of us",
+    "emotions": "anger"
+  },
+  {
+    "text": "i have some idea as to what would lead me to the best place then id feel more reassured",
+    "emotions": "joy"
+  },
+  {
+    "text": "ill never forget my phone interview with heidi and feeling absolutely terrified when she asked the question so can you tell me about your faith journey",
+    "emotions": "fear"
+  },
+  {
+    "text": "i think if you did feel that way then all i need to do is to get you convinced that i do love you and even though i like freedom and the lot while you have your possessive streaks and whatnot we could still make it through together",
+    "emotions": "joy"
+  },
+  {
+    "text": "i mean the fact that a teacher has great responsibilities and has to seem happy and nice everyday even though they might feel stressed",
+    "emotions": "anger"
+  },
+  {
+    "text": "my sister came back home and reproached me for not having tidied up the house",
+    "emotions": "anger"
+  },
+  {
+    "text": "i woke up not feeling very well that morning and this feeling continued throughout the day",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so incredibly blessed to be able to participate in such a wonderful even with my amazing band family",
+    "emotions": "joy"
+  },
+  {
+    "text": "i put a towel down in her bed in case it goes horribly wrong but im feeling optimistic",
+    "emotions": "joy"
+  },
+  {
+    "text": "i do go through a period of time when i am able to get a lot of writing done i feel drained afterwards",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel numb to every emotion other than the negatives fear anger sadness",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel excited to have a concert in shanghai again",
+    "emotions": "joy"
+  },
+  {
+    "text": "im still feeling bad about picking that little pansy off the plant",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was in a really bad reading slump at the time and didnt feel like reading at all since a lot of books that i have been reading hadnt amazed me",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel a little insulted but youre not sure why",
+    "emotions": "anger"
+  },
+  {
+    "text": "i people feel dismayed and disappointed at the bush administration s policy fmr",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i get these feeling i get really troubled and confused because i wonder a sex presides at the core of every living thing and both sex and sexuality lie undeniably at the core of every human so how do i understand someone who shows no traces of either",
+    "emotions": "sadness"
+  },
+  {
+    "text": "ive been feeling troubled and moody these days no without a reason",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i snored so loud which made me feel shy and uncomfortable during our bed time",
+    "emotions": "fear"
+  },
+  {
+    "text": "i suddenly feel helpless and start crying",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am feeling troubled in my soul and spirit",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was within a hairs breadth of knocking down a drunkard who suddenly ran into the street the fear came later when i realized what could have happened",
+    "emotions": "fear"
+  },
+  {
+    "text": "i am feeling a tad wimpy about it",
+    "emotions": "fear"
+  },
+  {
+    "text": "i need to think about how that makes me feel i feel offended",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like im going through some sort of rebellious phase about years too late",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel the love of these wonderful people in return",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like im reading too many books at once and im going to get them confused with one another",
+    "emotions": "fear"
+  },
+  {
+    "text": "i have found my heart to feel more fond of dr",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel like a greedy old jewelery lover lady when i say it but i guess i m actually one of those it s like me and swarovski only times better",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel i would have been intimidated by having boys in the class and that it would have taken me longer to build up confidence",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel for you is just one of the many mega hits that keeps me coming back for more on this amazing album how about through the fire one of the greatest contemporary love songs of our time",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i got feeling hopeless",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel lousy hope is less bright",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was veri feeling very dazed",
+    "emotions": "surprise"
+  },
+  {
+    "text": "im stuck with my course choices but i still feel happy that im a pharmacy technician maybe because i followed my interest and managed to secure a job from it",
+    "emotions": "joy"
+  },
+  {
+    "text": "i want as much of you as you are willing to give me and i plan on making you feel very generous",
+    "emotions": "joy"
+  },
+  {
+    "text": "i still do not feel special",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling really bitchy today ill be on my best behavior",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel its almost a process for me as well as the judge in israel to know of my worthiness",
+    "emotions": "joy"
+  },
+  {
+    "text": "i un friended my friend on facebook because i was feeling very emotional and upset about being left out and feeling like i was losing my friend",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feeling calm and no more pressure b",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can t help but break out in a big smile the feeling is so delicious",
+    "emotions": "joy"
+  },
+  {
+    "text": "i guess i could also describe this as feeling blank",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i miss kissing him in c hall and feeling so inhibited and natural",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel savage",
+    "emotions": "anger"
+  },
+  {
+    "text": "i am feeling distressed anxious and uneasy or worried i find it s a mental shift that is most often required to return to a state of ease",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel so abused so taken advantage of",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i become rude more often called outspoken or forthcoming but its just rude times this isnt intentional i guess its more of a natural reaction to feeling insecure and unworthy",
+    "emotions": "fear"
+  },
+  {
+    "text": "i am feeling irritable and moody and kind of just blah today so i decided that this would be a good time to try bitch for the first time",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like it was a productive time",
+    "emotions": "joy"
+  },
+  {
+    "text": "i remember the many lunches in hell and of all of the time i wasted on savannah my freshman year and i cant help but feel a twinge of gratefullness towards her even though shes a hateful bitch and i despise every fiber of her being and just admitting this makes my skin crawl",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel the need to discount something clever said by my daughter",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel helpless god is",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i don t like admitting that i still feel afraid because i ve been told over and over again that being afraid lets the terrorists win",
+    "emotions": "fear"
+  },
+  {
+    "text": "i have examined my own thoughts amp feelings about this amp am once again assured that it s not an unhealthy thing at all",
+    "emotions": "joy"
+  },
+  {
+    "text": "i just sat there feeling listless",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel nervous i cant really know what it will be like until i live it and anticipation is sometimes a scary thing",
+    "emotions": "fear"
+  },
+  {
+    "text": "i just feel he was another dumb character that deserved to get killed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i just have so many conflicting feelings and messages which i of course cant talk about because hed get mad about it and id definitely start crying which i know he hates",
+    "emotions": "anger"
+  },
+  {
+    "text": "i am feeling dirty and want to get rid of this mighty smell",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel so stunned that it should be so strange for me though it has enjoyed a great popularity in the fashion field for that long a time",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel that my teachers are being supportive and encouraging me",
+    "emotions": "love"
+  },
+  {
+    "text": "i am contributing to feel like i am successful to feel like a man in a manner of speaking",
+    "emotions": "joy"
+  },
+  {
+    "text": "i think that feeling has pretty much gone now",
+    "emotions": "joy"
+  },
+  {
+    "text": "i indicated then i was feeling quite overwhelmed with work responsibilities teaching traveling and writing",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel i would get aggravated for no reason",
+    "emotions": "anger"
+  },
+  {
+    "text": "i wasnt consciously feeling distressed or anything by his crying or difficulty getting him to eat",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like im more productive in there",
+    "emotions": "joy"
+  },
+  {
+    "text": "i wish i would stop feeling so discontent so i could sleep",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i just feel that russell is a clever marketer and there are some jealous rival fans out there check the membership totals i think im right",
+    "emotions": "joy"
+  },
+  {
+    "text": "my best friend suddenly acting strange towards me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel kinda cool",
+    "emotions": "joy"
+  },
+  {
+    "text": "i dint feel bothered with traffic jam",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel so terrified that i cannot for a moment compose myself",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel mad because i don t know what i want to do with my life guilty because i start things and don t finish them and then feel like a failure because of it",
+    "emotions": "anger"
+  },
+  {
+    "text": "i know they are here to help me and others but i feel apprehensive when i question for whatever thing",
+    "emotions": "fear"
+  },
+  {
+    "text": "id like to know each of you who has time to see the world because fear leaves you feeling helpless to move then id like to take your hand and walk through the dark valleys with you",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel insulted yamapi points out then smacks ryo on the ass before spinning around in the chair",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling pretty smug though",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like caring for someone else has gotten me to this next phase of getting over you",
+    "emotions": "love"
+  },
+  {
+    "text": "i couldn t think of why she was crying and i didn t feel like i was that person she would call while distraught",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel sorrow because endings are always sorrowful",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i have been taking it slowly going at my own pace and not feeling pressured to finish or catch up and im not looking for a miracle cure",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like my neurotic thoughts are just whining and complaining",
+    "emotions": "fear"
+  },
+  {
+    "text": "i always had the sense that i made him feel sort of insecure",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel invigorated by the holy spirit to press on and go forward",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel very very naughty and very very aroused",
+    "emotions": "love"
+  },
+  {
+    "text": "i also feel fairly confident about how i made a realization realization made with the help of dr",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling really annoyed at my life or really sad my posts will be on the negative aspects of my mind",
+    "emotions": "anger"
+  },
+  {
+    "text": "achievement of a task by a friend who had begun a new job she wasnt confident of handling the situation so was thinking of leaving the job only after days employment",
+    "emotions": "joy"
+  },
+  {
+    "text": "i still feel more than anything else humiliated whenever i think of everything that s happened",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was feeling a bit grouchy",
+    "emotions": "anger"
+  },
+  {
+    "text": "ive spoken about it said the same you leave this one feeling absolutely devastated",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i look at momade s cuts any longer i might throw up on him but i feel really rude walking away",
+    "emotions": "anger"
+  },
+  {
+    "text": "i think hes feeling vulnerable about his own entree into adulthood his own masculinity",
+    "emotions": "fear"
+  },
+  {
+    "text": "i thought putting the decorations put would make me feel a lil more festive and christmas y but it aint making me feel any better",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling a little grumpy today",
+    "emotions": "anger"
+  },
+  {
+    "text": "i want him to be healthy but i feel that at times he gets so annoyed with my constant reminders for him to work out though the good guy he is he never really shows it",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel really passionate about run amp fell and about the ethos of keeping the manufacture of all the brand s garments local",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel isolated and belittled in someway",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like all she understands is how to be obnoxious and boss people around",
+    "emotions": "anger"
+  },
+  {
+    "text": "i didnt find it a laugh out loud rom com it leaves you feeling pleasantly satisfied and well entertained",
+    "emotions": "joy"
+  },
+  {
+    "text": "i do not feel the least reassured",
+    "emotions": "joy"
+  },
+  {
+    "text": "a close friend of the family died",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i used to feel fairly crappy all the time but i did not know it",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel that if he had given i would have been deprived of this opportunity of remaining happy when not receiving",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel very submissive and would like to please you specially",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i cant help but feel jaded when i look at them",
+    "emotions": "sadness"
+  },
+  {
+    "text": "the same as in anger",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel less fearful already ready to face another day",
+    "emotions": "fear"
+  },
+  {
+    "text": "i sometimes feel that everyone is so stupid",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i know its my nerves but im not feeling so hot right now",
+    "emotions": "love"
+  },
+  {
+    "text": "i won t go on about his music but well everyone left feeling joyful that was the palpable emotion",
+    "emotions": "joy"
+  },
+  {
+    "text": "i woke up monday feeling like crap and blamed it on the weather",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am telling you things about which i feel passionately i am trusting you with something i am trying to reveal to you something shown to just a small number and i am hoping that you will see it as special because it is something so few have experienced like walking on the moon",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel graceful when im ice skating which i love doing but havent done in awhile",
+    "emotions": "joy"
+  },
+  {
+    "text": "ive had this feeling of restlessness or discontent lately",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i just have a need to feel dangerous right now",
+    "emotions": "anger"
+  },
+  {
+    "text": "i had a great appointment almost a week ago with my ob and it makes me feel so very reassured that we made the right choice to go with him",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have a feeling the things that bothered me in the first half though would continue in the second half",
+    "emotions": "anger"
+  },
+  {
+    "text": "i just knew at that moment when he began to pour his feelings toward me through the idiotic facebook pictures everyone knows and loves about relationships that it had to end",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like a heartless old hag",
+    "emotions": "anger"
+  },
+  {
+    "text": "when i found out that the seat in the coach that i had booked had been sold to somebody else",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel productive relates sandra",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel strangely bitter sweet",
+    "emotions": "anger"
+  },
+  {
+    "text": "i sit at the top of the stairs feeling a wash of fear and ice cold go right down my arms to the elbows",
+    "emotions": "anger"
+  },
+  {
+    "text": "i shouldn t feel inhibited about writing whatever i want here whenever i want but sadly i am starting to",
+    "emotions": "fear"
+  },
+  {
+    "text": "i was tired though and unaccustomed to feeling unsuccessful",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i find myself feeling a tad shy and slightly embarrassed when someone gives me an award",
+    "emotions": "fear"
+  },
+  {
+    "text": "i have been raised in american society which does not look down on immigrants who cannot speak their native language i still feel humiliated when a chinese person in china finds out that i cannot speak mandarin chinese",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i felt a sense of relief that i could feel again even though it was unpleasant",
+    "emotions": "sadness"
+  },
+  {
+    "text": "first time in anatomy",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel pretty confident doing that",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel there are so many voices and opinions out there im exhausted with it and even with myself for adding to them",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel when i am nostalgic",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel really stupid for opening the e mail",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i dunno im certainly jealous a feel betrayed and i wanna be mad that my brothers taken",
+    "emotions": "anger"
+  },
+  {
+    "text": "ive heard the audio clip of the oppology and i feel like he was sincere",
+    "emotions": "joy"
+  },
+  {
+    "text": "im not too congested if im up but i still feel lethargic and sick",
+    "emotions": "sadness"
+  },
+  {
+    "text": "is best friend moes confection to shuusei her feeling and got rejected",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i will admit that the big bang theory leaves me feeling a little dissatisfied",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel the mac is a much more elegant and simpler interface and user experience",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have decided that i really need to harness those feelings and be that outgoing person when we move so that i can make good friends there",
+    "emotions": "joy"
+  },
+  {
+    "text": "i don t really know how to or what to feel and im curious about how things will go",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i did not feel hostile until i felt impact of the car and wall becoming one",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like making a faithful rendering of it is not really that big of a deal",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel i am superior",
+    "emotions": "joy"
+  },
+  {
+    "text": "i dont know what it is and perhaps i dont really need to know what it is because then it wouldnt feel like divine intervention but today seemed pretty perfect and every time a perfect day like this with perfect weather and everything comes i always want to write about it",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was afraid of my gut feeling i was a person afraid of guessing throughout my teens and twenties",
+    "emotions": "fear"
+  },
+  {
+    "text": "ill only feel happy after i get my results",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel suspicious tbh",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel so foolish as it didnt dawn on me that everything would be closed tonight",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i think they feel fearful",
+    "emotions": "fear"
+  },
+  {
+    "text": "im will always answer you beauties so feel free to email me at eagriffin gmail",
+    "emotions": "joy"
+  },
+  {
+    "text": "i managed not to cough all day long i felt like i actually had some energy instead of feeling completely drained and best of all",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i say i feel the life forces more strongly whenever i think about the beauty in any form and currently my arguments are with that innocent person who is presently invisible",
+    "emotions": "joy"
+  },
+  {
+    "text": "i just dont want to try and i dont want to bother searching anymore as i feel like wants and wishes doesnt seem to go well for me",
+    "emotions": "joy"
+  },
+  {
+    "text": "i also feel disturbed at what could have possibly made him think that shooting larry was the only way of dealing with the situation they had gone through at school",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i did this all a href http feeling groggy",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling a little discouraged today because of where im at financially",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i always feel rushed on the way to visit",
+    "emotions": "anger"
+  },
+  {
+    "text": "i guess i m just feeling a tad inadequate at the moment and sad because i can t keep him in daycare where he likes to go and be with the other kids his age",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am here to realize a higher purpose and instead of trying to fit myself into a big box i should think about what i want to do with my life this feels like shaky ground for me because i am young and shouldnt i just follow a career path then ill figure it out",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel thankful for",
+    "emotions": "joy"
+  },
+  {
+    "text": "i do like them but i cant help but contemplate what would happen if cliff from feeling gloomy fronted a band",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i sure as hell didn t feel half as beaten up by this point last year",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was feeling brave id start a project only to be interrupted minutes later and on days i wasnt feeling so brave id sit there waiting for him to wake any moment only for him to sleep for an hour and a half",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel scared attacked and manipulated",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel dull and my mind wanders there are other mornings where i feel i could burst",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i forgive myself for not accepting and allowing myself to consider that by the time i save enough money to feel safe i will have invested the vast majority of my life into surviving at the direct cost of supporting abuse in the world such as the many people starving daily for my opportunities to win",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like i just want to stay in your tender hug",
+    "emotions": "love"
+  },
+  {
+    "text": "i met up with the tommasi family at lighthouse park for a fun photo session and i m so grateful they were feeling adventurous",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was thinking about recently how i dont think i can remember more then a couple of hooks that were sober or anything that makes me feel i had a slutty drunken hook up last week and literally this guy was biting my neck off",
+    "emotions": "love"
+  },
+  {
+    "text": "i also feel wronged",
+    "emotions": "anger"
+  },
+  {
+    "text": "i don t want to feel guilty when i eat it",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am sad that my efforts to show my feelings and friendship go un answered or disliked",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like i really ought to get my act together and brave the wilds of this city",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have no control over myself and what im feeling and i keep doing rude things to people out of anger",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel an increase in my delicate libido",
+    "emotions": "love"
+  },
+  {
+    "text": "i think teens can relate to that and from the adult side i think parents will nod in recognition of the feeling that their sweet little baby has grown into a sometimes monstrous teenager that seems completely different from the child they once knew",
+    "emotions": "joy"
+  },
+  {
+    "text": "ive read some of her work and im feeling pretty generous lately i thought why not",
+    "emotions": "joy"
+  },
+  {
+    "text": "i want to say about our wedding is this as beautiful as it was to me as great as the satisfaction i feel about it the radiant details are less important to me than the fact that we got married",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like i ve been assaulted but you know in an exhilarating way",
+    "emotions": "fear"
+  },
+  {
+    "text": "i started feeling like a beloved princess and by the time i got to josies my crisis of the moment had passed",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was stuck in a circular mess feeling unloved and not being able to love myself which caused me to feel unloved even more",
+    "emotions": "sadness"
+  },
+  {
+    "text": "when the person im having the affair with wont talk to me in public",
+    "emotions": "anger"
+  },
+  {
+    "text": "i have done because i do not want them to make me feel doubtful of myself",
+    "emotions": "fear"
+  },
+  {
+    "text": "i give up the moment when i feel a heartache i was so afraid of seeing myself back to the oneself i hate the most",
+    "emotions": "fear"
+  },
+  {
+    "text": "im left feeling unsure about what to do",
+    "emotions": "fear"
+  },
+  {
+    "text": "i already feel like the most worthless person ever because of what my dad did to me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like i have been making up for all of those lovely finals weeks",
+    "emotions": "love"
+  },
+  {
+    "text": "i would like to know how to get back the feeling of carefree ness that i had when i was little or the ability to just be happy by watching a favorite show",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling like hot steamy dookie today",
+    "emotions": "love"
+  },
+  {
+    "text": "im feeling a bit irritated",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel hesitant and uncertain as to what to write almost fearful and watchful of what im typing",
+    "emotions": "fear"
+  },
+  {
+    "text": "i try im feeling irate",
+    "emotions": "anger"
+  },
+  {
+    "text": "i remember now what it s like to take risks and feel scared",
+    "emotions": "fear"
+  },
+  {
+    "text": "i philo cedro green hair calf womens feel elegant and sexy in this gorgeous thong",
+    "emotions": "joy"
+  },
+  {
+    "text": "i think of the people there as a kind of extended family i feel accepted and wonderfully comfortable among them",
+    "emotions": "joy"
+  },
+  {
+    "text": "i thought spending the weekend doing things and spending some time playing with little nephew wud make me feel ok",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so honoured that parents let me into their lives at a time that is so precious",
+    "emotions": "joy"
+  },
+  {
+    "text": "i still often feel perpetually horny",
+    "emotions": "love"
+  },
+  {
+    "text": "i should probably feel proud certainly not jilted to think that javale mightve taken my idea and done what he did with it",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel resentfully disheartened my heart felt commitment to you has never been interrupted",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i hang around all day feeling lousy",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i buy a non stretch jeans and i feel weird in it does not stick to the body the fabric is very soft and gives a lot is a cool and comfortable pants you can move freely sorry i had left a little short i give it four stars because the color they sent me chocolate is lighter than this in the photo",
+    "emotions": "fear"
+  },
+  {
+    "text": "i want to keep feeling like i m a conduit for creativity and merely have to find the perfect match or matches for the things i write and the yarns i spin and the art that i make to be wearable",
+    "emotions": "joy"
+  },
+  {
+    "text": "i say that you re as young as you feel and if you feel that you look glamorous that s all you need to win at this game",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel she missed something so obvious but i forgave her as she was dealing with a lot",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel uncomfortable since i have a smaller rib cage and a bigger chest either i am spilling over the top of the tank or the elastic band support is too tight or too loose",
+    "emotions": "fear"
+  },
+  {
+    "text": "i am feeling helpless please help me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like we are now on our way to learning all we can to be successful th graders",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am perfectly capable of making these sweet things for the family but i feel about as dull as ancient silverware and could not rouse myself to make anything right now",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i have a feeling that this journal entry is doomed to be really lame but ill give it a try",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i suggested to hubby that we could take the dogs out with the girls all together to the beach but that i didnt want to walk far as was still feeling rotten",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i didnt feel like staying at work so my mother in law was gracious enough to lend me her home for a while",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel that im going to lose it or anything but i wont be at all surprised if i crash and burn",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel soooo cranky when this happens div style clearboth padding bottom",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like a proud mom because i created everything from scratch",
+    "emotions": "joy"
+  },
+  {
+    "text": "i really didn t feel like i walked away impressed",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel like hes always unhappy",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i tend to feel like i can only update if i catch up on everything i ve missed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like an inadequate mother and wife dont get me wrong",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel it in my bones i am really excited about this story",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling worthless and crappy because my body is different and im not who i wish i could be so i guess im just really feeling that",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel increasingly delighted by my small victories it is thrilling to ask a question and get an answer properly and without complication being a tourist is more than its fair share of awkward",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can do what i do when i feel a hot flash come over me sometimes wait a few minutes and do nothing",
+    "emotions": "love"
+  },
+  {
+    "text": "i was seeing in my head but i feel so frustrated over the whole thing i have decided i may stab someone in the eye if i attempt this mani again",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling slightly lethargic",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i stay duology if i stay amp where she went i really wanted to read more of gayle formans books but i feel i need to say at this point that i was slightly disappointed by just one day",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i have even begun to feel superior other people in many instances",
+    "emotions": "joy"
+  },
+  {
+    "text": "i do not feel superior to my friend in any way so i wont say that i was simply stronger and managed to get out on top",
+    "emotions": "joy"
+  },
+  {
+    "text": "i stopped feeling cold and began feeling hot",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling generous because this is my birthday month",
+    "emotions": "joy"
+  },
+  {
+    "text": "i do feel that it is important for me to practice what i am preaching to my clients when i have some",
+    "emotions": "joy"
+  },
+  {
+    "text": "i would not listen to music that stirred feelings of longing and regret in me and i would definitely not listen to anything by sarah maclachlan who is incapable of writing about anything but longing and regret even when shes writing something semi sexy like your love is better than ice cream",
+    "emotions": "love"
+  },
+  {
+    "text": "i offend easily when i feel my intelligence is insulted",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel oddly hesitant about moving back to port orchard for the summer",
+    "emotions": "fear"
+  },
+  {
+    "text": "i still feel pretty haha",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel that its so lame to go to the clinic to pay rm each time i have diarrhea",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i thought i would be able to get so much done in my time at home before trials but i am still feeling overwhelmed",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel totally at peace and are trusting god",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have tonnes to do for work but somehow just do not feel bothered",
+    "emotions": "anger"
+  },
+  {
+    "text": "i can drink apple juice if im feeling like i want something sweet",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel like every time everyone else swoons over a book i am doomed to dislike it",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am unsure of were i want my life to go i have never feel unsure of what i want to do for a career",
+    "emotions": "fear"
+  },
+  {
+    "text": "i love you i just feel sorry for her",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i cant tell you how much fun ive had and how honoured i feel to have played my part in this fabulous project",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like the dog easily distracted",
+    "emotions": "anger"
+  },
+  {
+    "text": "i had a long day at work and was feeling quite stressed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i knew i was going to be winding down from the alt summit conference and being pregnant i wasnt feeling casino friendly kyle and i opted to stay home and watch my niece lily so stevie and john could head out to play with the rest of the adults",
+    "emotions": "joy"
+  },
+  {
+    "text": "i know he loves his dad and its because of that he feels pain and is angered by his dads words",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel like the cloud of melancholy has passed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like that im hated by most of the girls is it becoz im a good dancer",
+    "emotions": "anger"
+  },
+  {
+    "text": "i have been kind of a beast and i feel just terrible about it",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i have found that i feel the most respected and mature when i m in something years or older or at least something inspired by vintage pieces",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can feel what the people i tortured felt",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel accepted as a foreigner plus japan is giving me much freedom to be myself without too many questions asked",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel like we have some answers and yet no doctor is convinced that they are answers",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can be completely and utterly truthful without feeling judged or shamed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i have already faced makes me feel brave enough to face whatever is in my future",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel quite reassured that my current position of refusal is informed when i read a href http www",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have been feeling seriously discontent with the whole holiday season",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i think mostly im feeling so uncertain now that its more numb than anything else",
+    "emotions": "fear"
+  },
+  {
+    "text": "ive been through much disappointment the feeling of dejection inferiority miserable and pathetic especially during my sec three years",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel so uptight about everything",
+    "emotions": "fear"
+  },
+  {
+    "text": "i find myself feeling irritable or short tempered the chances are that more often than not it relates back to not having had enough sleep",
+    "emotions": "anger"
+  },
+  {
+    "text": "i dont hate it but i feel awkward in it",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am not particularly fond of sweets but sometimes at the beginning of holidays or on cold rainy evenings you want some sweet comfort food to cheer you up and make you feel completely naughty but entirely satiated",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel pretty determined about the whole thing",
+    "emotions": "joy"
+  },
+  {
+    "text": "i noticed that i was snapping at the littlest things i was very irritable constantly feeling lethargic always hungry and not my enthusiastic self",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am reading about s sewing circles and i feel completely happy if you cant spit in the face of imperialism at least be a lesbian",
+    "emotions": "joy"
+  },
+  {
+    "text": "i close my eyes feeling the build up that delicious slow step climbing build",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel messy yucky",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel safe here for now and when it is time to move on you can bet its not going to be to a tent",
+    "emotions": "joy"
+  },
+  {
+    "text": "i would be feeling anxious",
+    "emotions": "fear"
+  },
+  {
+    "text": "i plan to come back and do a better post of how i feel about our precious baby turning one but for now ill just share yesterdays birthday photos",
+    "emotions": "joy"
+  },
+  {
+    "text": "i dont know why it is but i always feel like i have to put on a super suit and help everyone who is going through something even when i know that there is a good possibility ill be ineffectual or worse off counter productive",
+    "emotions": "joy"
+  },
+  {
+    "text": "id done storm clean up when i first came back to florida but its definitely a different feeling altogether when its your neighborhood and your house that are in the damaged areas",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i remembered feeling left out after the concert how everyone was celebrating with each other about how successful it was",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like ive been mostly successful",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like ive missed a book or at least a novella",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like just fab has a much better sale clearance section",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel my comments or opinion are sincere but some people get the wrong message",
+    "emotions": "joy"
+  },
+  {
+    "text": "i tell you the more i think the more i feel that there is nothing more truly artistic than to love people vincent van gogh",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have a feeling the experience was just unfortunate for both parties still it left a bad taste in my mouth among otherwise superb service",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i actually feel kinda glad that i dont have my phone with me",
+    "emotions": "joy"
+  },
+  {
+    "text": "i saw a rat but i feel youll discover this to be a perfect match",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling excited nervous same thing right",
+    "emotions": "joy"
+  },
+  {
+    "text": "i should probably get my brain to slow down and quit feeling curious about what the rest of the world is thinking",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel like i just stepped into a cute mmorpg when i visited",
+    "emotions": "joy"
+  },
+  {
+    "text": "i place the youngsters feel vital and as well as came as could not satisfy his her needs",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel disturbed unsure totally floored massively confused",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i keep bars on hand and break off a square or two a few times each week not too often but enough so that i don t feel deprived because feeling deprived is not healthy",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i say so because i have always considered uncle paul as that darling uncle with a knack for telling jokes exciting smiles and laughter and for making people around him feel joyful",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel with the talented skill positions in jacksonville it could benefit the jaguars a lot to go and take him",
+    "emotions": "joy"
+  },
+  {
+    "text": "i like to consider these splurges necessary as i am now at the point where i feel uncomfortable going out without makeup on",
+    "emotions": "fear"
+  },
+  {
+    "text": "i am feeling in the mood for some of this delicious bread i take it out of the freezer and let it defrost",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can actually feel all my stomach muscles again and im all bouncy",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was feeling quite thrilled myself but i knew it needed some color to give it that pop that i wanted to see when walking up the stairs",
+    "emotions": "joy"
+  },
+  {
+    "text": "i sit here complaining to my doctor that i am feeling completely overwhelmed at times",
+    "emotions": "fear"
+  },
+  {
+    "text": "i sometimes feel a little jaded about my life but then i remember that my boyfriend and i have our health food on the table and a roof over our heads not to mention very nice stuff and two very beautiful fat cats",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am feeling particularly apprehensive because his reflux troubles have not subsided much and i have no idea how hes going to handle the new things that ill be putting in his little mouth",
+    "emotions": "fear"
+  },
+  {
+    "text": "ive been feelng really agitated im not quite certain why",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like writing as i am starting to feel passionate again about life",
+    "emotions": "joy"
+  },
+  {
+    "text": "i know its a common feeling but now i cant imagine loving another child as much as i love my little boy",
+    "emotions": "love"
+  },
+  {
+    "text": "i think on some level we can all relate to fontanas feeling of otherness during school days even the girls we all thought were perfect",
+    "emotions": "joy"
+  },
+  {
+    "text": "i should be able to function and not feel agitated when it has only been a few hours",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel i m being more earth friendly",
+    "emotions": "joy"
+  },
+  {
+    "text": "i find myself wanting to complain about the discomforts i feel im always quickly reminded id much rather feel them than be aching from another loss",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel so appreciative to have this good time for however long it lasts",
+    "emotions": "joy"
+  },
+  {
+    "text": "im sure it is in no way personal and of course to remain aloof may just be a defence mechanism to stop people experiencing the same feelings of dejection on being ignored",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel clever oh so clever i feel clever and witty and smart",
+    "emotions": "joy"
+  },
+  {
+    "text": "i get fed up feeling disgusted with myself then become obsessed with eating clean and lifting till i look how i want",
+    "emotions": "anger"
+  },
+  {
+    "text": "i wish i felt solid about it but the way he lightens every situation with humor and sarcasm makes me feel like hes being insincere",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel privileged to be able to help his family fulfil his and their ambition of getting michael s music out there",
+    "emotions": "joy"
+  },
+  {
+    "text": "i flailed wildly again but after a time i began to feel almost peaceful",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel disturbed like i need to reach out to someone only problem is i dont know who",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i didnt actually see him on webcam for a couple of days after we started chatting on messenger but just the feel of his energy during our chats was amazing",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i can say exactly what i think and feel and i can be assured that there are some of you out there who feel the same",
+    "emotions": "joy"
+  },
+  {
+    "text": "i stepped in and chewed them both out for being childish and being too busy feeling victimized to actually read what id posted and for just generally making the mod job even harder than it already was for me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel sooooooooper vain taking pics of myself for the last hour",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling brave im dying to try amp make a koushi light",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel scared to know whats going to happen whether im pleased or not",
+    "emotions": "fear"
+  },
+  {
+    "text": "i want to say and i feel so inhibited by my small vocabulary",
+    "emotions": "fear"
+  },
+  {
+    "text": "i can remember that feeling and loving it as a child",
+    "emotions": "love"
+  },
+  {
+    "text": "i like to think of this opportunity for considered creation while choosing feelings of eager anticipation as new year s intending",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like i am becoming much more pleasant to be around but it is important that i stay vigilant of myself and my attitude",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like i have been wronged by being put on this miserable planet",
+    "emotions": "anger"
+  },
+  {
+    "text": "i personally feel slightly impressed with myself",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel he is too talented not to bounce back though",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel deeply ashamed at the thought that some employers expect me to be grateful for the opportunity to learn something in exchange for unpaid labor",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling less and less terrified and more and more positive that our dream of raising a daughter will come true",
+    "emotions": "fear"
+  },
+  {
+    "text": "im sorry that i feel like im being judged when someone makes an innocent comment im sorry that i feel like i cant show my face to tuckers parents again because they probably think little of me too",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel ok i just boil them",
+    "emotions": "joy"
+  },
+  {
+    "text": "i love him but i feel so bitter towards him",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel or exactly how gorgeous i feel then when the body starts to age as well as an sickness as well as predicament steals us of my personal ability to perform i will get sorrow",
+    "emotions": "joy"
+  },
+  {
+    "text": "i still sometimes miss him i no longer feel guilty about that",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i wish i had some great pics to share but i wasnt feeling too hot",
+    "emotions": "love"
+  },
+  {
+    "text": "i cannot tell though i feel he is charming to still there as he a href http xbroulav",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling a tad groggy reach out and slapped it to snooze",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i eat a lovely salted caramel baked banana with salted caramel ice cream yes i fear i may have been approximately salt by the time i finish eating you see it here in front of a very sexy champagne jelly whilst listening to lullaby by the cure and feeling really very pleased with life indeed",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling snuggly and affectionate and shes not in the mood for it then im just shit out of luck",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel rejected or betrayed by society",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel as though i have been left with a dull pain deep inside my heart",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i ended up feeling slightly dissatisfied with the all too brief glimpses into six fascinating stories",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel pretty dazed after miles in the best of conditions so ive found it helpful to have a bit of support and nourishment along the way",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel to have the honor to be this precious little girls mother",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel gorgeous wrapped in this",
+    "emotions": "joy"
+  },
+  {
+    "text": "i can get myself upset about my circumstance but when those emotions turn to a panic when i feel so out of control and thrash about i am not trusting in god to give me more breath",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling a bit disgusted with myself",
+    "emotions": "anger"
+  },
+  {
+    "text": "i try to make sure that all the jobs that need doing are done and that everything will run totally smoothly or do i set booby traps so that i can feel useful as i m skyped so that my expertise",
+    "emotions": "joy"
+  },
+  {
+    "text": "i would not feel devastated every time i see normal parents",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i talked to a nurse in the ms department she made me feel foolish maybe unintentionally explaining my symptoms",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was feeling completely homesick",
+    "emotions": "sadness"
+  },
+  {
+    "text": "when the neighbour of a friend of mine was stabbed to death by thieves in kabwe they stole his van",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i swished around all day feeling quite pleased with myself",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel the cold i can say he sends it",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel really smart when they allude to classics",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling very tender in this sweet moment",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel less and less troubled by these difficulties with understanding",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel really mad",
+    "emotions": "anger"
+  },
+  {
+    "text": "i landed safely at the tiny airport here feeling dazed tired and confused but was so happy to be greeted by shelly amp lisa who wonderfully had a pizza waiting for me at the inn nearby",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i suppose thinking about why ive been single for so long got me feeling kind of mellow a diffrent tone in my music this week i noticed",
+    "emotions": "joy"
+  },
+  {
+    "text": "i think i really want and so many moms want too is to feel successful at the end of something anything",
+    "emotions": "joy"
+  },
+  {
+    "text": "i could deploy when im feeling amorous and my partner isnt wouldnt be too unethical would it",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel so disturbed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel badly for the tragedies at all the innocent blood shed in recent school shootings and the mass killings but honestly people wake up",
+    "emotions": "joy"
+  },
+  {
+    "text": "i thought the song captured that drowning feeling plus ok drowning and baratheons it figures",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel a loss of control things aren t in their perfect place",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling less uptight now",
+    "emotions": "fear"
+  },
+  {
+    "text": "i want to feel bitter and angry",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling rather terrified about starting again",
+    "emotions": "fear"
+  },
+  {
+    "text": "i will refer to time and time again when i am feeling disheartened as a reminder of the purity of human instinct",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i believe the main point here remains citizens should not feel pressured to vote or feel as if they are somehow squandering their privilege or being lazy by not fulfilling some politically mandated requirement",
+    "emotions": "fear"
+  },
+  {
+    "text": "i have to say i m feeling pretty damn impressed with myself something which doesn t happen a great deal when it comes to taking a disciplined approach to writing",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i know its friday and at this blog that means weirdness but its nearly christmas im feeling mellow and rules are made to be broken",
+    "emotions": "joy"
+  },
+  {
+    "text": "i recall the day i stepped into the campus to attend orientation day with all of you feel so innocent so fresh so dumb and so rough",
+    "emotions": "joy"
+  },
+  {
+    "text": "i woke up not feeling as super fly as i normally do but yet i forced myself to get out of bed",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel that this is perfectly acceptable",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am asking for you to feel sorry for me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel amazing and so much healthier",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i was feeling oddly horny and turned at the prospect of going to this club i had always had suppressed curiosities about man to man sex",
+    "emotions": "love"
+  },
+  {
+    "text": "im going to tell you how disappointed in ourselves we are but that would be another lie cause were feeling pr etty smug right now after keeping up with aussie lads for days",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel he has hurt me more than anyone in a long time",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i type that i feel very offended at the typical baked good isle",
+    "emotions": "anger"
+  },
+  {
+    "text": "i sent out emails including a couple of couples that were close to these friends of mine just so no one would feel id been rude or unkind",
+    "emotions": "anger"
+  },
+  {
+    "text": "i remember feeling annoyed but also wondering if i shouldn t stop and buy something",
+    "emotions": "anger"
+  },
+  {
+    "text": "im feeling about my book going into content edits next week",
+    "emotions": "joy"
+  },
+  {
+    "text": "i while we were under the rain made me feel kinda messed up because i spoke truthful words and that made me think a lot after we left scape",
+    "emotions": "joy"
+  },
+  {
+    "text": "i felt like he just kept questioning me about the quickest way back and i really didnt know which in turn made me feel stupid irresponsible and frustrated and then more angry at him i guess",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i can feel that they arent supporting me but that doesnt mean i dont want them im my life",
+    "emotions": "joy"
+  },
+  {
+    "text": "i like how lances cousin explained it to me you feel so out of control with your body during pregnancy but thats the perfect setup for parenting because youll feel even more out of control once the kids are born",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like there s been this shift in the way people write and talk about her where we ve all decided to accept that she s talented and awesome",
+    "emotions": "joy"
+  },
+  {
+    "text": "i must admit that there are many a times where i got a feeling that the series of unfortunate events that the characters face one after the another was a bit too dramatic",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i always feel a little stressed out too",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like im the only one in the vicinity suffering",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like our life together is boring",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling curious and silly",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i suppose there are worse things than feeling sympathetic toward every person who looks a little sad every ripped teddy bear and every book that stands alone on a shelf",
+    "emotions": "love"
+  },
+  {
+    "text": "i can write here exactly how this makes me feel about townsend a player who i respected who had even blogged about having good games with me back when he played on his real account",
+    "emotions": "joy"
+  },
+  {
+    "text": "i have tried very hard to parse out this rewriting the constitution talking point mostly because she keeps saying it and i feel that if we could understand her point even a little we could do a much better job of making fun of her for it",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel very faithful today",
+    "emotions": "joy"
+  },
+  {
+    "text": "i wake up and i m feeling terrible",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i start feeling really thankful that i live in america the superpac ads for president come on and holy cow it makes it sound like this country is going straight down the crapper and its all the presidents fault",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel slightly neurotic and perhaps approaching the brink of insanity",
+    "emotions": "fear"
+  },
+  {
+    "text": "i have friends in the village and i feel like a part of the school communities and accepted by the villagers",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like the words just came out and flowed and i was sure that for this paper my words would come out even better and this would be one of my best papers but for some reason when writing this paper i had a hard time gathering my thoughts",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel more loved there than anywhere else",
+    "emotions": "love"
+  },
+  {
+    "text": "i had three days at home while still on vacation and i am feeling so mellow right now",
+    "emotions": "joy"
+  },
+  {
+    "text": "i mean have you ever looked at the same people one day and suddenly they feel like strangers youre secretly terrified of",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel angry and bitter around others happiness of a new baby or anything baby related i really do genuinely try not to be its not their fault but sometimes their insensitivity and nativity is frustrating and upsetting to say the least",
+    "emotions": "anger"
+  },
+  {
+    "text": "i am always there for friends and family memembers and i do not like to feel or know that someone out there is suffering in silence and feeling alone or feeling troubled",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i was feeling a little shaky about it",
+    "emotions": "fear"
+  },
+  {
+    "text": "i think weve encountered the driver before and he was feeling humorous this morning and took us on tower of terror lite on the chair lift coming out of the van lol",
+    "emotions": "joy"
+  },
+  {
+    "text": "i blame the little girl for making me so keenly uncomfortable as well as the american pilgrims founding this country that made me feel like such an uptight puritannical american in the face of such bold french openness",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel that it is quite acceptable",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was still feeling numb",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i dont know what i feel as of yesterday i was confident that i didnt like him anymore",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel so empty inside and its killing me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i also love laura and am left feeling distraught over her situation with her husband trent",
+    "emotions": "fear"
+  },
+  {
+    "text": "i have been feeling i find myself becoming less and less amused and interested in many of the activities and attitudes that have brought me joy in the past",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel when my heart becomes tender before god is far greater than the loss of going without some things",
+    "emotions": "love"
+  },
+  {
+    "text": "i have been feeling inadequate lately a baby christian as i call it",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel unwelcome and akward were ever i go and whomever im with",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i find him a more interesting more sympathetic character in the series in part i think because i know what a complete lying bastard he turns out to be in the books but somehow in the show im actually convinced that he feels conflicted and remorseful about being compelled to be a lying bastard",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i start to feel like sending a thank you now would seem even more pathetic",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i just feel beaten",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like being slutty is the root of my problems but that is what i want sex and someone that cares",
+    "emotions": "love"
+  },
+  {
+    "text": "i didnt edit this at all and while some of it is a bit extreme it kind of still is how i feel its funny reading it because its so convoluted and i can see the set cycle of the rat running in the wheel of my mind",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i feel almost as if weve just stepped onto the roller coaster that is these next few weeks and i appreciate the prayers and supportive comments and notes ive received more than you can know",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel disturbed again and it feels so good",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am feeling a little melancholy today as i watch my daughter load up her little chevy cavalier with boxes and tubs of her things to take to her new apartment",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel strong and i really feel that i can perform anything i feel quite energetic i don t need to have to sleep and other individuals inside the manic phase",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel threatened because they re commanded to kill me",
+    "emotions": "fear"
+  },
+  {
+    "text": "i sometimes feel like im suffering from overload",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i need to make sure that no one feels afraid that i am trying to be another process",
+    "emotions": "fear"
+  },
+  {
+    "text": "i woke up feeling really bad yesterday and it just got worse and worse as the day progressed",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel intimidated by them she told the sun",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel maybe that is the pregnancy hormones making me feel that way but i have determined to at least leave the house at least once a day or speak with someone on the phone or in person at some point in the day to help",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was getting fatter i was having anxiety attacks and constantly feeling as if my job was threatened if i didnt put in the hours or enough face time i was miserable monday through friday and therefore making others around me just as miserable",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel ecstatic right now",
+    "emotions": "joy"
+  },
+  {
+    "text": "i do not feel free quite the opposite but i do feel at home",
+    "emotions": "joy"
+  },
+  {
+    "text": "i know i didnt post for such a long time school just started its the third day and im feeling so grumpy",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel the life is sorrowful and unbearable though i cant flee away since i am not a bird leonid",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i think the reason the discussions feel so lively is that since it is a night course the class is very diverse and large and a bunch of the students are on the older side",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel a bit suspicious is it lor al or the sellers fault",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like i am hugging and loving my family",
+    "emotions": "love"
+  },
+  {
+    "text": "i still feel pretty cool because of a few big things happening in my little family",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel loved and blessed and hope i make him feel such magic bloodmilk jewels for he and i jl is like a miracle",
+    "emotions": "love"
+  },
+  {
+    "text": "i really did feel like i hated him then",
+    "emotions": "sadness"
+  },
+  {
+    "text": "im feeling so broke and like omg i dont even know",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel a little angry sometimes that i have to take so much responsibility he says",
+    "emotions": "anger"
+  },
+  {
+    "text": "i am letting myself feel depressed angry resentful and jealous because my day was taken away from me for an unexplained reason",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i can go into stores alone but i feel like in the city where people tend to be rude and not care i cant always take the attitudes that people have about nothing in particular",
+    "emotions": "anger"
+  },
+  {
+    "text": "i can motivate myself to change not to feel helpless but strong minded and positive",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel myself loving and accepting myself more and more",
+    "emotions": "love"
+  },
+  {
+    "text": "i tend to stick to positives things i can share without feeling vulnerable parts of my life that are easy and fun",
+    "emotions": "fear"
+  },
+  {
+    "text": "i stared at him feeling a bit stunned",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i wasnt feeling very safe these past few days",
+    "emotions": "joy"
+  },
+  {
+    "text": "im feeling generous give him two",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel as if i could go on and on but for the sake of bandwidth i am so considerate",
+    "emotions": "love"
+  },
+  {
+    "text": "i feel betrayed and insulted by the lack of attempt you guys made to hang out more i hung out with erics brothers for fucking hours because no one could hang out or even pick me up to leave",
+    "emotions": "anger"
+  },
+  {
+    "text": "i feel awful and i feel like my worries that i m pushing him away are legit because i keep snapping at him and getting mad because he doesn t have time to hang out with me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i will also give it another go despite the fact that it feels like everything is against me in this day that i am not making any progress in fact everywhere i look all i see is more pain and sorrow and suffering",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like its february again and being the stubborn mule i am starting on april st i have refused to wear a coat",
+    "emotions": "anger"
+  },
+  {
+    "text": "i dont even speed anymore because i feel like i need to be gentle with this dying creature",
+    "emotions": "love"
+  },
+  {
+    "text": "i can successfully guide people through the process in a positive environment designed to help them move on i feel like i am accomplishing a worthwhile goal",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am feeling very pleased about the discipline i have exercised",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like i am constantly telling other people in my life not to stress and that everything will be ok because i will make it ok and if i cant others will although then continue to contradict myself and stress in my own brain",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like he would be very surprised if he knew the truth",
+    "emotions": "surprise"
+  },
+  {
+    "text": "i want to avoid feeling hesitant",
+    "emotions": "fear"
+  },
+  {
+    "text": "i could not help it but i began to feel suspicious of this",
+    "emotions": "fear"
+  },
+  {
+    "text": "i could not see her face but could feel the weight of her melancholy emotion",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel like i am at a crossroads with these two boys on one hand theres this sweet but rebellious soul that keeps me on my toes",
+    "emotions": "joy"
+  },
+  {
+    "text": "i was feeling rich",
+    "emotions": "joy"
+  },
+  {
+    "text": "i am still not feeling but i missed being crafty my blog and blog friends thank you everyone for the kind messages to check in on me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i cant help but feel somewhat sympathetic for the little ferret",
+    "emotions": "love"
+  },
+  {
+    "text": "i left the lesson feeling really unsure as to how it went there were good points and pretty bad points the thing i definitely took from the lesson however was that i really need to work on my behaviour management i am struggling to keep their attention and really need to work on that",
+    "emotions": "fear"
+  },
+  {
+    "text": "i don t know what it feels like to be in love so i m starting to get scared that i don t actually love him",
+    "emotions": "fear"
+  },
+  {
+    "text": "im so stupid for feeling hurt even though i shouldnt coz this is me",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel so uncomfortable when im dressed up",
+    "emotions": "fear"
+  },
+  {
+    "text": "i feel like those domestically abused wives who hates being abused but for some crazy reason is in love with her husband",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i am thinking about that tonight as i feel that i am trusting the universe to watch over her and me until we are reunited",
+    "emotions": "joy"
+  },
+  {
+    "text": "i feel like were being held hostage by our own government and i feel so helpless",
+    "emotions": "fear"
+  },
+  {
+    "text": "im scared as hell and feeling very unloved",
+    "emotions": "sadness"
+  },
+  {
+    "text": "i feel so shy with that",
+    "emotions": "fear"
+  }
+]
