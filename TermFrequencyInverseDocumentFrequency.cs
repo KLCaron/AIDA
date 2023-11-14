@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 using System.Linq;
+using ConsoleProgressBar;
 
 namespace AIDA
 {
@@ -49,7 +50,7 @@ namespace AIDA
             Console.WriteLine($"Processed and saved chunk {chunkIndexString} to {fnChunks}");
         }
         
-        //builds my corpus, token list, and vocabulary
+        //builds my corpus
         public static void Corpus(string fnTrainingData, string fnStopWords, string fnCorpus)
         {
             List<string> stopWords = ReadFile.ReadTxt(fnStopWords);
@@ -62,12 +63,12 @@ namespace AIDA
             Console.WriteLine($"Processed and saved {fnCorpus}");
         }
         
-        //need to turn the the lines into collections of individual words (tokens)
-        //also need to set it to ditch all the stop words
-        //right now, this just returns a list of every word in the document
-        private static List<List<string>> Tokenize(List<Dictionary<string, string>> documentStrings, List<string> stopWords)
+        //used for corpus
+        private static List<List<string>> Tokenize(List<Dictionary<string, string>> documentStrings, 
+            List<string> stopWords)
         {
             List<List<string>> tokenizedDocuments = new List<List<string>>();
+            
             foreach (var document in documentStrings)
             {
                 if (document.TryGetValue("text", out var text))
@@ -95,6 +96,34 @@ namespace AIDA
             
             File.WriteAllText(fnVocab, JsonConvert.SerializeObject(vocab, Formatting.Indented));
             Console.WriteLine($"Processed and saved {fnVocab}");
+        }
+
+        public static void AppendStopwords(string fnCorpus, string fnStopWords, int frequencyThreshold)
+        {
+            List<List<string>> corpus = ReadFile.ReadJson<List<List<string>>>(fnCorpus);
+
+            Dictionary<string, int> wordFrequencies = new Dictionary<string, int>();
+            foreach (var tokens in corpus)
+            {
+                foreach (var word in tokens)
+                {
+                    if (!wordFrequencies.ContainsKey(word))
+                    {
+                        wordFrequencies[word] = 1;
+                    }
+                    else
+                    {
+                        wordFrequencies[word]++;
+                    }
+                }
+            }
+
+            List<string> wordsBelowThreshold = wordFrequencies.Where(pair => pair.Value < frequencyThreshold)
+                .Select(pair => pair.Key).ToList();
+            
+            File.AppendAllLines(fnStopWords, wordsBelowThreshold);
+            Console.WriteLine($"Updated {fnStopWords} with words appearing fewer than " +
+                              $"{frequencyThreshold.ToString()} times.");
         }
 
         //gets my term frequency and tosses it into a json
