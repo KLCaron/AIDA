@@ -12,7 +12,7 @@ namespace AIDA
             //10 leaves me with a vocab of 14,351, 5 leaves me with 53,748 stopwords and vocab of 21,710
             //7 leaves me with 57,645 stopwords and a vocab of 16,444
             //8 59,013 stopwords
-            //2 39,587 words
+            //2 39,587 words in vocab
             int frequencyThreshold = 2;
             //swap these around to test functions on smaller set
             //string fnTrainingData = "../../Chunks/chunk_0.json";
@@ -26,6 +26,9 @@ namespace AIDA
             string fnIdf = "../../InverseDocumentFrequency.json";
             string fnTfIdf = "../../TF-IDF.json";
             string fnTfIdfMerged = "../../IgnoredFiles/TF-IDFMerged.json";
+            string fnProbabilities = "../../Probabilities.json";
+            //number of classes, so how many emotions
+            int numClasses = 6;
             
             while (true)
             {
@@ -39,6 +42,7 @@ namespace AIDA
                 Console.WriteLine("6. Inverse Document Frequency");
                 Console.WriteLine("7. Term Frequency - Inverse Document Frequency");
                 Console.WriteLine("8. merge TF-IDF with training data");
+                Console.WriteLine("9. MLG");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -82,6 +86,11 @@ namespace AIDA
                         Console.WriteLine("Launching TF-IDF merger");
                         TermFrequencyInverseDocumentFrequency.MergeTfIdfTraining(fnTfIdf, fnTrainingData,
                             fnTfIdfMerged);
+                        break;
+                    case "9":
+                        Console.WriteLine("Launching MLG");
+                        MultinomialLogisticRegression attempt1 = 
+                            new MultinomialLogisticRegression(fnProbabilities, fnVocab, fnTfIdf, numClasses);
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");
