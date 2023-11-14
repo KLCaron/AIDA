@@ -199,7 +199,7 @@ namespace AIDA
         }
 
         //calculates my tfidf scores and tosses them into a json
-        public static void CalculateTfIdf(string fnTf, string fnIdf, string fnTfIdf)
+        public static void TfIdf(string fnTf, string fnIdf, string fnTfIdf)
         {
             Dictionary<string, Dictionary<string, double>> tfScores =
                 ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTf);

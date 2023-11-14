@@ -76,7 +76,7 @@ namespace AIDA
                         break;
                     case "7":
                         Console.WriteLine("Launching Term Frequency - Inverse Document Frequency Calculator");
-                        TermFrequencyInverseDocumentFrequency.CalculateTfIdf(fnTf, fnIdf, fnTfIdf);
+                        TermFrequencyInverseDocumentFrequency.TfIdf(fnTf, fnIdf, fnTfIdf);
                         break;
                     case "8":
                         Console.WriteLine("Launching TF-IDF merger");
