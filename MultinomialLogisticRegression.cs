@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using Newtonsoft.Json;
 
 namespace AIDA
@@ -17,19 +16,20 @@ namespace AIDA
 
         //classes = emotions, 6 of em, sadness, joy, love, anger, fear, surprise
         //features is basically just the words in my vocab
-        public MultinomialLogisticRegression(string fnProbabilities, string fnVocab, string fnTfIdf, int numClasses)
+        public MultinomialLogisticRegression(string fnProbabilities, string fnVocab, string fnMergedTfIdf, int numClasses)
         {
             _rand = new Random();
-            Dictionary<string, Dictionary<string, double>> tfIdfScores =
-                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTfIdf);
+            List<Dictionary<string, object>> mergedTfIdf =
+                ReadFile.ReadJson<List<Dictionary<string, Object>>>(fnMergedTfIdf);
             List<string> vocab = ReadFile.ReadJson<List<string>>(fnVocab);
-            InitializeParameters(vocab, tfIdfScores, numClasses);
+            InitializeParameters(vocab, mergedTfIdf, numClasses);
 
             List<Dictionary<string, double>> allProbabilities = new List<Dictionary<string, double>>();
 
-            foreach (var featureVector in tfIdfScores.Values)
+            foreach (var document in mergedTfIdf)
             {
-                Dictionary<string, double> classScores = ForwardPropagation(featureVector, vocab);
+                Dictionary<string, double> tfIdfScores = document["tfidf_scores"] as Dictionary<string, double>;
+                Dictionary<string, double> classScores = ForwardPropagation(tfIdfScores, vocab);
                 Dictionary<string, double> probabilities = SoftMax(classScores);
 
                 allProbabilities.Add(probabilities);
@@ -40,31 +40,29 @@ namespace AIDA
         }
 
         private void InitializeParameters(List<string> vocab, 
-            Dictionary<string, Dictionary<string, double>> tfIdfScores, int numClasses)
+            List<Dictionary<string, object>> mergedTfIdf, int numClasses)
         {
             _numClasses = numClasses;
-            _weights = InitializeWeights(vocab, tfIdfScores, numClasses);
+            _weights = InitializeWeights(vocab, mergedTfIdf, numClasses);
             _biases = InitializeBiases(_numClasses);
         }
 
+        //also randomize weights, cannot start at 0
         private Dictionary<string, double> InitializeWeights(List<string> vocab, 
-            Dictionary<string, Dictionary<string, double>> tfIdfScores, int numClasses)
+            List<Dictionary<string, Object>> mergedTfIdf, int numClasses)
         {
             Dictionary<string, double> initialWeights = new Dictionary<string, double>();
 
-            foreach (var term in vocab)
+            foreach (var document in mergedTfIdf)
             {
-                foreach (var entry in tfIdfScores)
+                if (document["emotions"] is List<string> emotions)
                 {
-                    string documentId = entry.Key;
-                    Dictionary<string, double> tfIdfScoreSet = entry.Value;
-                    
-                    if (tfIdfScoreSet.TryGetValue(term, out double tfIdf))
+                    foreach (var term in vocab)
                     {
                         for (int classIndex = 0; classIndex < numClasses; classIndex++)
                         {
-                            string weightKey = $"{term}_class{classIndex.ToString()}_doc{documentId}";
-                            initialWeights[weightKey] = tfIdf;
+                            string weightKey = $"{term}_class{classIndex.ToString()}_emotion{emotions[0]}";
+                            initialWeights[weightKey] = _rand.NextDouble() * 0.01;
                         }
                     }
                 }
