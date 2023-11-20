@@ -16,7 +16,7 @@ namespace AIDA
 
         //classes = emotions, 6 of em, sadness, joy, love, anger, fear, surprise
         //features is basically just the words in my vocab
-        public MultinomialLogisticRegression(string fnProbabilities, string fnVocab, string fnMergedTfIdf, 
+        public MultinomialLogisticRegression(string fnProbabilities, string fnVocab, string fnMergedTfIdf,
             int numClasses)
         {
             _rand = new Random();
@@ -29,23 +29,19 @@ namespace AIDA
 
             foreach (var document in mergedTfIdf)
             {
-                if (document.TryGetValue("tfidf_scores", out var value) && 
-                    value is Dictionary<string, double> tfIdfScores)
-                {
-                    var presentTerms = tfIdfScores.Keys.ToList();
-                    var matchingTerms = vocab.Intersect(presentTerms);
-                    Dictionary<string, double> filteredScores = presentTerms.Where(term => matchingTerms.Contains(term))
-                        .ToDictionary(term => term, term => tfIdfScores[term]);
-                    
-                    Dictionary<string, double> classScores = ForwardPropagation(filteredScores, vocab);
-                    Dictionary<string, double> probabilities = SoftMax(classScores);
-                    
-                    allProbabilities.Add(probabilities);
-                }
+                    if (document.TryGetValue("tfidf_scores", out var value) && value is Dictionary<string, object> tfIdfObject)
+                    {
+                        //alright, I fucking give, I think I removed emotions downstream anyways, we're going back
+                        var tfIdfScores = (Dictionary<string, double>)tfIdfObject["tfidf_scores"];
+                        Console.WriteLine("test");
+                        var tfIdf = (Dictionary<string, double>)tfIdfScores;
+                        Dictionary<string, double> classScores = ForwardPropagation(tfIdf);
+                        Dictionary<string, double> probabilities = SoftMax(classScores);
+                        allProbabilities.Add(probabilities);
+                    } 
+                    File.WriteAllText(fnProbabilities,
+                    JsonConvert.SerializeObject(allProbabilities, Formatting.Indented));
             }
-
-            File.WriteAllText(fnProbabilities, 
-                JsonConvert.SerializeObject(allProbabilities, Formatting.Indented));
         }
 
         private void InitializeParameters(List<string> vocab, 
@@ -95,11 +91,9 @@ namespace AIDA
         //featureVector here is the tfidf score for 1 document/tweet
         //will need to iterate through the whole thing, so input vocab too
         //wherever I call this, will need to read my docs first
-        private Dictionary<string, double> ForwardPropagation(Dictionary<string, double> featureVector, 
-            List<string> vocab)
+        private Dictionary<string, double> ForwardPropagation(Dictionary<string, double> featureVector)
         {
             Dictionary<string, double> classScores = new Dictionary<string, double>();
-            //int counter = 0;
 
             foreach (var entry in _biases)
             {
@@ -107,10 +101,9 @@ namespace AIDA
                 double bias = entry.Value;
                 double score = bias;
                 
-                foreach (var term in vocab)
+                foreach (var term in featureVector.Keys)
                 {
-                    double tfIdf = featureVector.TryGetValue(term, out double value) ? value : 0;
-                    //Console.WriteLine($"set {counter.ToString()}");
+                    double tfIdf = featureVector[term];
                     string weightKey = $"{term}_class{classLabel}";
                     if (_weights.TryGetValue(weightKey, out double weight))
                     {
@@ -119,7 +112,6 @@ namespace AIDA
                 }
 
                 classScores[classLabel] = score;
-                //counter++;
             }
 
             return classScores;
