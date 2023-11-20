@@ -16,7 +16,8 @@ namespace AIDA
 
         //classes = emotions, 6 of em, sadness, joy, love, anger, fear, surprise
         //features is basically just the words in my vocab
-        public MultinomialLogisticRegression(string fnProbabilities, string fnVocab, string fnMergedTfIdf, int numClasses)
+        public MultinomialLogisticRegression(string fnProbabilities, string fnVocab, string fnMergedTfIdf, 
+            int numClasses)
         {
             _rand = new Random();
             List<Dictionary<string, object>> mergedTfIdf =
@@ -28,11 +29,19 @@ namespace AIDA
 
             foreach (var document in mergedTfIdf)
             {
-                Dictionary<string, double> tfIdfScores = document["tfidf_scores"] as Dictionary<string, double>;
-                Dictionary<string, double> classScores = ForwardPropagation(tfIdfScores, vocab);
-                Dictionary<string, double> probabilities = SoftMax(classScores);
-
-                allProbabilities.Add(probabilities);
+                if (document.TryGetValue("tfidf_scores", out var value) && 
+                    value is Dictionary<string, double> tfIdfScores)
+                {
+                    var presentTerms = tfIdfScores.Keys.ToList();
+                    var matchingTerms = vocab.Intersect(presentTerms);
+                    Dictionary<string, double> filteredScores = presentTerms.Where(term => matchingTerms.Contains(term))
+                        .ToDictionary(term => term, term => tfIdfScores[term]);
+                    
+                    Dictionary<string, double> classScores = ForwardPropagation(filteredScores, vocab);
+                    Dictionary<string, double> probabilities = SoftMax(classScores);
+                    
+                    allProbabilities.Add(probabilities);
+                }
             }
 
             File.WriteAllText(fnProbabilities, 
@@ -90,26 +99,27 @@ namespace AIDA
             List<string> vocab)
         {
             Dictionary<string, double> classScores = new Dictionary<string, double>();
+            //int counter = 0;
 
             foreach (var entry in _biases)
             {
                 string classLabel = entry.Key;
                 double bias = entry.Value;
                 double score = bias;
-
+                
                 foreach (var term in vocab)
                 {
-                    if (featureVector.TryGetValue(term, out double tfIdf))
+                    double tfIdf = featureVector.TryGetValue(term, out double value) ? value : 0;
+                    //Console.WriteLine($"set {counter.ToString()}");
+                    string weightKey = $"{term}_class{classLabel}";
+                    if (_weights.TryGetValue(weightKey, out double weight))
                     {
-                        string weightKey = $"{term}_class{classLabel}";
-                        if (_weights.TryGetValue(weightKey, out double weight))
-                        {
-                            score += tfIdf * weight;
-                        }
+                        score += tfIdf * weight;
                     }
                 }
 
                 classScores[classLabel] = score;
+                //counter++;
             }
 
             return classScores;

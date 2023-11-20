@@ -99,10 +99,12 @@
       <Content Include="Chunks\chunk_8.json" />
       <Content Include="Chunks\chunk_9.json" />
       <Content Include="Corpus.json" />
+      <Content Include="CorpusChunk_0.json" />
       <Content Include="Documents\data sets and monthly plans.odt" />
       <Content Include="Documents\merged_training.pkl" />
       <Content Include="Documents\notes.odt" />
       <Content Include="Documents\Nov 14, 2023.odt" />
+      <Content Include="Documents\Nov 21, 2023.odt" />
       <Content Include="Documents\Nov 7, 2023.odt" />
       <Content Include="Documents\Oct 17, 2023.odt" />
       <Content Include="Documents\Oct 24, 2023.odt" />
@@ -114,9 +116,15 @@
       <Content Include="IgnoredFiles\TermFrequency.json" />
       <Content Include="IgnoredFiles\TF-IDFMerged.json" />
       <Content Include="InverseDocumentFrequency.json" />
+      <Content Include="InverseDocumentFrequencyChunk_0.json" />
+      <Content Include="ProbabilitiesChunk_0.json" />
       <Content Include="stopwords-en.txt" />
+      <Content Include="TermFrequencyChunk_0.json" />
       <Content Include="TF-IDF.json" />
+      <Content Include="TF-IDFChunk_0.json" />
+      <Content Include="TF-IDFMergedChunk_0.json" />
       <Content Include="Vocabulary.json" />
+      <Content Include="VocabularyChunk_0.json" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
