@@ -9,80 +9,63 @@ namespace AIDA
     //running with an object since it makes this more modular *just in case*
     public class MultinomialLogisticRegression
     {
-        private Dictionary<string, double> _weights;
+        private Dictionary<string, Dictionary<string, double>> _weights;
         private Dictionary<string, double> _biases;
+        private readonly string[] _emotions = { "sadness", "joy", "love", "anger", "fear", "surprise" };
         private int _numClasses;
         private readonly Random _rand;
 
         //classes = emotions, 6 of em, sadness, joy, love, anger, fear, surprise
         //features is basically just the words in my vocab
-        public MultinomialLogisticRegression(string fnProbabilities, string fnVocab, string fnMergedTfIdf,
-            int numClasses)
+        public MultinomialLogisticRegression(string fnProbabilities, string fnVocab, string fnTfIdf, int numClasses)
         {
             _rand = new Random();
-            List<Dictionary<string, object>> mergedTfIdf =
-                ReadFile.ReadJson<List<Dictionary<string, Object>>>(fnMergedTfIdf);
+            Dictionary<string, Dictionary<string, double>> tfIdf =
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTfIdf);
             List<string> vocab = ReadFile.ReadJson<List<string>>(fnVocab);
-            InitializeParameters(vocab, mergedTfIdf, numClasses);
+            InitializeParameters(vocab, numClasses);
+            
+            //alright, I fucking give, I think I removed emotions downstream anyways, we're going back
+            Dictionary<string, Dictionary<string, double>> classScores = ForwardPropagation(tfIdf);
+            Dictionary<string, Dictionary<string, double>> probabilities = SoftMax(classScores);
 
-            List<Dictionary<string, double>> allProbabilities = new List<Dictionary<string, double>>();
-
-            foreach (var document in mergedTfIdf)
-            {
-                    if (document.TryGetValue("tfidf_scores", out var value) && value is Dictionary<string, object> tfIdfObject)
-                    {
-                        //alright, I fucking give, I think I removed emotions downstream anyways, we're going back
-                        var tfIdfScores = (Dictionary<string, double>)tfIdfObject["tfidf_scores"];
-                        Console.WriteLine("test");
-                        var tfIdf = (Dictionary<string, double>)tfIdfScores;
-                        Dictionary<string, double> classScores = ForwardPropagation(tfIdf);
-                        Dictionary<string, double> probabilities = SoftMax(classScores);
-                        allProbabilities.Add(probabilities);
-                    } 
-                    File.WriteAllText(fnProbabilities,
-                    JsonConvert.SerializeObject(allProbabilities, Formatting.Indented));
-            }
+            File.WriteAllText(fnProbabilities, 
+                JsonConvert.SerializeObject(probabilities, Formatting.Indented));
         }
 
-        private void InitializeParameters(List<string> vocab, 
-            List<Dictionary<string, object>> mergedTfIdf, int numClasses)
+        private void InitializeParameters(List<string> vocab, int numClasses)
         {
             _numClasses = numClasses;
-            _weights = InitializeWeights(vocab, mergedTfIdf, numClasses);
-            _biases = InitializeBiases(_numClasses);
+            _weights = InitializeWeights(vocab);
+            _biases = InitializeBiases();
         }
 
         //also randomize weights, cannot start at 0
-        private Dictionary<string, double> InitializeWeights(List<string> vocab, 
-            List<Dictionary<string, Object>> mergedTfIdf, int numClasses)
+        private Dictionary<string, Dictionary<string, double>> InitializeWeights(List<string> vocab)
         {
-            Dictionary<string, double> initialWeights = new Dictionary<string, double>();
+            Dictionary<string, Dictionary<string, double>> initialWeights =
+                new Dictionary<string, Dictionary<string, double>>();
 
-            foreach (var document in mergedTfIdf)
+            foreach (var emotion in _emotions)
             {
-                if (document["emotions"] is List<string> emotions)
+                initialWeights[emotion] = new Dictionary<string, double>();
+
+                foreach (var term in vocab)
                 {
-                    foreach (var term in vocab)
-                    {
-                        for (int classIndex = 0; classIndex < numClasses; classIndex++)
-                        {
-                            string weightKey = $"{term}_class{classIndex.ToString()}_emotion{emotions[0]}";
-                            initialWeights[weightKey] = _rand.NextDouble() * 0.01;
-                        }
-                    }
+                    initialWeights[emotion][term] = _rand.NextDouble() * 0.01;
                 }
             }
 
             return initialWeights;
         }
 
-        private Dictionary<string, double> InitializeBiases(int numClasses)
+        private Dictionary<string, double> InitializeBiases()
         {
             Dictionary<string, double> initialBiases = new Dictionary<string, double>();
 
-            for (int classIndex = 0; classIndex < numClasses; classIndex++)
+            foreach (var emotion in _emotions)
             {
-                initialBiases[$"class{classIndex.ToString()}"] = _rand.NextDouble() * 0.01;
+                initialBiases[emotion] = _rand.NextDouble() * 0.01;
             }
 
             return initialBiases;
@@ -91,52 +74,104 @@ namespace AIDA
         //featureVector here is the tfidf score for 1 document/tweet
         //will need to iterate through the whole thing, so input vocab too
         //wherever I call this, will need to read my docs first
-        private Dictionary<string, double> ForwardPropagation(Dictionary<string, double> featureVector)
+        //ok, so I need to go through each class, and each class's weight
+        // my weights are string, string - double, so I can do foreach emotion there, then
+        //for each string within there, and then I got to my tf-idf json, and if the emotion at that point matches
+        //I then check the terms within, and multiply?
+        private Dictionary<string,Dictionary<string, double>> ForwardPropagation(Dictionary<string, Dictionary<string, double>> tfIdf)
         {
-            Dictionary<string, double> classScores = new Dictionary<string, double>();
-
-            foreach (var entry in _biases)
+            Dictionary<string, Dictionary<string, double>> classScores =
+                new Dictionary<string, Dictionary<string, double>>();
+            int i = 0;
+            
+            //all 6 emotions
+            foreach (var emotion in _weights)
             {
-                string classLabel = entry.Key;
-                double bias = entry.Value;
-                double score = bias;
+                string emotionLabel = emotion.Key;
+                Dictionary<string, double> emotionScores = new Dictionary<string, double>();
+                double bias = _biases[emotionLabel];
                 
-                foreach (var term in featureVector.Keys)
+                //every single term in vocab, once for all 6 emotions
+                foreach (var weight in emotion.Value)
                 {
-                    double tfIdf = featureVector[term];
-                    string weightKey = $"{term}_class{classLabel}";
-                    if (_weights.TryGetValue(weightKey, out double weight))
+                    string term = weight.Key;
+
+                    //for every word under every emotion, we go through every tweet/document in our tfIdf
+                    //top string is the emotion tied to it
+                    foreach (var tfIdfEmotion in tfIdf)
                     {
-                        score += tfIdf * weight;
+                        string emotionKey = tfIdfEmotion.Key;
+                        //we check if the emotion we're looking at is the right one
+                        if (emotionKey.Split('_')[0] == emotionLabel.Split('_')[0])
+                        {
+                            //if it is, we iterate through every word-score pair in that tweet/document
+                            foreach (var tfIdfTerm in tfIdfEmotion.Value)
+                            {
+
+                                string tfIdfTermKey = tfIdfTerm.Key;
+                                //if the word we're looking at from weight is the same as the word we're looking at
+                                //for tfIdf
+                                if (tfIdfTermKey == term)
+                                {
+                                    double tfIdfValue = tfIdfTerm.Value;
+                                    double score = weight.Value * tfIdfValue;
+
+                                    //have we already looked at this word for this emotion? initialize if not
+                                    if (!emotionScores.ContainsKey(term))
+                                    {
+                                        emotionScores[term] = score + bias;
+                                    }
+                                    else
+                                    {
+                                        emotionScores[term] += score;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
-                classScores[classLabel] = score;
+                classScores[emotionLabel] = emotionScores;
             }
 
             return classScores;
-        }
+        } 
 
-        private Dictionary<string, double> SoftMax(Dictionary<string, double> classScores)
+        private Dictionary<string, Dictionary<string, double>> SoftMax(Dictionary<string, Dictionary<string, double>> classScores)
         {
-            double maxScore = classScores.Max(x => x.Value);
+            Dictionary<string, Dictionary<string, double>> probabilities =
+                new Dictionary<string, Dictionary<string, double>>();
 
-            //subtracting math score for numerical stability?
-            double expSum = classScores.Values.Sum(x => Math.Exp(x - maxScore));
+            var allEmotions = classScores.Keys.ToList();
 
-            Dictionary<string, double> probabilities = new Dictionary<string, double>();
-
-            foreach (var entry in classScores)
+            foreach (var term in classScores.SelectMany(emotion => emotion.Value.Keys).Distinct())
             {
-                string classLabel = entry.Key;
-                double score = entry.Value;
+                Dictionary<string, double> termProbabilities = new Dictionary<string, double>();
 
-                double expScore = Math.Exp(score - maxScore);
-                double probability = expScore / expSum;
-                probabilities[classLabel] = probability;
+                foreach (var emotion in allEmotions)
+                {
+                    termProbabilities[emotion] = 0.0;
+                }
+
+                double maxScore =
+                    classScores.Max(emotion => emotion.Value.TryGetValue(term, out var value) ? value : 0.0);
+                double expSum = classScores.Sum(emotion =>
+                    emotion.Value.TryGetValue(term, out var value1) ? Math.Exp(value1 - maxScore) : 0.0);
+
+                foreach (var emotion in classScores)
+                {
+                    string emotionLabel = emotion.Key;
+                    double expScore = emotion.Value.TryGetValue(term, out var value) ? 
+                        Math.Exp(value - maxScore) : 0.0;
+                    double probability = expScore / expSum;
+                    termProbabilities[emotionLabel] = probability;
+                }
+
+                probabilities[term] = termProbabilities;
             }
 
             return probabilities;
+            
         }
     }
 }

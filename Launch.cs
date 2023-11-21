@@ -5,7 +5,7 @@ namespace AIDA
     public static class Launch
     {
 
-        //launches all of my various calculators
+        //launches all of my various calculators - do not need merged one anymore, was kinda stupid to ever have tbqh
         public static void Main(string[] args)
         {
             string fnStopWords = "../../stopwords-en.txt";
@@ -14,26 +14,29 @@ namespace AIDA
             //8 59,013 stopwords
             //2 39,587 words in vocab
             int frequencyThreshold = 2;
-            //swap these around to test functions on smaller set
-            //string fnTrainingData = "../../Documents/training_data.json";
-            string fnTrainingData = "../../Chunks/chunk_0.json";
+            
             string fnChunks = "../../Chunks";
             int chunkSize = 1000;
             //string namingConvention = "chunk_*.json";
-            //string fnVocab = "../../Vocabulary.json";
+            
+            string fnTrainingData = "../../Documents/training_data.json";
+            string fnVocab = "../../Vocabulary.json";
+            string fnCorpus = "../../Corpus.json";
+            string fnTf = "../../IgnoredFiles/TermFrequency.json";
+            string fnIdf = "../../InverseDocumentFrequency.json";
+            string fnTfIdf = "../../TF-IDF.json";
+            string fnTfIdfMerged = "../../IgnoredFiles/TF-IDFMerged.json";
+            string fnProbabilities = "../../Probabilities.json";
+            
+            /*string fnTrainingData = "../../Chunks/chunk_0.json";
             string fnVocab = "../../VocabularyChunk_0.json";
-            //string fnCorpus = "../../Corpus.json";
             string fnCorpus = "../../CorpusChunk_0.json";
-            //string fnTf = "../../IgnoredFiles/TermFrequency.json";
             string fnTf = "../../TermFrequencyChunk_0.json";
-            //string fnIdf = "../../InverseDocumentFrequency.json";
             string fnIdf = "../../InverseDocumentFrequencyChunk_0.json";
-            //string fnTfIdf = "../../TF-IDF.json";
             string fnTfIdf = "../../TF-IDFChunk_0.json";
-            //string fnTfIdfMerged = "../../IgnoredFiles/TF-IDFMerged.json";
             string fnTfIdfMerged = "../../TF-IDFMergedChunk_0.json";
-            //string fnProbabilities = "../../Probabilities.json";
-            string fnProbabilities = "../../ProbabilitiesChunk_0.json";
+            string fnProbabilities = "../../ProbabilitiesChunk_0.json";*/
+            
             //number of classes, so how many emotions
             int numClasses = 6;
             
@@ -79,7 +82,7 @@ namespace AIDA
                     case "5":
                         Console.WriteLine("Launching Term Frequency Calculator");
                         TermFrequencyInverseDocumentFrequency.TermFrequency(fnCorpus,
-                            fnTf);
+                            fnTf, fnTrainingData);
                         break;
                     case "6":
                         Console.WriteLine("Launching Inverse Document Frequency Calculator");
@@ -97,7 +100,7 @@ namespace AIDA
                     case "9":
                         Console.WriteLine("Launching MLG");
                         MultinomialLogisticRegression attempt1 = 
-                            new MultinomialLogisticRegression(fnProbabilities, fnVocab, fnTfIdfMerged, numClasses);
+                            new MultinomialLogisticRegression(fnProbabilities, fnVocab, fnTfIdf, numClasses);
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");

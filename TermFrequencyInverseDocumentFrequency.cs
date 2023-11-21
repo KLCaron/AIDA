@@ -126,9 +126,11 @@ namespace AIDA
         }
 
         //gets my term frequency and tosses it into a json
-        public static void TermFrequency(string fnCorpus, string fnTf)
+        public static void TermFrequency(string fnCorpus, string fnTf, string fnTrainingData)
         {
             List<List<string>> corpus = ReadFile.ReadJson<List<List<string>>>(fnCorpus);
+            List<Dictionary<string, string>> documents =
+                ReadFile.ReadJson<List<Dictionary<string, string>>>(fnTrainingData);
 
             using (StreamWriter file = File.CreateText(fnTf))
             using (JsonTextWriter writer = new JsonTextWriter(file))
@@ -141,9 +143,9 @@ namespace AIDA
 
                 for (int i = 0; i < corpus.Count; i++)
                 {
-                    string documentKey = "Document" + (i + 1).ToString();
+                    string emotion = documents[i]["emotions"];
                     Dictionary<string, double> tf = CalculateTfForDocument(corpus[i]);
-                    writer.WritePropertyName(documentKey);
+                    writer.WritePropertyName($"{emotion}_{i.ToString()}");
                     serializer.Serialize(writer, tf);
                 }
                 
@@ -204,27 +206,40 @@ namespace AIDA
                 ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTf);
             Dictionary<string, double> idfValues = ReadFile.ReadJson<Dictionary<string, double>>(fnIdf);
 
-            Dictionary<string, Dictionary<string, double>> tfIdfScores = new Dictionary<string, Dictionary<string, double>>();
-            foreach (var document in tfScores)
+            using (StreamWriter file = File.CreateText(fnTfIdf))
+            using (JsonTextWriter writer = new JsonTextWriter(file))
             {
-                string documentKey = document.Key;
-                Dictionary<string, double> documentTfIdf = new Dictionary<string, double>();
-
-                foreach (var termTf in document.Value)
+                JsonSerializer serializer = new JsonSerializer()
                 {
-                    string term = termTf.Key;
-                    double tf = termTf.Value;
-                    double idf = idfValues.TryGetValue(term, out var value) ? value : 0.0;
-                    double tfIdf = tf * idf;
+                    Formatting = Formatting.Indented
+                };
+                writer.WriteStartObject();
 
-                    documentTfIdf[term] = tfIdf;
+                for (int i = 0; i < tfScores.Count; i++)
+                {
+                    Dictionary<string, double> documentTfIdf = new Dictionary<string, double>();
+                    var tfScoreValues = tfScores.ElementAt(i);
+
+                    foreach (var termTf in tfScoreValues.Value)
+                    {
+                        string term = termTf.Key;
+                        double tf = termTf.Value;
+                        double idf = idfValues.TryGetValue(term, out var value) ? value : 0.0;
+                        double tfIdf = tf * idf;
+
+                        documentTfIdf[term] = tfIdf;
+                        
+                    }
+                    
+                    string emotion = tfScoreValues.Key;
+                    writer.WritePropertyName(emotion);
+                    serializer.Serialize(writer, documentTfIdf);
+                    
                 }
 
-                tfIdfScores[documentKey] = documentTfIdf;
+                writer.WriteEndObject();
+                Console.WriteLine($"Processed and saved {fnTfIdf}");
             }
-            
-            File.WriteAllText(fnTfIdf, JsonConvert.SerializeObject(tfIdfScores, Formatting.Indented));
-            Console.WriteLine($"Processed and saved {fnTfIdf}");
         }
 
         public static void MergeTfIdfTraining(string fnTfIdf, string fnTrainingData, string fnTfIdfMerged)

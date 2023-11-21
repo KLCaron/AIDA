@@ -117,6 +117,7 @@
       <Content Include="IgnoredFiles\TF-IDFMerged.json" />
       <Content Include="InverseDocumentFrequency.json" />
       <Content Include="InverseDocumentFrequencyChunk_0.json" />
+      <Content Include="Probabilities.json" />
       <Content Include="ProbabilitiesChunk_0.json" />
       <Content Include="stopwords-en.txt" />
       <Content Include="TermFrequencyChunk_0.json" />
