@@ -58,6 +58,7 @@
     </ItemGroup>
     <ItemGroup>
       <Content Include="AggregatedProbabilitiesChunk_0.json" />
+      <Content Include="AverageLossChunk_0.txt" />
       <Content Include="Chunks\chunk_0.json" />
       <Content Include="Chunks\chunk_1.json" />
       <Content Include="Chunks\chunk_10.json" />
@@ -119,6 +120,7 @@
       <Content Include="IgnoredFiles\TF-IDFMerged.json" />
       <Content Include="InverseDocumentFrequency.json" />
       <Content Include="InverseDocumentFrequencyChunk_0.json" />
+      <Content Include="LossSetChunk_0.json" />
       <Content Include="MergedProbabilitiesChunk_0.json" />
       <Content Include="MLRChunk_0.json" />
       <Content Include="Probabilities.json" />

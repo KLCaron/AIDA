@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -41,7 +42,8 @@ namespace AIDA
         }
 
         public MultinomialLogisticRegression(int choice, string fnMlr, string fnTfIdf, string fnProbabilities, 
-            string fnMergedProbabilities, string fnCorpus, string fnDocuments, string fnAggregatedProbabilities)
+            string fnMergedProbabilities, string fnCorpus, string fnDocuments, string fnAggregatedProbabilities, 
+            string fnLossSet, string fnAverageLoss)
         {
             string jsonData = File.ReadAllText(fnMlr);
             var modelData = JsonConvert.DeserializeObject<dynamic>(jsonData);
@@ -61,6 +63,9 @@ namespace AIDA
             } else if (choice == 2)
             {
                 AggregateDocumentProbabilities(fnAggregatedProbabilities, fnMergedProbabilities);
+            } else if (choice == 3)
+            {
+                CalcCrossEntropyLoss(fnAggregatedProbabilities, fnLossSet, fnAverageLoss);
             }
 
             SaveModel(fnMlr);
@@ -310,37 +315,42 @@ namespace AIDA
                 JsonConvert.SerializeObject(aggregatedProbabilities, Formatting.Indented));
         }
 
-        /*
+        
         //meant to compute for single data point, so need to run in a foreach loop
-        private double CalcCrossEntropyLoss(Dictionary<string, double> predictedProbabilities, string actualEmotion)
+        private void CalcCrossEntropyLoss(string fnAggregatedProbabilities, string fnLossSet, string fnAverageLoss)
         {
-            double loss = 0.0;
-
-            foreach (var emotion in _emotions)
-            {
-                double indicator = (emotion == actualEmotion) ? 1.0 : 0.0;
-                double predictedProbability = predictedProbabilities[emotion];
-                
-                //need to avoid log(0)
-                double epsilon = 1e-15;
-                predictedProbability = Math.Max(epsilon, Math.Min(1 - epsilon, predictedProbability));
-
-                loss += -indicator * Math.Log(predictedProbability);
-            }
-
-            return loss;
-        }
-
-        public double CalcCrossEntropyLossTotal(
-            Dictionary<string, Dictionary<string, double>> allPredictedProbabilities)
-        {
+            Dictionary<string, Dictionary<string, double>> aggregatedProbabilities =
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnAggregatedProbabilities);
+            Dictionary<string, double> lossSet = new Dictionary<string, double>();
             double totalLoss = 0.0;
-            int totalDatapoints = allPredictedProbabilities.Count;
-
-            foreach (var dataPoint in allPredictedProbabilities)
+            
+            foreach (var document in aggregatedProbabilities)
             {
-                string actualEmotion = GetActualEmotion(dataPoint.Key);
+                double loss = 0.0;
+                string trueEmotion = document.Value.Keys.First().Substring(1);
+                var documentVal = document.Value;
+                
+                foreach (var emotion in _emotions)
+                {
+                    double indicator = (emotion == trueEmotion) ? 1.0 : 0.0;
+                    double predictedProbability = documentVal[emotion];
+                                
+                    //need to avoid log(0)
+                    double epsilon = 1e-15;
+                    predictedProbability = Math.Max(epsilon, Math.Min(1 - epsilon, predictedProbability));
+                
+                    loss += -indicator * Math.Log(predictedProbability);
+                }
+
+                lossSet[document.Key] = loss;
+                totalLoss += loss;
             }
-        }*/
+
+            double averageLoss = totalLoss / aggregatedProbabilities.Count;
+
+            File.WriteAllText(fnLossSet, 
+                JsonConvert.SerializeObject(lossSet, Formatting.Indented));
+            File.WriteAllText(fnAverageLoss,averageLoss.ToString(CultureInfo.InvariantCulture));
+        }
     }
 }

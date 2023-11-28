@@ -28,6 +28,8 @@ namespace AIDA
             string fnMlr = null;
             string fnMergedProbabilities = null;
             string fnAggregatedProbabilities = null;
+            string fnLossSet = null;
+            string fnAverageLoss = null;
             bool chooseFormat = true;
             MultinomialLogisticRegression mlr;
 
@@ -51,6 +53,8 @@ namespace AIDA
                         fnMlr = "../../MLR.json";
                         fnMergedProbabilities = "../../MergedProbabilities.json";
                         fnAggregatedProbabilities = "../../AggregatedProbabilities.json";
+                        fnLossSet = "../../LossSet.json";
+                        fnAverageLoss = "../../AverageLoss.txt";
                         chooseFormat = false;
                         break;
                     case "2":
@@ -65,6 +69,8 @@ namespace AIDA
                         fnMlr = "../../MLRChunk_0.json";
                         fnMergedProbabilities = "../../MergedProbabilitiesChunk_0.json";
                         fnAggregatedProbabilities = "../../AggregatedProbabilitiesChunk_0.json";
+                        fnLossSet = "../../LossSetChunk_0.json";
+                        fnAverageLoss = "../../AverageLossChunk_0.txt";
                         chooseFormat = false;
                         break;
                     default:
@@ -88,6 +94,7 @@ namespace AIDA
                 Console.WriteLine("9. MLR - forward propagation and softmax");
                 Console.WriteLine("10. MLR - merge training documents and term probabilities");
                 Console.WriteLine("11. MLR - document aggregated probabilities");
+                Console.WriteLine("12. MLR - loss set and average loss");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -137,20 +144,30 @@ namespace AIDA
                         Console.WriteLine("Launching MLR - forward propagation and softmax");
                         choice = 0;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
-                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities);
+                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
+                            fnLossSet, fnAverageLoss);
                         break;
                     case "10":
                         Console.WriteLine("Launching MLR - merge training documents and term probabilities");
                         choice = 1;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
-                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities);
+                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
+                            fnLossSet, fnAverageLoss);
                         break;
                     case "11":
                         Console.WriteLine("Launching MLR - document aggregated probabilities");
                         choice = 2;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
-                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities);
-                        break; 
+                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
+                            fnLossSet, fnAverageLoss);
+                        break;
+                    case "12":
+                        Console.WriteLine("Launching MLR - loss set and average loss");
+                        choice = 3;
+                        mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
+                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
+                            fnLossSet, fnAverageLoss);
+                        break;
                     default:
                         Console.WriteLine("Invalid Option.");
                         break;
