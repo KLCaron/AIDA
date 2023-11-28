@@ -14,45 +14,76 @@ namespace AIDA
             //8 59,013 stopwords
             //2 39,587 words in vocab
             int frequencyThreshold = 2;
-            
             string fnChunks = "../../Chunks";
             int chunkSize = 1000;
             //string namingConvention = "chunk_*.json";
-            
-            string fnTrainingData = "../../Documents/training_data.json";
-            string fnVocab = "../../Vocabulary.json";
-            string fnCorpus = "../../Corpus.json";
-            string fnTf = "../../IgnoredFiles/TermFrequency.json";
-            string fnIdf = "../../InverseDocumentFrequency.json";
-            string fnTfIdf = "../../TF-IDF.json";
-            string fnTfIdfMerged = "../../IgnoredFiles/TF-IDFMerged.json";
-            string fnProbabilities = "../../Probabilities.json";
-            
-            /*string fnTrainingData = "../../Chunks/chunk_0.json";
-            string fnVocab = "../../VocabularyChunk_0.json";
-            string fnCorpus = "../../CorpusChunk_0.json";
-            string fnTf = "../../TermFrequencyChunk_0.json";
-            string fnIdf = "../../InverseDocumentFrequencyChunk_0.json";
-            string fnTfIdf = "../../TF-IDFChunk_0.json";
-            string fnTfIdfMerged = "../../TF-IDFMergedChunk_0.json";
-            string fnProbabilities = "../../ProbabilitiesChunk_0.json";*/
-            
             //number of classes, so how many emotions
-            int numClasses = 6;
+            string fnTrainingData = null;
+            string fnVocab = null;
+            string fnCorpus = null;
+            string fnTf = null;
+            string fnIdf = null;
+            string fnTfIdf = null;
+            string fnProbabilities = null;
+            string fnMlr = null;
+            string fnMergedProbabilities = null;
+            bool chooseFormat = true;
+            MultinomialLogisticRegression mlr;
+
+            while (chooseFormat)
+            {
+                Console.WriteLine("Choose a format:");
+                Console.WriteLine("1. Full");
+                Console.WriteLine("2. Partial");
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "1":
+                        Console.WriteLine("Full chosen");
+                        fnTrainingData = "../../Documents/training_data.json";
+                        fnVocab = "../../Vocabulary.json";
+                        fnCorpus = "../../Corpus.json";
+                        fnTf = "../../IgnoredFiles/TermFrequency.json";
+                        fnIdf = "../../InverseDocumentFrequency.json";
+                        fnTfIdf = "../../TF-IDF.json";
+                        fnProbabilities = "../../Probabilities.json";
+                        fnMlr = "../../MLR.json";
+                        fnMergedProbabilities = "../../MergedProbabilities.json";
+                        chooseFormat = false;
+                        break;
+                    case "2":
+                        Console.WriteLine("Partial chosen");
+                        fnTrainingData = "../../Chunks/chunk_0.json";
+                        fnVocab = "../../VocabularyChunk_0.json";
+                        fnCorpus = "../../CorpusChunk_0.json";
+                        fnTf = "../../TermFrequencyChunk_0.json";
+                        fnIdf = "../../InverseDocumentFrequencyChunk_0.json";
+                        fnTfIdf = "../../TF-IDFChunk_0.json";
+                        fnProbabilities = "../../ProbabilitiesChunk_0.json";
+                        fnMlr = "../../MLRChunk_0.json";
+                        fnMergedProbabilities = "../../MergedProbabilitiesChunk_0.json";
+                        chooseFormat = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Option.");
+                        break;
+                }
+            }
             
             while (true)
             {
                 Console.WriteLine("Select an option:");
                 Console.WriteLine("1. JSON Chunker");
                 Console.WriteLine("2. Corpus");
-                Console.WriteLine($"3. Append stopwords to include words appearing fewer than " +
+                Console.WriteLine("3. Append stopwords to include words appearing fewer than " +
                                   $"{frequencyThreshold.ToString()} times");
                 Console.WriteLine("4. Vocabulary");
                 Console.WriteLine("5. Term Frequency");
                 Console.WriteLine("6. Inverse Document Frequency");
                 Console.WriteLine("7. Term Frequency - Inverse Document Frequency");
-                Console.WriteLine("8. merge TF-IDF with training data");
-                Console.WriteLine("9. MLR");
+                Console.WriteLine("8. MLR - initialize new object");
+                Console.WriteLine("9. MLR - forward propagation and softmax");
+                Console.WriteLine("10. MLR - merge training documents and term probabilities");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -60,6 +91,8 @@ namespace AIDA
                 {
                     break;
                 }
+
+                int choice;
                 switch (input)
                 {
                     case "1":
@@ -93,14 +126,20 @@ namespace AIDA
                         TermFrequencyInverseDocumentFrequency.TfIdf(fnTf, fnIdf, fnTfIdf);
                         break;
                     case "8":
-                        Console.WriteLine("Launching TF-IDF merger");
-                        TermFrequencyInverseDocumentFrequency.MergeTfIdfTraining(fnTfIdf, fnTrainingData,
-                            fnTfIdfMerged);
+                        Console.WriteLine("Launching MLR - initialize new object");
+                        mlr = new MultinomialLogisticRegression(fnVocab, fnMlr);
                         break;
                     case "9":
-                        Console.WriteLine("Launching MLG");
-                        MultinomialLogisticRegression attempt1 = 
-                            new MultinomialLogisticRegression(fnProbabilities, fnVocab, fnTfIdf, numClasses);
+                        Console.WriteLine("Launching MLR - forward propagation and softmax");
+                        choice = 0;
+                        mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
+                            fnMergedProbabilities, fnCorpus, fnTrainingData);
+                        break;
+                    case "10":
+                        Console.WriteLine("Launching MLR - merge training documents and term probabilities");
+                        choice = 1;
+                        mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
+                            fnMergedProbabilities, fnCorpus, fnTrainingData);
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");

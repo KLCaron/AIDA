@@ -241,38 +241,5 @@ namespace AIDA
                 Console.WriteLine($"Processed and saved {fnTfIdf}");
             }
         }
-
-        public static void MergeTfIdfTraining(string fnTfIdf, string fnTrainingData, string fnTfIdfMerged)
-        {
-            Dictionary<string, Dictionary<string, double>> tfIdf =
-                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTfIdf);
-            List<Dictionary<string, object>> training = ReadFile.ReadJson<List<Dictionary<string, object>>>(fnTrainingData);
-            List<Dictionary<string, object>> mergedData = new List<Dictionary<string, object>>();
-
-            if (tfIdf.Count == training.Count)
-            {
-                for (int i = 0; i < training.Count; i++)
-                {
-                    Dictionary<string, object> document = training[i];
-                    string documentKey = "Document" + (i + 1).ToString();
-
-                    if (tfIdf.TryGetValue(documentKey, out var tfIdfScores))
-                    {
-                        document["tfidf_scores"] = tfIdfScores;
-                        mergedData.Add(document);
-                    }
-                    else
-                    {
-                        Console.Write($"No TF-IDF data found for document key: {documentKey}");
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("Mismatch in number of documents");
-            }
-            File.WriteAllText(fnTfIdfMerged, JsonConvert.SerializeObject(mergedData, Formatting.Indented));
-            Console.WriteLine($"Processed and saved {fnTfIdfMerged}");
-        }
     }
 }
