@@ -57,6 +57,7 @@
         <Compile Include="TermFrequencyInverseDocumentFrequency.cs" />
     </ItemGroup>
     <ItemGroup>
+      <Content Include="AggregatedProbabilitiesChunk_0.json" />
       <Content Include="Chunks\chunk_0.json" />
       <Content Include="Chunks\chunk_1.json" />
       <Content Include="Chunks\chunk_10.json" />

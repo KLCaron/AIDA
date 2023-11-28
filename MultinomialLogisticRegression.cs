@@ -41,7 +41,7 @@ namespace AIDA
         }
 
         public MultinomialLogisticRegression(int choice, string fnMlr, string fnTfIdf, string fnProbabilities, 
-            string fnMergedProbabilities, string fnCorpus, string fnDocuments)
+            string fnMergedProbabilities, string fnCorpus, string fnDocuments, string fnAggregatedProbabilities)
         {
             string jsonData = File.ReadAllText(fnMlr);
             var modelData = JsonConvert.DeserializeObject<dynamic>(jsonData);
@@ -58,6 +58,9 @@ namespace AIDA
             } else if (choice == 1)
             {
                 MergeDocumentsTermProbabilities(fnMergedProbabilities, fnCorpus, fnDocuments, fnProbabilities);
+            } else if (choice == 2)
+            {
+                AggregateDocumentProbabilities(fnAggregatedProbabilities, fnMergedProbabilities);
             }
 
             SaveModel(fnMlr);
@@ -215,7 +218,6 @@ namespace AIDA
             }
 
             return probabilities;
-            
         }
 
         private void MergeDocumentsTermProbabilities(string fnMergedProbabilities, string fnCorpus, string fnDocuments,
@@ -257,28 +259,58 @@ namespace AIDA
                 JsonConvert.SerializeObject(mergedDocuments, Formatting.Indented));
         }
 
-        /*
-        private Dictionary<string, Dictionary<string, double>> AggregateDocumentProbabilities(
-            Dictionary<string, Dictionary<string, double>> allTermProbabilities)
+        
+        private void AggregateDocumentProbabilities(string fnAggregatedProbabilities, string fnMergedProbabilities)
         {
-            Dictionary<string, Dictionary<string, double>> documentLevelProbabilities =
+            Dictionary<string, Dictionary<string, double>> aggregatedProbabilities =
                 new Dictionary<string, Dictionary<string, double>>();
+            Dictionary<string, Dictionary<string, Dictionary<string, double>>> mergedProbabilities =
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, Dictionary<string, double>>>>(
+                    fnMergedProbabilities);
 
-            foreach (var termProbabilities in allTermProbabilities)
+            foreach (var document in mergedProbabilities)
             {
-                string term = termProbabilities.Key;
-                var emotionProbabilities = termProbabilities.Value;
+                string documentKey = document.Key;
+                string trueEmotionKey = "_" + document.Value.Keys.First();
+                Dictionary<string, double> emotionSet = new Dictionary<string, double>();
+                emotionSet[trueEmotionKey] = 0.0;
 
-                foreach (var emotion in emotionProbabilities)
+                foreach (var emotion in _emotions)
                 {
-                    string emotionKey = emotion.Key;
-                    double probability = emotion.Value;
-                    
-                    if (!documentLevelProbabilities.ContainsKey(term))
+                    emotionSet[emotion] = 0.0;
                 }
+
+                bool firstTermProbabilities = true;
+                
+                foreach (var termProbabilities in document.Value)
+                {
+                    if (!firstTermProbabilities)
+                    {
+                        foreach (var emotion in termProbabilities.Value)
+                        {
+                            emotionSet[emotion.Key] += emotion.Value;
+                        }                        
+                    }
+                    else
+                    {
+                        firstTermProbabilities = false;
+                    }
+
+                }
+
+                double sum = emotionSet.Sum(kv => kv.Value);
+                foreach (var emotion in _emotions)
+                {
+                    emotionSet[emotion] /= sum;
+                }
+                aggregatedProbabilities[documentKey] = emotionSet;
             }
+            
+            File.WriteAllText(fnAggregatedProbabilities, 
+                JsonConvert.SerializeObject(aggregatedProbabilities, Formatting.Indented));
         }
 
+        /*
         //meant to compute for single data point, so need to run in a foreach loop
         private double CalcCrossEntropyLoss(Dictionary<string, double> predictedProbabilities, string actualEmotion)
         {

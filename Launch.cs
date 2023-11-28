@@ -27,6 +27,7 @@ namespace AIDA
             string fnProbabilities = null;
             string fnMlr = null;
             string fnMergedProbabilities = null;
+            string fnAggregatedProbabilities = null;
             bool chooseFormat = true;
             MultinomialLogisticRegression mlr;
 
@@ -49,6 +50,7 @@ namespace AIDA
                         fnProbabilities = "../../Probabilities.json";
                         fnMlr = "../../MLR.json";
                         fnMergedProbabilities = "../../MergedProbabilities.json";
+                        fnAggregatedProbabilities = "../../AggregatedProbabilities.json";
                         chooseFormat = false;
                         break;
                     case "2":
@@ -62,6 +64,7 @@ namespace AIDA
                         fnProbabilities = "../../ProbabilitiesChunk_0.json";
                         fnMlr = "../../MLRChunk_0.json";
                         fnMergedProbabilities = "../../MergedProbabilitiesChunk_0.json";
+                        fnAggregatedProbabilities = "../../AggregatedProbabilitiesChunk_0.json";
                         chooseFormat = false;
                         break;
                     default:
@@ -84,6 +87,7 @@ namespace AIDA
                 Console.WriteLine("8. MLR - initialize new object");
                 Console.WriteLine("9. MLR - forward propagation and softmax");
                 Console.WriteLine("10. MLR - merge training documents and term probabilities");
+                Console.WriteLine("11. MLR - document aggregated probabilities");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -133,14 +137,20 @@ namespace AIDA
                         Console.WriteLine("Launching MLR - forward propagation and softmax");
                         choice = 0;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
-                            fnMergedProbabilities, fnCorpus, fnTrainingData);
+                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities);
                         break;
                     case "10":
                         Console.WriteLine("Launching MLR - merge training documents and term probabilities");
                         choice = 1;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
-                            fnMergedProbabilities, fnCorpus, fnTrainingData);
+                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities);
                         break;
+                    case "11":
+                        Console.WriteLine("Launching MLR - document aggregated probabilities");
+                        choice = 2;
+                        mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
+                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities);
+                        break; 
                     default:
                         Console.WriteLine("Invalid Option.");
                         break;
