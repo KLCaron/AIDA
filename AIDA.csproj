@@ -57,8 +57,6 @@
         <Compile Include="TermFrequencyInverseDocumentFrequency.cs" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include="AggregatedProbabilitiesChunk_0.json" />
-      <Content Include="AverageLossChunk_0.txt" />
       <Content Include="Chunks\chunk_0.json" />
       <Content Include="Chunks\chunk_1.json" />
       <Content Include="Chunks\chunk_10.json" />
@@ -101,8 +99,6 @@
       <Content Include="Chunks\chunk_7.json" />
       <Content Include="Chunks\chunk_8.json" />
       <Content Include="Chunks\chunk_9.json" />
-      <Content Include="Corpus.json" />
-      <Content Include="CorpusChunk_0.json" />
       <Content Include="Documents\data sets and monthly plans.odt" />
       <Content Include="Documents\merged_training.pkl" />
       <Content Include="Documents\notes.odt" />
@@ -116,22 +112,25 @@
       <Content Include="Documents\Oct 31, 2023.odt" />
       <Content Include="Documents\pickle_converter.py" />
       <Content Include="Documents\Sept 25, 2023.odt" />
-      <Content Include="Documents\training_data.json" />
-      <Content Include="IgnoredFiles\TermFrequency.json" />
-      <Content Include="IgnoredFiles\TF-IDFMerged.json" />
-      <Content Include="InverseDocumentFrequency.json" />
-      <Content Include="InverseDocumentFrequencyChunk_0.json" />
-      <Content Include="LossSetChunk_0.json" />
-      <Content Include="MergedProbabilitiesChunk_0.json" />
-      <Content Include="MLRChunk_0.json" />
-      <Content Include="Probabilities.json" />
-      <Content Include="ProbabilitiesChunk_0.json" />
+      <Content Include="Documents\OriginalData.json" />
+      <Content Include="JSONs - Chunks\AggregatedProbabilitiesChunk_0.json" />
+      <Content Include="JSONs - Chunks\AverageLossChunk_0.txt" />
+      <Content Include="JSONs - Chunks\CorpusChunk_0.json" />
+      <Content Include="JSONs - Chunks\InverseDocumentFrequencyChunk_0.json" />
+      <Content Include="JSONs - Chunks\LossSetChunk_0.json" />
+      <Content Include="JSONs - Chunks\MergedProbabilitiesChunk_0.json" />
+      <Content Include="JSONs - Chunks\MLRChunk_0.json" />
+      <Content Include="JSONs - Chunks\ProbabilitiesChunk_0.json" />
+      <Content Include="JSONs - Chunks\TermFrequencyChunk_0.json" />
+      <Content Include="JSONs - Chunks\TF-IDFChunk_0.json" />
+      <Content Include="JSONs - Chunks\VocabularyChunk_0.json" />
+      <Content Include="JSONs\Corpus.json" />
+      <Content Include="JSONs\InverseDocumentFrequency.json" />
+      <Content Include="JSONs\Probabilities.json" />
+      <Content Include="JSONs\TermFrequency.json" />
+      <Content Include="JSONs\TF-IDF.json" />
+      <Content Include="JSONs\Vocabulary.json" />
       <Content Include="stopwords-en.txt" />
-      <Content Include="TermFrequencyChunk_0.json" />
-      <Content Include="TF-IDF.json" />
-      <Content Include="TF-IDFChunk_0.json" />
-      <Content Include="Vocabulary.json" />
-      <Content Include="VocabularyChunk_0.json" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />

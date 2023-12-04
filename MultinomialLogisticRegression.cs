@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 
 namespace AIDA
@@ -16,9 +15,10 @@ namespace AIDA
         private readonly string[] _emotions = { "sadness", "joy", "love", "anger", "fear", "surprise" };
         private int _numClasses = 6;
         private readonly Random _rand;
-
-        //classes = emotions, 6 of em, sadness, joy, love, anger, fear, surprise
-        //features is basically just the words in my vocab
+        
+        /*
+         * initialize a starting model object
+         */
         public MultinomialLogisticRegression(string fnVocab, string fnMlr)
         {
             _rand = new Random();
@@ -28,6 +28,9 @@ namespace AIDA
             SaveModel(fnMlr);
         }
 
+        /*
+         * save the model object, to re-use later
+         */
         private void SaveModel(string fnMlr)
         {
             var modelData = new
@@ -41,6 +44,9 @@ namespace AIDA
             File.WriteAllText(fnMlr, jsonData);
         }
 
+        /*
+         * to perform all the actual work on the model
+         */
         public MultinomialLogisticRegression(int choice, string fnMlr, string fnTfIdf, string fnProbabilities, 
             string fnMergedProbabilities, string fnCorpus, string fnDocuments, string fnAggregatedProbabilities, 
             string fnLossSet, string fnAverageLoss)
@@ -351,6 +357,14 @@ namespace AIDA
             File.WriteAllText(fnLossSet, 
                 JsonConvert.SerializeObject(lossSet, Formatting.Indented));
             File.WriteAllText(fnAverageLoss,averageLoss.ToString(CultureInfo.InvariantCulture));
+        }
+        
+        /*so, gradient descent time. I'm computing gradients of my parameters (weights and biases)
+         *with respect to cost function, so that I can minimize the cost function
+         */
+        private void GradientDescent()
+        {
+            
         }
     }
 }

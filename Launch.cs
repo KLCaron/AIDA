@@ -17,7 +17,8 @@ namespace AIDA
             string fnChunks = "../../Chunks";
             int chunkSize = 1000;
             //string namingConvention = "chunk_*.json";
-            //number of classes, so how many emotions
+            //once we start trying to properly build/use this, need to make
+            //distinction between training data, testing data, original data
             string fnTrainingData = null;
             string fnVocab = null;
             string fnCorpus = null;
@@ -43,34 +44,34 @@ namespace AIDA
                 {
                     case "1":
                         Console.WriteLine("Full chosen");
-                        fnTrainingData = "../../Documents/training_data.json";
-                        fnVocab = "../../Vocabulary.json";
-                        fnCorpus = "../../Corpus.json";
-                        fnTf = "../../IgnoredFiles/TermFrequency.json";
-                        fnIdf = "../../InverseDocumentFrequency.json";
-                        fnTfIdf = "../../TF-IDF.json";
-                        fnProbabilities = "../../Probabilities.json";
-                        fnMlr = "../../MLR.json";
-                        fnMergedProbabilities = "../../MergedProbabilities.json";
-                        fnAggregatedProbabilities = "../../AggregatedProbabilities.json";
-                        fnLossSet = "../../LossSet.json";
-                        fnAverageLoss = "../../AverageLoss.txt";
+                        fnTrainingData = "../../Documents/OriginalData.json";
+                        fnVocab = "../../JSONs/Vocabulary.json";
+                        fnCorpus = "../../JSONs/Corpus.json";
+                        fnTf = "../../JSONs/TermFrequency.json";
+                        fnIdf = "../../JSONs/InverseDocumentFrequency.json";
+                        fnTfIdf = "../../JSONs/TF-IDF.json";
+                        fnProbabilities = "../../JSONs/Probabilities.json";
+                        fnMlr = "../../JSONs/MLR.json";
+                        fnMergedProbabilities = "../../JSONs/MergedProbabilities.json";
+                        fnAggregatedProbabilities = "../../JSONs/AggregatedProbabilities.json";
+                        fnLossSet = "../../JSONs/LossSet.json";
+                        fnAverageLoss = "../../JSONs/AverageLoss.txt";
                         chooseFormat = false;
                         break;
                     case "2":
                         Console.WriteLine("Partial chosen");
                         fnTrainingData = "../../Chunks/chunk_0.json";
-                        fnVocab = "../../VocabularyChunk_0.json";
-                        fnCorpus = "../../CorpusChunk_0.json";
-                        fnTf = "../../TermFrequencyChunk_0.json";
-                        fnIdf = "../../InverseDocumentFrequencyChunk_0.json";
-                        fnTfIdf = "../../TF-IDFChunk_0.json";
-                        fnProbabilities = "../../ProbabilitiesChunk_0.json";
-                        fnMlr = "../../MLRChunk_0.json";
-                        fnMergedProbabilities = "../../MergedProbabilitiesChunk_0.json";
-                        fnAggregatedProbabilities = "../../AggregatedProbabilitiesChunk_0.json";
-                        fnLossSet = "../../LossSetChunk_0.json";
-                        fnAverageLoss = "../../AverageLossChunk_0.txt";
+                        fnVocab = "../../JSONS - Chunks/VocabularyChunk_0.json";
+                        fnCorpus = "../../JSONS - Chunks/CorpusChunk_0.json";
+                        fnTf = "../../JSONS - Chunks/TermFrequencyChunk_0.json";
+                        fnIdf = "../../JSONS - Chunks/InverseDocumentFrequencyChunk_0.json";
+                        fnTfIdf = "../../JSONS - Chunks/TF-IDFChunk_0.json";
+                        fnProbabilities = "../../JSONS - Chunks/ProbabilitiesChunk_0.json";
+                        fnMlr = "../../JSONS - Chunks/MLRChunk_0.json";
+                        fnMergedProbabilities = "../../JSONS - Chunks/MergedProbabilitiesChunk_0.json";
+                        fnAggregatedProbabilities = "../../JSONS - Chunks/AggregatedProbabilitiesChunk_0.json";
+                        fnLossSet = "../../JSONS - Chunks/LossSetChunk_0.json";
+                        fnAverageLoss = "../../JSONS - Chunks/AverageLossChunk_0.txt";
                         chooseFormat = false;
                         break;
                     default:

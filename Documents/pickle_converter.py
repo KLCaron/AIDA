@@ -12,6 +12,6 @@ df = pd.DataFrame(training_data)
 # convert dataframe to a list of dictionaries
 records = df.to_dict(orient='records')
 
-# write the list of dicitonaries to a JSON file
-with open('training_data.json', 'w') as file:
+# write the list of dictionaries to a JSON file
+with open('OriginalData.json', 'w') as file:
     json.dump(records, file, indent=2)
