@@ -48,7 +48,7 @@ namespace AIDA
          */
         public MultinomialLogisticRegression(int choice, string fnMlr, string fnTfIdf, string fnProbabilities, 
             string fnMergedProbabilities, string fnCorpus, string fnDocuments, string fnAggregatedProbabilities, 
-            string fnLossSet, string fnAverageLoss, string fnVocab, string fnTermLossSet)
+            string fnLossSet, string fnAverageLoss, string fnVocab, string fnTermLossSet, double learningRate)
         {
             string jsonData = File.ReadAllText(fnMlr);
             var modelData = JsonConvert.DeserializeObject<dynamic>(jsonData);
@@ -66,7 +66,8 @@ namespace AIDA
                     fnProbabilities)},
                 {2, () => AggregateDocumentProbabilities(fnAggregatedProbabilities, fnMergedProbabilities)},
                 {3, () => CalcCrossEntropyLoss(fnAggregatedProbabilities, fnLossSet, fnAverageLoss)},
-                {4, () => DocumentLossToTermLoss(fnLossSet, fnTfIdf, fnVocab, fnTermLossSet)}
+                {4, () => DocumentLossToTermLoss(fnLossSet, fnTfIdf, fnVocab, fnTermLossSet)},
+                {5, () => GradientDescent(fnTermLossSet, learningRate)}
             };
 
             if (actions.TryGetValue(choice, out Action action))
@@ -231,6 +232,10 @@ namespace AIDA
             return probabilities;
         }
 
+        /*
+         * merge probabilities are the document, its true emotion, and then each term inside with probabilities
+         * applied at the term level
+         */
         private void MergeDocumentsTermProbabilities(string fnMergedProbabilities, string fnCorpus, string fnDocuments,
             string fnAllTermProbabilities)
         {
@@ -270,7 +275,10 @@ namespace AIDA
                 JsonConvert.SerializeObject(mergedDocuments, Formatting.Indented));
         }
 
-        
+        /*
+         * aggregate probabilities are the document, with the true emotion, and then probabilities for each
+         * emotion.
+         */
         private void AggregateDocumentProbabilities(string fnAggregatedProbabilities, string fnMergedProbabilities)
         {
             Dictionary<string, Dictionary<string, double>> aggregatedProbabilities =
@@ -437,24 +445,26 @@ namespace AIDA
         
         /*so, gradient descent time. I'm computing gradients of my parameters (weights and biases)
          *with respect to cost function, so that I can minimize the cost function
-         *
-        private void GradientDescent(string fnTermLossSet, string fnTfIdf, double learningRate)
+         * learning rate should be 0.001 iirc?
+         */
+        private void GradientDescent(string fnTermLossSet, double learningRate)
         {
-            Dictionary<string, double> termLossSet = ReadFile.ReadJson<Dictionary<string, double>>(fnTermLossSet);
-            Dictionary<string, Dictionary<string, double>> tfIdf =
-                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTfIdf);
-            foreach (var termLoss in termLossSet)
-            {
-                string term = termLoss.Key;
-                double totalTermLoss = termLoss.Value;
+            Dictionary<string, Dictionary<string, double>> termLossSet = 
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTermLossSet);
 
-                foreach (var emotion in _emotions)
+            foreach (var emotion in _emotions)
+            {
+                var termsCopy = new Dictionary<string, double>(_weights[emotion]);
+                foreach (var term in termsCopy.Keys)
                 {
-                    double termGradient = 0.0;
-                    
-                    foreach (var documentTfIdf in tfIdf[emotion])
+                    double gradient = -termLossSet[emotion][term]; 
+                    //this is meant to be a derivative of the loss function with respect to weight?
+                    //but, the other things we might have applied, like our feature tfidf, were already applied
+                    //before, in calculating the loss itself (or, at least in computing term loss out of doc loss)
+
+                    _weights[emotion][term] -= learningRate * gradient;
                 }
             }
-        }*/
+        }
     }
 }

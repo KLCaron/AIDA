@@ -32,6 +32,8 @@ namespace AIDA
             string fnLossSet = null;
             string fnAverageLoss = null;
             string fnTermLossSet = null;
+            double learningRate = 0.01; //or 0.001, or something; higher for terms of less importance, lower for terms of 
+            //greater importance
             bool chooseFormat = true;
             MultinomialLogisticRegression mlr;
 
@@ -100,6 +102,7 @@ namespace AIDA
                 Console.WriteLine("11. MLR - document aggregated probabilities");
                 Console.WriteLine("12. MLR - loss set and average loss");
                 Console.WriteLine("13. MLR - Document loss to term loss");
+                Console.WriteLine("14. MLR - Gradient descent");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -150,35 +153,42 @@ namespace AIDA
                         choice = 0;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
                             fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
-                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet, learningRate);
                         break;
                     case "10":
                         Console.WriteLine("Launching MLR - merge training documents and term probabilities");
                         choice = 1;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
                             fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
-                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet, learningRate);
                         break;
                     case "11":
                         Console.WriteLine("Launching MLR - document aggregated probabilities");
                         choice = 2;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
                             fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
-                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet, learningRate);
                         break;
                     case "12":
                         Console.WriteLine("Launching MLR - loss set and average loss");
                         choice = 3;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
                             fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
-                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet, learningRate);
                         break;
                     case "13":
                         Console.WriteLine("Launching MLR - document loss to term loss");
                         choice = 4;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
                             fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
-                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet, learningRate);
+                        break;
+                    case "14":
+                        Console.WriteLine("Launching MLR - Gradient descent");
+                        choice = 5;
+                        mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
+                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet, learningRate);
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");
