@@ -454,16 +454,22 @@ namespace AIDA
 
             foreach (var emotion in _emotions)
             {
+                double biasGradient = 0.0;
                 var termsCopy = new Dictionary<string, double>(_weights[emotion]);
+
                 foreach (var term in termsCopy.Keys)
                 {
-                    double gradient = -termLossSet[emotion][term]; 
+                    double termGradient = -termLossSet[emotion][term];
                     //this is meant to be a derivative of the loss function with respect to weight?
                     //but, the other things we might have applied, like our feature tfidf, were already applied
                     //before, in calculating the loss itself (or, at least in computing term loss out of doc loss)
 
-                    _weights[emotion][term] -= learningRate * gradient;
+                    _weights[emotion][term] -= learningRate * termGradient;
+
+                    biasGradient += termGradient;
                 }
+
+                _biases[emotion] -= learningRate * biasGradient;
             }
         }
     }
