@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -14,7 +13,6 @@ namespace AIDA
         private Dictionary<string, Dictionary<string, double>> _weights;
         private Dictionary<string, double> _biases;
         private readonly string[] _emotions = { "sadness", "joy", "love", "anger", "fear", "surprise" };
-        private int _numClasses = 6;
         private readonly Random _rand;
         
         /*
@@ -324,22 +322,26 @@ namespace AIDA
         }
         
         /*
-         * calculates loss score for each document, then min-max normalizes it so that every value
-         * is between 0 and 1. 0 remains good, 1 remains bad.
+         * calculates loss score for each document, underneath each emotion. Set to 0 by default.
          */
         private void CalcCrossEntropyLoss(string fnAggregatedProbabilities, string fnLossSet, string fnAverageLoss)
         {
             Dictionary<string, Dictionary<string, double>> aggregatedProbabilities =
                 ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnAggregatedProbabilities);
-            Dictionary<string, double> lossSet = new Dictionary<string, double>();
+            //Dictionary<string, double> lossSet = new Dictionary<string, double>();
+            Dictionary<string, Dictionary<string, double>> lossSet =
+                new Dictionary<string, Dictionary<string, double>>();
             double totalLoss = 0.0;
 
-            double minLoss = double.MaxValue;
-            double maxLoss = double.MinValue;
+            foreach (var emotion in _emotions)
+            {
+                lossSet[emotion] = new Dictionary<string, double>();
+            }
             
             foreach (var document in aggregatedProbabilities)
             {
-                double loss = 0.0;
+                double totalLossForDocument = 0.0;
+                string documentKey = document.Key;
                 string trueEmotion = document.Value.Keys.First().Substring(1);
                 var documentVal = document.Value;
                 
@@ -351,21 +353,15 @@ namespace AIDA
                     //need to avoid log(0)
                     double epsilon = 1e-15;
                     predictedProbability = Math.Max(epsilon, Math.Min(1 - epsilon, predictedProbability));
-                
-                    loss += -indicator * Math.Log(predictedProbability);
+
+                    double loss = -indicator * Math.Log(predictedProbability);
+                    totalLossForDocument += loss;
+
+                    lossSet[emotion][documentKey] = loss;
                 }
 
-                lossSet[document.Key] = loss;
-                totalLoss += loss;
-
-                minLoss = Math.Min(minLoss, loss);
-                maxLoss = Math.Max(maxLoss, loss);
-            }
-
-            foreach (var documentKey in lossSet.Keys.ToList())
-            {
-                double normalizedLoss = (lossSet[documentKey] - minLoss) / (maxLoss - minLoss);
-                lossSet[documentKey] = normalizedLoss;
+                totalLoss += totalLossForDocument;
+                
             }
 
             double averageLoss = totalLoss / aggregatedProbabilities.Count;
@@ -376,50 +372,63 @@ namespace AIDA
         }
 
         /*
-         * converts document level loss into term level loss, and applies min-max normalization
+         * converts document level loss into term level loss, and applies min-max normalization. Applies
+         * tf-idf scores (multiplies docLoss by the given term's tfIdf score) to produce the conversion.
          */
         private void DocumentLossToTermLoss(string fnLossSet, string fnTfIdf, string fnVocab, string fnTermLossSet)
         {
-            Dictionary<string, double> lossSet = ReadFile.ReadJson<Dictionary<string, double>>(fnLossSet);
+            Dictionary<string, Dictionary<string, double>> lossSet =
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnLossSet);
             Dictionary<string, Dictionary<string, double>> tfIdf =
                 ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTfIdf);
             List<string> vocab = ReadFile.ReadJson<List<string>>(fnVocab);
-            Dictionary<string, double> termLossSet = new Dictionary<string, double>();
+            Dictionary<string, Dictionary<string, double>> termLossSet = 
+                new Dictionary<string, Dictionary<string, double>>();
 
-            foreach (var term in vocab)
+            foreach (var emotion in _emotions)
             {
-                termLossSet[term] = 0.0;
-            }
+                termLossSet[emotion] = new Dictionary<string, double>();
 
-            for (int i = 0; i < lossSet.Count; i++)
-            {
-                double docLoss = lossSet.ElementAt(i).Value;
-                Dictionary<string, double> docTfIdfs = tfIdf.ElementAt(i).Value;
-                
-                foreach (string term in vocab)
+                foreach (var term in vocab)
                 {
-                    double termLoss = 0.0;
-
-                    foreach (var docTfIdf in docTfIdfs)
-                    {
-                        if (docTfIdf.Key.Contains(term))
-                        {
-                            double termTfIdfScore = docTfIdf.Value;
-                            termLoss += docLoss * termTfIdfScore;
-                        }
-                    }
-
-                    termLossSet[term] += termLoss;
+                    termLossSet[emotion][term] = 0.0;
                 }
             }
-
-            double min = termLossSet.Min(t => t.Value);
-            double max = termLossSet.Max(t => t.Value);
-
-            foreach (var term in termLossSet.Keys.ToList())
+            
+            foreach (var emotion in lossSet.Keys)
             {
-                double normalizedTermLoss = (termLossSet[term] - min) / (max - min);
-                termLossSet[term] = normalizedTermLoss;
+                var emotionDocuments = lossSet[emotion];
+
+                for (int i = 0; i < emotionDocuments.Count; i++)
+                {
+                    var document = emotionDocuments.ElementAt(i);
+                    double docLoss = document.Value;
+                    Dictionary<string, double> docTfIdfs = tfIdf.ElementAt(i).Value;
+
+                    foreach (string term in vocab)
+                    {
+                        double termLoss = 0.0;
+
+                        if (docTfIdfs.TryGetValue(term, out var termTfIdf))
+                        {
+                            termLoss = docLoss * termTfIdf;
+                        }
+
+                        termLossSet[emotion][term] += termLoss;
+                    }
+                }
+                
+                double min = termLossSet[emotion].Min(t => t.Value); 
+                double max = termLossSet[emotion].Max(t => t.Value);
+                
+                if (Math.Abs(min - max) > double.Epsilon)
+                {
+                    foreach (var term in termLossSet[emotion].Keys.ToList())
+                    {
+                        double normalizedTermLoss = (termLossSet[emotion][term] - min) / (max - min);
+                        termLossSet[emotion][term] = normalizedTermLoss;
+                    }
+                }
             }
             
             File.WriteAllText(fnTermLossSet, 
@@ -428,10 +437,24 @@ namespace AIDA
         
         /*so, gradient descent time. I'm computing gradients of my parameters (weights and biases)
          *with respect to cost function, so that I can minimize the cost function
-         */
-        private void GradientDescent()
+         *
+        private void GradientDescent(string fnTermLossSet, string fnTfIdf, double learningRate)
         {
-            
-        }
+            Dictionary<string, double> termLossSet = ReadFile.ReadJson<Dictionary<string, double>>(fnTermLossSet);
+            Dictionary<string, Dictionary<string, double>> tfIdf =
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTfIdf);
+            foreach (var termLoss in termLossSet)
+            {
+                string term = termLoss.Key;
+                double totalTermLoss = termLoss.Value;
+
+                foreach (var emotion in _emotions)
+                {
+                    double termGradient = 0.0;
+                    
+                    foreach (var documentTfIdf in tfIdf[emotion])
+                }
+            }
+        }*/
     }
 }
