@@ -382,6 +382,7 @@ namespace AIDA
         /*
          * converts document level loss into term level loss, and applies min-max normalization. Applies
          * tf-idf scores (multiplies docLoss by the given term's tfIdf score) to produce the conversion.
+         * wait, maybed jumped the gun on normalization, why am I even doing it anymore? Should probably drop
          */
         private void DocumentLossToTermLoss(string fnLossSet, string fnTfIdf, string fnVocab, string fnTermLossSet)
         {
@@ -425,7 +426,7 @@ namespace AIDA
                         termLossSet[emotion][term] += termLoss;
                     }
                 }
-                
+                /*
                 double min = termLossSet[emotion].Min(t => t.Value); 
                 double max = termLossSet[emotion].Max(t => t.Value);
                 
@@ -436,7 +437,7 @@ namespace AIDA
                         double normalizedTermLoss = (termLossSet[emotion][term] - min) / (max - min);
                         termLossSet[emotion][term] = normalizedTermLoss;
                     }
-                }
+                }*/
             }
             
             File.WriteAllText(fnTermLossSet, 
