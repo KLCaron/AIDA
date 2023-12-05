@@ -122,6 +122,7 @@
       <Content Include="JSONs - Chunks\MLRChunk_0.json" />
       <Content Include="JSONs - Chunks\ProbabilitiesChunk_0.json" />
       <Content Include="JSONs - Chunks\TermFrequencyChunk_0.json" />
+      <Content Include="JSONs - Chunks\TermLossSet.json" />
       <Content Include="JSONs - Chunks\TF-IDFChunk_0.json" />
       <Content Include="JSONs - Chunks\VocabularyChunk_0.json" />
       <Content Include="JSONs\Corpus.json" />

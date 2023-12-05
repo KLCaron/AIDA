@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -49,7 +50,7 @@ namespace AIDA
          */
         public MultinomialLogisticRegression(int choice, string fnMlr, string fnTfIdf, string fnProbabilities, 
             string fnMergedProbabilities, string fnCorpus, string fnDocuments, string fnAggregatedProbabilities, 
-            string fnLossSet, string fnAverageLoss)
+            string fnLossSet, string fnAverageLoss, string fnVocab, string fnTermLossSet)
         {
             string jsonData = File.ReadAllText(fnMlr);
             var modelData = JsonConvert.DeserializeObject<dynamic>(jsonData);
@@ -60,18 +61,19 @@ namespace AIDA
             int? randSeed = modelData.RandSeed;
             _rand = randSeed.HasValue ? new Random(randSeed.Value) : new Random();
 
-            if (choice == 0)
+            Dictionary<int, Action> actions = new Dictionary<int, Action>
             {
-                MlrForwardPropSoftMax(fnProbabilities, fnTfIdf);                
-            } else if (choice == 1)
+                {0, () => MlrForwardPropSoftMax(fnProbabilities, fnTfIdf)},
+                {1, () => MergeDocumentsTermProbabilities(fnMergedProbabilities, fnCorpus, fnDocuments,
+                    fnProbabilities)},
+                {2, () => AggregateDocumentProbabilities(fnAggregatedProbabilities, fnMergedProbabilities)},
+                {3, () => CalcCrossEntropyLoss(fnAggregatedProbabilities, fnLossSet, fnAverageLoss)},
+                {4, () => DocumentLossToTermLoss(fnLossSet, fnTfIdf, fnVocab, fnTermLossSet)}
+            };
+
+            if (actions.TryGetValue(choice, out Action action))
             {
-                MergeDocumentsTermProbabilities(fnMergedProbabilities, fnCorpus, fnDocuments, fnProbabilities);
-            } else if (choice == 2)
-            {
-                AggregateDocumentProbabilities(fnAggregatedProbabilities, fnMergedProbabilities);
-            } else if (choice == 3)
-            {
-                CalcCrossEntropyLoss(fnAggregatedProbabilities, fnLossSet, fnAverageLoss);
+                action();
             }
 
             SaveModel(fnMlr);
@@ -320,15 +322,20 @@ namespace AIDA
             File.WriteAllText(fnAggregatedProbabilities, 
                 JsonConvert.SerializeObject(aggregatedProbabilities, Formatting.Indented));
         }
-
         
-        //meant to compute for single data point, so need to run in a foreach loop
+        /*
+         * calculates loss score for each document, then min-max normalizes it so that every value
+         * is between 0 and 1. 0 remains good, 1 remains bad.
+         */
         private void CalcCrossEntropyLoss(string fnAggregatedProbabilities, string fnLossSet, string fnAverageLoss)
         {
             Dictionary<string, Dictionary<string, double>> aggregatedProbabilities =
                 ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnAggregatedProbabilities);
             Dictionary<string, double> lossSet = new Dictionary<string, double>();
             double totalLoss = 0.0;
+
+            double minLoss = double.MaxValue;
+            double maxLoss = double.MinValue;
             
             foreach (var document in aggregatedProbabilities)
             {
@@ -350,6 +357,15 @@ namespace AIDA
 
                 lossSet[document.Key] = loss;
                 totalLoss += loss;
+
+                minLoss = Math.Min(minLoss, loss);
+                maxLoss = Math.Max(maxLoss, loss);
+            }
+
+            foreach (var documentKey in lossSet.Keys.ToList())
+            {
+                double normalizedLoss = (lossSet[documentKey] - minLoss) / (maxLoss - minLoss);
+                lossSet[documentKey] = normalizedLoss;
             }
 
             double averageLoss = totalLoss / aggregatedProbabilities.Count;
@@ -357,6 +373,57 @@ namespace AIDA
             File.WriteAllText(fnLossSet, 
                 JsonConvert.SerializeObject(lossSet, Formatting.Indented));
             File.WriteAllText(fnAverageLoss,averageLoss.ToString(CultureInfo.InvariantCulture));
+        }
+
+        /*
+         * converts document level loss into term level loss, and applies min-max normalization
+         */
+        private void DocumentLossToTermLoss(string fnLossSet, string fnTfIdf, string fnVocab, string fnTermLossSet)
+        {
+            Dictionary<string, double> lossSet = ReadFile.ReadJson<Dictionary<string, double>>(fnLossSet);
+            Dictionary<string, Dictionary<string, double>> tfIdf =
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTfIdf);
+            List<string> vocab = ReadFile.ReadJson<List<string>>(fnVocab);
+            Dictionary<string, double> termLossSet = new Dictionary<string, double>();
+
+            foreach (var term in vocab)
+            {
+                termLossSet[term] = 0.0;
+            }
+
+            for (int i = 0; i < lossSet.Count; i++)
+            {
+                double docLoss = lossSet.ElementAt(i).Value;
+                Dictionary<string, double> docTfIdfs = tfIdf.ElementAt(i).Value;
+                
+                foreach (string term in vocab)
+                {
+                    double termLoss = 0.0;
+
+                    foreach (var docTfIdf in docTfIdfs)
+                    {
+                        if (docTfIdf.Key.Contains(term))
+                        {
+                            double termTfIdfScore = docTfIdf.Value;
+                            termLoss += docLoss * termTfIdfScore;
+                        }
+                    }
+
+                    termLossSet[term] += termLoss;
+                }
+            }
+
+            double min = termLossSet.Min(t => t.Value);
+            double max = termLossSet.Max(t => t.Value);
+
+            foreach (var term in termLossSet.Keys.ToList())
+            {
+                double normalizedTermLoss = (termLossSet[term] - min) / (max - min);
+                termLossSet[term] = normalizedTermLoss;
+            }
+            
+            File.WriteAllText(fnTermLossSet, 
+                JsonConvert.SerializeObject(termLossSet, Formatting.Indented));
         }
         
         /*so, gradient descent time. I'm computing gradients of my parameters (weights and biases)

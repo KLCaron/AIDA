@@ -31,6 +31,7 @@ namespace AIDA
             string fnAggregatedProbabilities = null;
             string fnLossSet = null;
             string fnAverageLoss = null;
+            string fnTermLossSet = null;
             bool chooseFormat = true;
             MultinomialLogisticRegression mlr;
 
@@ -56,22 +57,24 @@ namespace AIDA
                         fnAggregatedProbabilities = "../../JSONs/AggregatedProbabilities.json";
                         fnLossSet = "../../JSONs/LossSet.json";
                         fnAverageLoss = "../../JSONs/AverageLoss.txt";
+                        fnTermLossSet = "../../JSONs/TermLossSet.json";
                         chooseFormat = false;
                         break;
                     case "2":
                         Console.WriteLine("Partial chosen");
                         fnTrainingData = "../../Chunks/chunk_0.json";
-                        fnVocab = "../../JSONS - Chunks/VocabularyChunk_0.json";
-                        fnCorpus = "../../JSONS - Chunks/CorpusChunk_0.json";
-                        fnTf = "../../JSONS - Chunks/TermFrequencyChunk_0.json";
-                        fnIdf = "../../JSONS - Chunks/InverseDocumentFrequencyChunk_0.json";
-                        fnTfIdf = "../../JSONS - Chunks/TF-IDFChunk_0.json";
-                        fnProbabilities = "../../JSONS - Chunks/ProbabilitiesChunk_0.json";
-                        fnMlr = "../../JSONS - Chunks/MLRChunk_0.json";
-                        fnMergedProbabilities = "../../JSONS - Chunks/MergedProbabilitiesChunk_0.json";
-                        fnAggregatedProbabilities = "../../JSONS - Chunks/AggregatedProbabilitiesChunk_0.json";
-                        fnLossSet = "../../JSONS - Chunks/LossSetChunk_0.json";
-                        fnAverageLoss = "../../JSONS - Chunks/AverageLossChunk_0.txt";
+                        fnVocab = "../../JSONs - Chunks/VocabularyChunk_0.json";
+                        fnCorpus = "../../JSONs - Chunks/CorpusChunk_0.json";
+                        fnTf = "../../JSONs - Chunks/TermFrequencyChunk_0.json";
+                        fnIdf = "../../JSONs - Chunks/InverseDocumentFrequencyChunk_0.json";
+                        fnTfIdf = "../../JSONs - Chunks/TF-IDFChunk_0.json";
+                        fnProbabilities = "../../JSONs - Chunks/ProbabilitiesChunk_0.json";
+                        fnMlr = "../../JSONs - Chunks/MLRChunk_0.json";
+                        fnMergedProbabilities = "../../JSONs - Chunks/MergedProbabilitiesChunk_0.json";
+                        fnAggregatedProbabilities = "../../JSONs - Chunks/AggregatedProbabilitiesChunk_0.json";
+                        fnLossSet = "../../JSONs - Chunks/LossSetChunk_0.json";
+                        fnAverageLoss = "../../JSONs - Chunks/AverageLossChunk_0.txt";
+                        fnTermLossSet = "../../JSONs - Chunks/TermLossSet.json";
                         chooseFormat = false;
                         break;
                     default:
@@ -96,6 +99,7 @@ namespace AIDA
                 Console.WriteLine("10. MLR - merge training documents and term probabilities");
                 Console.WriteLine("11. MLR - document aggregated probabilities");
                 Console.WriteLine("12. MLR - loss set and average loss");
+                Console.WriteLine("13. MLR - Document loss to term loss");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -146,28 +150,35 @@ namespace AIDA
                         choice = 0;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
                             fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
-                            fnLossSet, fnAverageLoss);
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
                         break;
                     case "10":
                         Console.WriteLine("Launching MLR - merge training documents and term probabilities");
                         choice = 1;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
                             fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
-                            fnLossSet, fnAverageLoss);
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
                         break;
                     case "11":
                         Console.WriteLine("Launching MLR - document aggregated probabilities");
                         choice = 2;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
                             fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
-                            fnLossSet, fnAverageLoss);
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
                         break;
                     case "12":
                         Console.WriteLine("Launching MLR - loss set and average loss");
                         choice = 3;
                         mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
                             fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
-                            fnLossSet, fnAverageLoss);
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
+                        break;
+                    case "13":
+                        Console.WriteLine("Launching MLR - document loss to term loss");
+                        choice = 4;
+                        mlr = new MultinomialLogisticRegression(choice, fnMlr, fnTfIdf, fnProbabilities,
+                            fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
+                            fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet);
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");
