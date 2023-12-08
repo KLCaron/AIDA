@@ -32,6 +32,26 @@ namespace AIDA
          */
         private void SaveModel(string fnMlr)
         {
+            if (File.Exists(fnMlr))
+            {
+                int fileNumber = 1;
+                string baseFileName = Path.GetFileNameWithoutExtension(fnMlr);
+                string fileExtension = Path.GetExtension(fnMlr);
+                string directory = Path.GetDirectoryName(fnMlr);
+                
+                string newFilename = fnMlr;
+
+                if (directory != null)
+                {
+                    while (File.Exists(newFilename))
+                    { 
+                        newFilename = Path.Combine(directory, $"{baseFileName}_{fileNumber}{fileExtension}");
+                        fileNumber++;
+                    }
+                    File.Move(fnMlr, newFilename);                    
+                }
+            }
+            
             var modelData = new
             {
                 Weights = _weights,
@@ -75,6 +95,29 @@ namespace AIDA
                 action();
             }
 
+            SaveModel(fnMlr);
+        }
+
+        public MultinomialLogisticRegression(string fnMlr, string fnTfIdf, string fnProbabilities, 
+            string fnMergedProbabilities, string fnCorpus, string fnDocuments, string fnAggregatedProbabilities, 
+            string fnLossSet, string fnAverageLoss, string fnVocab, string fnTermLossSet, double learningRate)
+        {
+            string jsonData = File.ReadAllText(fnMlr);
+            var modelData = JsonConvert.DeserializeObject<dynamic>(jsonData);
+
+            _weights = modelData.Weights.ToObject<Dictionary<string, Dictionary<string, double>>>();
+            _biases = modelData.Biases.ToObject<Dictionary<string, double>>();
+
+            int? randSeed = modelData.RandSeed;
+            _rand = randSeed.HasValue ? new Random(randSeed.Value) : new Random();
+
+            MlrForwardPropSoftMax(fnProbabilities, fnTfIdf);
+            MergeDocumentsTermProbabilities(fnMergedProbabilities, fnCorpus, fnDocuments,
+                fnProbabilities);
+            AggregateDocumentProbabilities(fnAggregatedProbabilities, fnMergedProbabilities);
+            CalcCrossEntropyLoss(fnAggregatedProbabilities, fnLossSet, fnAverageLoss);
+            DocumentLossToTermLoss(fnLossSet, fnTfIdf, fnVocab, fnTermLossSet);
+            GradientDescent(fnTermLossSet, fnLossSet, learningRate);
             SaveModel(fnMlr);
         }
 
