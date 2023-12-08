@@ -67,7 +67,7 @@ namespace AIDA
                 {2, () => AggregateDocumentProbabilities(fnAggregatedProbabilities, fnMergedProbabilities)},
                 {3, () => CalcCrossEntropyLoss(fnAggregatedProbabilities, fnLossSet, fnAverageLoss)},
                 {4, () => DocumentLossToTermLoss(fnLossSet, fnTfIdf, fnVocab, fnTermLossSet)},
-                {5, () => GradientDescent(fnTermLossSet, learningRate)}
+                {5, () => GradientDescent(fnTermLossSet, fnLossSet, learningRate)}
             };
 
             if (actions.TryGetValue(choice, out Action action))
@@ -255,9 +255,10 @@ namespace AIDA
                 string trueEmotion = document["emotions"];
 
                 Dictionary<string, Dictionary<string, double>> documentProbabilities =
-                    new Dictionary<string, Dictionary<string, double>>();
-
-                documentProbabilities[trueEmotion] = null;
+                    new Dictionary<string, Dictionary<string, double>>
+                    {
+                        [trueEmotion] = null
+                    };
 
                 foreach (var term in corpus[i])
                 {
@@ -291,8 +292,10 @@ namespace AIDA
             {
                 string documentKey = document.Key;
                 string trueEmotionKey = "_" + document.Value.Keys.First();
-                Dictionary<string, double> emotionSet = new Dictionary<string, double>();
-                emotionSet[trueEmotionKey] = 0.0;
+                Dictionary<string, double> emotionSet = new Dictionary<string, double>
+                {
+                    [trueEmotionKey] = 0.0
+                };
 
                 foreach (var emotion in _emotions)
                 {
@@ -382,7 +385,7 @@ namespace AIDA
         /*
          * converts document level loss into term level loss, and applies min-max normalization. Applies
          * tf-idf scores (multiplies docLoss by the given term's tfIdf score) to produce the conversion.
-         * wait, maybed jumped the gun on normalization, why am I even doing it anymore? Should probably drop
+         * wait, maybe jumped the gun on normalization, why am I even doing it anymore? Should probably drop
          */
         private void DocumentLossToTermLoss(string fnLossSet, string fnTfIdf, string fnVocab, string fnTermLossSet)
         {
@@ -426,18 +429,6 @@ namespace AIDA
                         termLossSet[emotion][term] += termLoss;
                     }
                 }
-                /*
-                double min = termLossSet[emotion].Min(t => t.Value); 
-                double max = termLossSet[emotion].Max(t => t.Value);
-                
-                if (Math.Abs(min - max) > double.Epsilon)
-                {
-                    foreach (var term in termLossSet[emotion].Keys.ToList())
-                    {
-                        double normalizedTermLoss = (termLossSet[emotion][term] - min) / (max - min);
-                        termLossSet[emotion][term] = normalizedTermLoss;
-                    }
-                }*/
             }
             
             File.WriteAllText(fnTermLossSet, 
@@ -448,10 +439,12 @@ namespace AIDA
          *with respect to cost function, so that I can minimize the cost function
          * learning rate should be 0.001 iirc?
          */
-        private void GradientDescent(string fnTermLossSet, double learningRate)
+        private void GradientDescent(string fnTermLossSet, string fnLossSet, double learningRate)
         {
             Dictionary<string, Dictionary<string, double>> termLossSet = 
                 ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnTermLossSet);
+            Dictionary<string, Dictionary<string, double>> lossSet =
+                ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnLossSet);
 
             foreach (var emotion in _emotions)
             {
@@ -466,11 +459,16 @@ namespace AIDA
                     //before, in calculating the loss itself (or, at least in computing term loss out of doc loss)
 
                     _weights[emotion][term] -= learningRate * termGradient;
-
-                    biasGradient += termGradient;
                 }
 
-                _biases[emotion] -= learningRate * biasGradient;
+                foreach (var document in lossSet[emotion].Keys)
+                {
+                    double documentGradient = -lossSet[emotion][document];
+
+                    biasGradient += documentGradient;
+                }
+
+                _biases[emotion] -= biasGradient * learningRate;
             }
         }
     }

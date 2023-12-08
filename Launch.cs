@@ -15,10 +15,11 @@ namespace AIDA
             //2 39,587 words in vocab
             int frequencyThreshold = 2;
             string fnChunks = "../../Chunks";
-            int chunkSize = 1000;
+            int chunkSize = 280000;
             //string namingConvention = "chunk_*.json";
             //once we start trying to properly build/use this, need to make
             //distinction between training data, testing data, original data
+            //or, I just rename things as needed lol - TestData, the 30%, TrainingData, the 70%
             string fnTrainingData = null;
             string fnVocab = null;
             string fnCorpus = null;
@@ -32,7 +33,7 @@ namespace AIDA
             string fnLossSet = null;
             string fnAverageLoss = null;
             string fnTermLossSet = null;
-            double learningRate = 0.01; //or 0.001, or something; higher for terms of less importance, lower for terms of 
+            double learningRate = 0.001; //or 0.001, or something; higher for terms of less importance, lower for terms of 
             //greater importance
             bool chooseFormat = true;
             MultinomialLogisticRegression mlr;
@@ -47,7 +48,7 @@ namespace AIDA
                 {
                     case "1":
                         Console.WriteLine("Full chosen");
-                        fnTrainingData = "../../Documents/OriginalData.json";
+                        fnTrainingData = "../../JSONs/TrainingData.json";
                         fnVocab = "../../JSONs/Vocabulary.json";
                         fnCorpus = "../../JSONs/Corpus.json";
                         fnTf = "../../JSONs/TermFrequency.json";

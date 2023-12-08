@@ -127,11 +127,10 @@
       <Content Include="JSONs - Chunks\TermLossSet.json" />
       <Content Include="JSONs - Chunks\TF-IDFChunk_0.json" />
       <Content Include="JSONs - Chunks\VocabularyChunk_0.json" />
+      <Content Include="JSONs\TrainingData.json" />
+      <Content Include="JSONs\TestData.json" />
       <Content Include="JSONs\Corpus.json" />
-      <Content Include="JSONs\InverseDocumentFrequency.json" />
-      <Content Include="JSONs\Probabilities.json" />
       <Content Include="JSONs\TermFrequency.json" />
-      <Content Include="JSONs\TF-IDF.json" />
       <Content Include="JSONs\Vocabulary.json" />
       <Content Include="stopwords-en.txt" />
     </ItemGroup>
