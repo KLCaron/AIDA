@@ -25,6 +25,7 @@ namespace AIDA
             InitializeParameters(vocab);
             
             SaveModel(fnMlr);
+            Console.WriteLine("MLR - initialize new object finished");
         }
 
         /*
@@ -131,6 +132,7 @@ namespace AIDA
 
             File.WriteAllText(fnProbabilities, 
                 JsonConvert.SerializeObject(probabilities, Formatting.Indented));
+            Console.WriteLine("MLR - forward propagation and softmax finished");
         }
 
         private void InitializeParameters(List<string> vocab)
@@ -317,6 +319,7 @@ namespace AIDA
 
             File.WriteAllText(fnMergedProbabilities, 
                 JsonConvert.SerializeObject(mergedDocuments, Formatting.Indented));
+            Console.WriteLine("Merge training documents and term probabilities finished");
         }
 
         /*
@@ -373,6 +376,7 @@ namespace AIDA
             
             File.WriteAllText(fnAggregatedProbabilities, 
                 JsonConvert.SerializeObject(aggregatedProbabilities, Formatting.Indented));
+            Console.WriteLine("Document aggregated probabilities finished");
         }
         
         /*
@@ -415,7 +419,6 @@ namespace AIDA
                 }
 
                 totalLoss += totalLossForDocument;
-                
             }
 
             double averageLoss = totalLoss / aggregatedProbabilities.Count;
@@ -423,6 +426,7 @@ namespace AIDA
             File.WriteAllText(fnLossSet, 
                 JsonConvert.SerializeObject(lossSet, Formatting.Indented));
             File.WriteAllText(fnAverageLoss,averageLoss.ToString(CultureInfo.InvariantCulture));
+            Console.WriteLine("Loss set and average loss finished");
         }
 
         /*
@@ -476,6 +480,7 @@ namespace AIDA
             
             File.WriteAllText(fnTermLossSet, 
                 JsonConvert.SerializeObject(termLossSet, Formatting.Indented));
+            Console.WriteLine("Document loss to term loss finished");
         }
         
         /*so, gradient descent time. I'm computing gradients of my parameters (weights and biases)
@@ -513,6 +518,8 @@ namespace AIDA
 
                 _biases[emotion] -= biasGradient * learningRate;
             }
+            
+            Console.WriteLine("Gradient descent finished");
         }
     }
 }

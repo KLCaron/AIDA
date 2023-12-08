@@ -197,10 +197,11 @@ namespace AIDA
                         {
                             for (int i = 1; i <= iterations; i++)
                             {
-                                Console.WriteLine($"Launching full MLR training process {i} over {iterations} iterations");
+                                Console.WriteLine($"Launching full MLR training process iteration {i} of {iterations}");
                                 _ = new MultinomialLogisticRegression(fnMlr, fnTfIdf, fnProbabilities,
                                     fnMergedProbabilities, fnCorpus, fnTrainingData, fnAggregatedProbabilities, 
                                     fnLossSet, fnAverageLoss, fnVocab, fnTermLossSet, learningRate);
+                                Console.WriteLine($"Full MLR training process iteration {i} of {iterations} finished");
                             }                            
                         }
                         else
