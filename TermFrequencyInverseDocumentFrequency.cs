@@ -53,38 +53,55 @@ namespace AIDA
         public static void Corpus(string fnTrainingData, string fnStopWords, string fnCorpus)
         {
             List<string> stopWords = ReadFile.ReadTxt(fnStopWords);
-            List<Dictionary<string, string>> documents =
-                ReadFile.ReadJson<List<Dictionary<string, string>>>(fnTrainingData);
             
-            List<List<string>> corpus = Tokenize(documents, stopWords);
+            List<List<string>> corpus = Tokenize(fnTrainingData, stopWords);
             
             File.WriteAllText(fnCorpus, JsonConvert.SerializeObject(corpus, Formatting.Indented));
             Console.WriteLine($"Processed and saved {fnCorpus}");
         }
         
         //used for corpus
-        private static List<List<string>> Tokenize(List<Dictionary<string, string>> documentStrings, 
+        private static List<List<string>> Tokenize(string fnTrainingData, 
             List<string> stopWords)
         {
+            List<Dictionary<string, string>> documentStrings =
+                ReadFile.ReadJson<List<Dictionary<string, string>>>(fnTrainingData);
             List<List<string>> tokenizedDocuments = new List<List<string>>();
-            
-            foreach (var document in documentStrings)
+            List<int> indicesToRemove = new List<int>();
+
+            for (int i = 0; i < documentStrings.Count; i++)
             {
-                if (document.TryGetValue("text", out var text))
+                if (documentStrings[i].TryGetValue("text", out var text))
                 {
                     string[] words = text.Split(' ');
                     List<string> tokens = new List<string>();
 
                     foreach (string word in words)
                     {
-                        if (!stopWords.Contains(word))
+                        if (!stopWords.Contains(word) && !string.IsNullOrWhiteSpace(word))
                         {
                             tokens.Add(word);
                         }
                     }
-                    tokenizedDocuments.Add(tokens);
+
+                    if (tokens.Count > 0)
+                    {
+                        tokenizedDocuments.Add(tokens);
+                    }
+                    else
+                    {
+                        indicesToRemove.Add(i);
+                    }
                 }
             }
+
+            for (int i = indicesToRemove.Count - 1; i >= 0; i--)
+            {
+                documentStrings.RemoveAt(indicesToRemove[i]);
+            }
+
+            File.WriteAllText(fnTrainingData, JsonConvert.SerializeObject(documentStrings, Formatting.Indented));
+            Console.WriteLine($"Updated {fnTrainingData} to remove empty documents");
             return tokenizedDocuments;
         }
 
