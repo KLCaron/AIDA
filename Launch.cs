@@ -33,7 +33,9 @@ namespace AIDA
             string fnLossSet = null;
             string fnAverageLoss = null;
             string fnTermLossSet = null;
-            double learningRate = 0.01; //or 0.001, or something; higher for terms of less importance, lower for terms of 
+            string fnInputGraphData = null;
+            string fnOutputGraphData = null;
+            double learningRate = 0.001; //or 0.001, or something; higher for terms of less importance, lower for terms of 
             //greater importance
             bool chooseFormat = true;
 
@@ -60,6 +62,8 @@ namespace AIDA
                         fnLossSet = "../../JSONs/LossSet.json";
                         fnAverageLoss = "../../JSONs/AverageLoss.txt";
                         fnTermLossSet = "../../JSONs/TermLossSet.json";
+                        fnInputGraphData = "../../Saved MLRs/MLR";
+                        fnOutputGraphData = "../../Saved MLRs/graphData.csv";
                         chooseFormat = false;
                         break;
                     case "2":
@@ -71,12 +75,14 @@ namespace AIDA
                         fnIdf = "../../JSONs - Chunks/InverseDocumentFrequencyChunk_0.json";
                         fnTfIdf = "../../JSONs - Chunks/TF-IDFChunk_0.json";
                         fnProbabilities = "../../JSONs - Chunks/ProbabilitiesChunk_0.json";
-                        fnMlr = "../../JSONs - Chunks/MLRChunk_0.json";
+                        fnMlr = "../../Saved MLRs - Chunks/MLRChunk_0.json";
                         fnMergedProbabilities = "../../JSONs - Chunks/MergedProbabilitiesChunk_0.json";
                         fnAggregatedProbabilities = "../../JSONs - Chunks/AggregatedProbabilitiesChunk_0.json";
                         fnLossSet = "../../JSONs - Chunks/LossSetChunk_0.json";
                         fnAverageLoss = "../../JSONs - Chunks/AverageLossChunk_0.txt";
                         fnTermLossSet = "../../JSONs - Chunks/TermLossSet.json";
+                        fnInputGraphData = "../../Saved MLRs - Chunks/MLRChunk_0";
+                        fnOutputGraphData = "../../Saved MLRs - Chunks/graphDataChunks.csv";
                         chooseFormat = false;
                         break;
                     default:
@@ -104,6 +110,7 @@ namespace AIDA
                 Console.WriteLine("13. MLR - Document loss to term loss");
                 Console.WriteLine("14. MLR - Gradient descent");
                 Console.WriteLine("15. full MLR training process (ensure you have initialized first)");
+                Console.WriteLine("16. Save MLR weight change vs iteration number graph data");
                 Console.WriteLine("q to quit.");
                 string input = Console.ReadLine();
 
@@ -208,6 +215,10 @@ namespace AIDA
                         {
                             Console.WriteLine("Invalid input. Please enter a valid positive integer.");
                         }
+                        break;
+                    case "16":
+                        Console.WriteLine("Saving File");
+                        SaveGraphData.SaveNetChangesToFile(fnInputGraphData, fnOutputGraphData);
                         break;
                     default:
                         Console.WriteLine("Invalid Option.");

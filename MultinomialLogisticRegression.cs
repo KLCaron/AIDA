@@ -179,54 +179,37 @@ namespace AIDA
         // my weights are string, string - double, so I can do foreach emotion there, then
         //for each string within there, and then I got to my tf-idf json, and if the emotion at that point matches
         //I then check the terms within, and multiply?
-        private Dictionary<string,Dictionary<string, double>> ForwardPropagation(Dictionary<string, 
+        private Dictionary<string, Dictionary<string, double>> ForwardPropagation(Dictionary<string, 
             Dictionary<string, double>> tfIdf)
         {
-            Dictionary<string, Dictionary<string, double>> classScores =
-                new Dictionary<string, Dictionary<string, double>>();
+            Dictionary<string, Dictionary<string, double>> classScores = new Dictionary<string, 
+                Dictionary<string, double>>();
 
-            //all 6 emotions
             foreach (var emotion in _weights)
             {
                 string emotionLabel = emotion.Key;
                 Dictionary<string, double> emotionScores = new Dictionary<string, double>();
                 double bias = _biases[emotionLabel];
-                
-                //every single term in vocab, once for all 6 emotions
-                foreach (var weight in emotion.Value)
+        
+                foreach (var tfIdfEmotion in tfIdf.Where(kv => 
+                             kv.Key.StartsWith(emotionLabel.Split('_')[0])))
                 {
-                    string term = weight.Key;
-
-                    //for every word under every emotion, we go through every tweet/document in our tfIdf
-                    //top string is the emotion tied to it
-                    foreach (var tfIdfEmotion in tfIdf)
+                    foreach (var tfIdfTerm in tfIdfEmotion.Value)
                     {
-                        string emotionKey = tfIdfEmotion.Key;
-                        //we check if the emotion we're looking at is the right one
-                        if (emotionKey.Split('_')[0] == emotionLabel.Split('_')[0])
+                        string term = tfIdfTerm.Key;
+                
+                        if (emotion.Value.TryGetValue(term, out double weight))
                         {
-                            //if it is, we iterate through every word-score pair in that tweet/document
-                            foreach (var tfIdfTerm in tfIdfEmotion.Value)
+                            double tfIdfValue = tfIdfTerm.Value;
+                            double score = weight * tfIdfValue;
+
+                            if (!emotionScores.ContainsKey(term))
                             {
-
-                                string tfIdfTermKey = tfIdfTerm.Key;
-                                //if the word we're looking at from weight is the same as the word we're looking at
-                                //for tfIdf
-                                if (tfIdfTermKey == term)
-                                {
-                                    double tfIdfValue = tfIdfTerm.Value;
-                                    double score = weight.Value * tfIdfValue;
-
-                                    //have we already looked at this word for this emotion? initialize if not
-                                    if (!emotionScores.ContainsKey(term))
-                                    {
-                                        emotionScores[term] = score + bias;
-                                    }
-                                    else
-                                    {
-                                        emotionScores[term] += score;
-                                    }
-                                }
+                                emotionScores[term] = score + bias;
+                            }
+                            else
+                            {
+                                emotionScores[term] += score;
                             }
                         }
                     }
@@ -236,42 +219,47 @@ namespace AIDA
             }
 
             return classScores;
-        } 
+        }
 
         private Dictionary<string, Dictionary<string, double>> SoftMax(Dictionary<string, 
             Dictionary<string, double>> classScores)
         {
-            Dictionary<string, Dictionary<string, double>> probabilities =
-                new Dictionary<string, Dictionary<string, double>>();
-
-            var allEmotions = classScores.Keys.ToList();
+            Dictionary<string, Dictionary<string, double>> probabilities = new Dictionary<string, 
+                Dictionary<string, double>>();
 
             foreach (var term in classScores.SelectMany(emotion => 
                          emotion.Value.Keys).Distinct())
             {
                 Dictionary<string, double> termProbabilities = new Dictionary<string, double>();
-
-                foreach (var emotion in allEmotions)
-                {
-                    termProbabilities[emotion] = 0.0;
-                }
-
-                double maxScore =
-                    classScores.Max(emotion => emotion.Value.TryGetValue(term, 
-                        out var value) ? value : 0.0);
-                double expSum = classScores.Sum(emotion =>
-                    emotion.Value.TryGetValue(term, out var value1) ? Math.Exp(value1 - maxScore) : 0.0);
+                double maxScore = double.MinValue;
 
                 foreach (var emotion in classScores)
                 {
-                    string emotionLabel = emotion.Key;
-                    double expScore = emotion.Value.TryGetValue(term, out var value) ? 
-                        Math.Exp(value - maxScore) : 0.0;
-                    double probability = expScore / expSum;
-                    termProbabilities[emotionLabel] = probability;
+                    if (emotion.Value.TryGetValue(term, out double value) && value > maxScore)
+                    {
+                        maxScore = value;
+                    }
                 }
 
-                probabilities[term] = termProbabilities;
+                double expSum = 0.0;
+
+                foreach (var emotion in classScores)
+                {
+                    if (emotion.Value.TryGetValue(term, out double value))
+                    {
+                        double expScore = Math.Exp(value - maxScore);
+                        expSum += expScore;
+                        termProbabilities[emotion.Key] = expScore;
+                    }
+                }
+
+                foreach (var emotion in termProbabilities)
+                {
+                    probabilities.TryGetValue(term, out Dictionary<string, double> existingProbabilities);
+                    probabilities[term] = existingProbabilities ?? new Dictionary<string, double>();
+
+                    probabilities[term][emotion.Key] = emotion.Value / expSum;
+                }
             }
 
             return probabilities;
