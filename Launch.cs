@@ -5,21 +5,18 @@ namespace AIDA
     public static class Launch
     {
 
-        //launches all of my various calculators - do not need merged one anymore, was kinda stupid to ever have tbqh
+        /*
+         * Main function, used to launch the various components of this pipeline.
+         *
+         * Notes:
+         *  -A frequency threshold of 2 leaves a vocab of 39,587 words.
+         */
         public static void Main(string[] args)
         {
             string fnStopWords = "../../stopwords-en.txt";
-            //10 leaves me with a vocab of 14,351, 5 leaves me with 53,748 stopwords and vocab of 21,710
-            //7 leaves me with 57,645 stopwords and a vocab of 16,444
-            //8 59,013 stopwords
-            //2 39,587 words in vocab
             int frequencyThreshold = 2;
             string fnChunks = "../../Chunks";
-            int chunkSize = 280000;
-            //string namingConvention = "chunk_*.json";
-            //once we start trying to properly build/use this, need to make
-            //distinction between training data, testing data, original data
-            //or, I just rename things as needed lol - TestData, the 30%, TrainingData, the 70%
+            int chunkSize = 10000;
             string fnTrainingData = null;
             string fnVocab = null;
             string fnCorpus = null;
@@ -35,8 +32,7 @@ namespace AIDA
             string fnTermLossSet = null;
             string fnInputGraphData = null;
             string fnOutputGraphData = null;
-            double learningRate = 0.001; //or 0.001, or something; higher for terms of less importance, lower for terms of 
-            //greater importance
+            double learningRate = 0.01;
             bool chooseFormat = true;
 
             while (chooseFormat)
@@ -56,7 +52,7 @@ namespace AIDA
                         fnIdf = "../../JSONs/InverseDocumentFrequency.json";
                         fnTfIdf = "../../JSONs/TF-IDF.json";
                         fnProbabilities = "../../JSONs/Probabilities.json";
-                        fnMlr = "../../JSONs/MLR.json";
+                        fnMlr = "../../Saved MLRs/MLR.json";
                         fnMergedProbabilities = "../../JSONs/MergedProbabilities.json";
                         fnAggregatedProbabilities = "../../JSONs/AggregatedProbabilities.json";
                         fnLossSet = "../../JSONs/LossSet.json";

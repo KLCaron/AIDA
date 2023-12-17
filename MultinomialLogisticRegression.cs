@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 
 namespace AIDA
 {
-    //running with an object since it makes this more modular *just in case*
     public class MultinomialLogisticRegression
     {
         private Dictionary<string, Dictionary<string, double>> _weights;
@@ -16,7 +15,7 @@ namespace AIDA
         private readonly Random _rand;
         
         /*
-         * initialize a starting model object
+         * Initialize a starting model object
          */
         public MultinomialLogisticRegression(string fnVocab, string fnMlr)
         {
@@ -29,7 +28,7 @@ namespace AIDA
         }
 
         /*
-         * save the model object, to re-use later
+         * Save the model object to a json, to re-use later
          */
         private void SaveModel(string fnMlr)
         {
@@ -65,7 +64,7 @@ namespace AIDA
         }
 
         /*
-         * to perform all the actual work on the model
+         * Allows for specific work to be done on a saved model object.
          */
         public MultinomialLogisticRegression(int choice, string fnMlr, string fnTfIdf, string fnProbabilities, 
             string fnMergedProbabilities, string fnCorpus, string fnDocuments, string fnAggregatedProbabilities, 
@@ -99,6 +98,9 @@ namespace AIDA
             SaveModel(fnMlr);
         }
 
+        /*
+         * Runs an entire iteration in one go on a saved model object.
+         */
         public MultinomialLogisticRegression(string fnMlr, string fnTfIdf, string fnProbabilities, 
             string fnMergedProbabilities, string fnCorpus, string fnDocuments, string fnAggregatedProbabilities, 
             string fnLossSet, string fnAverageLoss, string fnVocab, string fnTermLossSet, double learningRate)
@@ -122,6 +124,9 @@ namespace AIDA
             SaveModel(fnMlr);
         }
 
+        /*
+         * Launches the forward propagation and softmax sections of the MLR process.
+         */
         private void MlrForwardPropSoftMax(string fnProbabilities, string fnTfIdf)
         {
             Dictionary<string, Dictionary<string, double>> tfIdf =
@@ -135,13 +140,18 @@ namespace AIDA
             Console.WriteLine("MLR - forward propagation and softmax finished");
         }
 
+        /*
+         * Initializes weights and biases
+         */
         private void InitializeParameters(List<string> vocab)
         {
             _weights = InitializeWeights(vocab);
             _biases = InitializeBiases();
         }
 
-        //also randomize weights, cannot start at 0
+        /*
+         * Initializes weights to some random near-0 value.
+         */
         private Dictionary<string, Dictionary<string, double>> InitializeWeights(List<string> vocab)
         {
             Dictionary<string, Dictionary<string, double>> initialWeights =
@@ -160,6 +170,9 @@ namespace AIDA
             return initialWeights;
         }
 
+        /*
+         * Initializes biases to some random near-0 value.
+         */
         private Dictionary<string, double> InitializeBiases()
         {
             Dictionary<string, double> initialBiases = new Dictionary<string, double>();
@@ -172,13 +185,20 @@ namespace AIDA
             return initialBiases;
         }
 
-        //featureVector here is the tfidf score for 1 document/tweet
-        //will need to iterate through the whole thing, so input vocab too
-        //wherever I call this, will need to read my docs first
-        //ok, so I need to go through each class, and each class's weight
-        // my weights are string, string - double, so I can do foreach emotion there, then
-        //for each string within there, and then I got to my tf-idf json, and if the emotion at that point matches
-        //I then check the terms within, and multiply?
+        /*
+         * Performs forward propagation to calculate class scores based on TF-IDF values.
+         *
+         * Parameters:
+         *   -tfIdf: TF-IDF values for terms in documents.
+         *
+         * Returns:
+         *   -Dictionary<string, Dictionary<string, double>>: Class scores for each emotion label.
+         *
+         * Implementation Details:
+         *   -Iterates through each emotion label's weights and biases.
+         *   -Calculates scores for terms in TF-IDF if weight exists for the emotion.
+         *   -Updates or adds scores to the emotion's dictionary in classScores.
+         */
         private Dictionary<string, Dictionary<string, double>> ForwardPropagation(Dictionary<string, 
             Dictionary<string, double>> tfIdf)
         {
@@ -221,6 +241,20 @@ namespace AIDA
             return classScores;
         }
 
+        /*
+         * Computes SoftMax probabilities based on class scores.
+         *
+         * Parameters:
+         *   -classScores: Dictionary of class scores for each emotion label.
+         *
+         * Returns:
+         *   -Dictionary<string, Dictionary<string, double>>: SoftMax probabilities for each term.
+         *
+         * Implementation Details:
+         *   -Iterates through classScores to compute SoftMax probabilities for each term.
+         *   -Calculates maximum score for normalization.
+         *   -Computes SoftMax probabilities and stores them in 'probabilities' dictionary.
+         */
         private Dictionary<string, Dictionary<string, double>> SoftMax(Dictionary<string, 
             Dictionary<string, double>> classScores)
         {
@@ -264,10 +298,20 @@ namespace AIDA
 
             return probabilities;
         }
-
+        
         /*
-         * merge probabilities are the document, its true emotion, and then each term inside with probabilities
-         * applied at the term level
+         * Merges document term probabilities with training documents.
+         *
+         * Parameters:
+         *   -fnMergedProbabilities: File path to store merged document probabilities.
+         *   -fnCorpus: File path to the corpus data.
+         *   -fnDocuments: File path to the documents data.
+         *   -fnAllTermProbabilities: File path to all term probabilities data.
+         *
+         * Implementation Details:
+         *   -Reads corpus, documents, and all term probabilities from JSON files.
+         *   -Merges term probabilities with training documents based on the corpus.
+         *   -Stores merged document probabilities in the specified file path.
          */
         private void MergeDocumentsTermProbabilities(string fnMergedProbabilities, string fnCorpus, string fnDocuments,
             string fnAllTermProbabilities)
@@ -309,10 +353,18 @@ namespace AIDA
                 JsonConvert.SerializeObject(mergedDocuments, Formatting.Indented));
             Console.WriteLine("Merge training documents and term probabilities finished");
         }
-
+        
         /*
-         * aggregate probabilities are the document, with the true emotion, and then probabilities for each
-         * emotion.
+         * Aggregates document probabilities into a single set of probabilities without normalization.
+         *
+         * Parameters:
+         *   -fnAggregatedProbabilities: File path to store aggregated document probabilities.
+         *   -fnMergedProbabilities: File path to merged document probabilities.
+         *
+         * Implementation Details:
+         *   -Reads merged document probabilities from JSON file.
+         *   -Aggregates probabilities for each document into a single set based on emotion labels.
+         *   -Stores aggregated probabilities in the specified file path.
          */
         private void AggregateDocumentProbabilities(string fnAggregatedProbabilities, string fnMergedProbabilities)
         {
@@ -368,13 +420,22 @@ namespace AIDA
         }
         
         /*
-         * calculates loss score for each document, underneath each emotion. Set to 0 by default.
+         * Calculates cross-entropy loss based on aggregated probabilities and emotion labels.
+         *
+         * Parameters:
+         *   -fnAggregatedProbabilities: File path to aggregated document probabilities.
+         *   -fnLossSet: File path to store individual document losses.
+         *   -fnAverageLoss: File path to store the average loss value.
+         *
+         * Implementation Details:
+         *   -Reads aggregated document probabilities from JSON file.
+         *   -Computes cross-entropy loss for each document based on predicted and true probabilities.
+         *   -Stores individual document losses and the average loss value in specified file paths.
          */
         private void CalcCrossEntropyLoss(string fnAggregatedProbabilities, string fnLossSet, string fnAverageLoss)
         {
             Dictionary<string, Dictionary<string, double>> aggregatedProbabilities =
                 ReadFile.ReadJson<Dictionary<string, Dictionary<string, double>>>(fnAggregatedProbabilities);
-            //Dictionary<string, double> lossSet = new Dictionary<string, double>();
             Dictionary<string, Dictionary<string, double>> lossSet =
                 new Dictionary<string, Dictionary<string, double>>();
             double totalLoss = 0.0;
@@ -395,8 +456,7 @@ namespace AIDA
                 {
                     double indicator = (emotion == trueEmotion) ? 1.0 : 0.0;
                     double predictedProbability = documentVal[emotion];
-                                
-                    //need to avoid log(0)
+                    
                     double epsilon = 1e-15;
                     predictedProbability = Math.Max(epsilon, Math.Min(1 - epsilon, predictedProbability));
 
@@ -416,11 +476,20 @@ namespace AIDA
             File.WriteAllText(fnAverageLoss,averageLoss.ToString(CultureInfo.InvariantCulture));
             Console.WriteLine("Loss set and average loss finished");
         }
-
+        
         /*
-         * converts document level loss into term level loss, and applies min-max normalization. Applies
-         * tf-idf scores (multiplies docLoss by the given term's tfIdf score) to produce the conversion.
-         * wait, maybe jumped the gun on normalization, why am I even doing it anymore? Should probably drop
+         * Calculates term-wise losses from document-level losses and TF-IDF values.
+         *
+         * Parameters:
+         *   -fnLossSet: File path to individual document losses.
+         *   -fnTfIdf: File path to TF-IDF values for terms.
+         *   -fnVocab: File path to vocabulary data.
+         *   -fnTermLossSet: File path to store term-wise losses per emotion.
+         *
+         * Implementation Details:
+         *   -Reads individual document losses, TF-IDF values, and vocabulary from JSON files.
+         *   -Computes term-wise losses for each emotion based on document losses and TF-IDF values.
+         *   -Stores term-wise losses per emotion in the specified file path.
          */
         private void DocumentLossToTermLoss(string fnLossSet, string fnTfIdf, string fnVocab, string fnTermLossSet)
         {
@@ -471,9 +540,18 @@ namespace AIDA
             Console.WriteLine("Document loss to term loss finished");
         }
         
-        /*so, gradient descent time. I'm computing gradients of my parameters (weights and biases)
-         *with respect to cost function, so that I can minimize the cost function
-         * learning rate should be 0.001 iirc?
+        /*
+         * Performs gradient descent to update weights and biases.
+         *
+         * Parameters:
+         *   -fnTermLossSet: File path to term-wise losses per emotion.
+         *   -fnLossSet: File path to individual document losses per emotion.
+         *   -learningRate: The learning rate used in gradient descent.
+         *
+         * Implementation Details:
+         *   -Reads term-wise losses and individual document losses from JSON files.
+         *   -Updates weights and biases for each emotion using gradient descent formula.
+         *   -Adjusts weights and biases based on calculated gradients and learning rate.
          */
         private void GradientDescent(string fnTermLossSet, string fnLossSet, double learningRate)
         {
@@ -490,9 +568,6 @@ namespace AIDA
                 foreach (var term in termsCopy.Keys)
                 {
                     double termGradient = -termLossSet[emotion][term];
-                    //this is meant to be a derivative of the loss function with respect to weight?
-                    //but, the other things we might have applied, like our feature tfidf, were already applied
-                    //before, in calculating the loss itself (or, at least in computing term loss out of doc loss)
 
                     _weights[emotion][term] -= learningRate * termGradient;
                 }
